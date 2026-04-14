@@ -173,14 +173,8 @@ async function loadSettings() {
     if (priceEl) priceEl.value = svc.price;
   });
 
-  // Gallery
-  const gallery = s.gallery || [];
-  gallery.forEach((img, i) => {
-    const hrefEl  = document.getElementById('ai-gi-' + (i + 1) + '-href');
-    const titleEl = document.getElementById('ai-gi-' + (i + 1) + '-title');
-    if (hrefEl  && img.href)  hrefEl.value  = img.href;
-    if (titleEl && img.title) titleEl.value = img.title;
-  });
+  // Gallery — populate state and re-render with saved images
+  renderGalleryList(s.gallery || []);
 
   // Reviews
   const revs = s.reviews || DEFAULT_REVIEWS;
@@ -227,14 +221,8 @@ async function saveSettings() {
     };
   });
 
-  // Gallery
-  s.gallery = GALLERY_TITLES.map((title, i) => {
-    const n = i + 1;
-    return {
-      href:  (document.getElementById('ai-gi-' + n + '-href')  || {}).value || ('assets/images/gallery-' + n + '.jpg'),
-      title: (document.getElementById('ai-gi-' + n + '-title') || {}).value || title
-    };
-  });
+  // Gallery — use live state (includes reordering)
+  s.gallery = galleryState.map(img => ({ href: img.href, title: img.title }));
 
   // Reviews
   s.reviews = DEFAULT_REVIEWS.map((def, i) => {
@@ -273,38 +261,69 @@ function renderServicesList() {
 }
 
 /* ─── RENDER: Gallery ─── */
-function renderGalleryList() {
-  const container = document.getElementById('gallery-admin-list');
-  if (!container) return;
-  container.innerHTML = GALLERY_TITLES.map((title, i) => {
-    const n = i + 1;
-    return `<div class="gallery-admin-item" style="flex-wrap:wrap;gap:10px;">
-      <span class="gallery-admin-num">${String(n).padStart(2,'0')}</span>
-      <input type="text" id="ai-gi-${n}-href" class="admin-input" placeholder="Bild-URL (wird nach Upload automatisch gefüllt)" value="assets/images/gallery-${n}.jpg">
-      <input type="text" id="ai-gi-${n}-title" class="admin-input" placeholder="${title}" value="${title}" style="flex:0 0 150px;width:150px;">
-      <label class="btn-save" style="cursor:pointer;font-size:.7rem;padding:8px 14px;">
-        Bild hochladen
-        <input type="file" accept="image/*" style="display:none"
-          onchange="handleGalleryUpload(this, ${n})">
-      </label>
-      <span id="ai-gi-${n}-status" style="font-size:.7rem;color:#3ec46b;display:none;">✓ Hochgeladen</span>
-    </div>`;
-  }).join('');
+/* ─── GALLERY STATE ─── */
+let galleryState = [];
+
+function initGalleryState(saved) {
+  galleryState = Array.from({ length: 7 }, (_, i) => ({
+    href:  (saved && saved[i] && saved[i].href)  || ('assets/images/gallery-' + (i + 1) + '.jpg'),
+    title: (saved && saved[i] && saved[i].title) || GALLERY_TITLES[i]
+  }));
 }
 
-/* ─── GALLERY UPLOAD ─── */
-async function handleGalleryUpload(input, slot) {
+function renderGalleryList(items) {
+  if (items) initGalleryState(items);
+  const container = document.getElementById('gallery-admin-list');
+  if (!container) return;
+  container.innerHTML = '';
+  galleryState.forEach((img, i) => {
+    const isReal = img.href && !img.href.startsWith('assets/');
+    const div = document.createElement('div');
+    div.className = 'gi-admin-card';
+    div.draggable = true;
+    div.dataset.index = i;
+    div.innerHTML = `
+      <div class="gi-admin-drag" title="Ziehen zum Sortieren">⠿</div>
+      <div class="gi-admin-thumb ${isReal ? '' : 'gi-admin-placeholder'}">
+        ${isReal
+          ? `<img src="${img.href}" alt="${img.title}">`
+          : `<span>${String(i + 1).padStart(2, '0')}</span>`}
+      </div>
+      <div class="gi-admin-info">
+        <input type="text" class="admin-input" value="${img.title}" placeholder="Bildtitel"
+               onchange="galleryState[${i}].title = this.value">
+        <div class="gi-admin-actions">
+          <label class="btn-save" style="cursor:pointer;font-size:.7rem;padding:6px 12px;">
+            ${isReal ? 'Ersetzen' : 'Hochladen'}
+            <input type="file" accept="image/*" style="display:none" onchange="handleGalleryUpload(this,${i})">
+          </label>
+          ${isReal ? `<button class="gi-delete-btn" onclick="deleteGalleryItem(${i})">✕ Löschen</button>` : ''}
+        </div>
+      </div>`;
+    div.addEventListener('dragstart', e => { dragSrc = i; div.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; });
+    div.addEventListener('dragover',  e => { e.preventDefault(); container.querySelectorAll('.gi-admin-card').forEach(c => c.classList.remove('drag-over')); div.classList.add('drag-over'); });
+    div.addEventListener('drop',      e => { e.preventDefault(); if (dragSrc !== i) { const tmp = galleryState[dragSrc]; galleryState[dragSrc] = galleryState[i]; galleryState[i] = tmp; renderGalleryList(); } });
+    div.addEventListener('dragend',   () => container.querySelectorAll('.gi-admin-card').forEach(c => c.classList.remove('dragging','drag-over')));
+    container.appendChild(div);
+  });
+}
+
+let dragSrc = null;
+
+async function handleGalleryUpload(input, index) {
   const file = input.files[0];
   if (!file) return;
-  const statusEl = document.getElementById('ai-gi-' + slot + '-status');
-  const hrefEl   = document.getElementById('ai-gi-' + slot + '-href');
   try {
-    const url = await uploadGalleryImage(file, slot);
-    if (hrefEl) hrefEl.value = url;
-    if (statusEl) { statusEl.style.display = 'inline'; setTimeout(() => statusEl.style.display = 'none', 3000); }
-  } catch(e) {
-    alert('Upload fehlgeschlagen: ' + e.message);
-  }
+    const url = await uploadGalleryImage(file, index + 1);
+    galleryState[index] = { href: url, title: galleryState[index].title };
+    renderGalleryList();
+  } catch(e) { alert('Upload fehlgeschlagen: ' + e.message); }
+}
+
+function deleteGalleryItem(index) {
+  if (!confirm('Bild entfernen?')) return;
+  galleryState[index] = { href: 'assets/images/gallery-' + (index + 1) + '.jpg', title: GALLERY_TITLES[index] };
+  renderGalleryList();
 }
 
 /* ─── RENDER: Reviews ─── */
