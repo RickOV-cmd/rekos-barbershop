@@ -116,7 +116,7 @@ function loadSavedHours() {
   } catch(e) {}
 }
 
-document.getElementById('hours-form').addEventListener('submit', e => {
+document.getElementById('hours-form').addEventListener('submit', async e => {
   e.preventDefault();
   const data = {};
   DAYS.forEach(d => {
@@ -125,8 +125,19 @@ document.getElementById('hours-form').addEventListener('submit', e => {
     const closeI = document.getElementById('close-' + d);
     data[d] = cb.checked ? { closed: true } : { open: openI.value, close: closeI.value };
   });
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-  flash('save-status');
+  // Save to Supabase (inside site_settings.hours) + localStorage fallback
+  try {
+    const s = await fetchSiteSettings();
+    s.hours = data;
+    await saveSiteSettings(s);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    flash('save-status');
+  } catch(err) {
+    // Fallback: localStorage only
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+    flash('save-status');
+    console.warn('Supabase hours save failed, localStorage used:', err.message);
+  }
 });
 
 /* ─── SETTINGS: Load & Save (Supabase) ─── */
@@ -317,9 +328,10 @@ function renderReviewsList() {
 }
 
 /* ─── RESET ─── */
-document.getElementById('reset-btn').addEventListener('click', () => {
+document.getElementById('reset-btn').addEventListener('click', async () => {
   if (!confirm('Alle gespeicherten Daten (Öffnungszeiten + Inhalte) zurücksetzen?\nDie Website zeigt dann wieder die Standard-Werte.')) return;
   localStorage.removeItem(STORAGE_KEY);
-  localStorage.removeItem(SETTINGS_KEY);
+  localStorage.removeItem('rekos-settings');
+  try { await saveSiteSettings({}); } catch(e) {}
   location.reload();
 });

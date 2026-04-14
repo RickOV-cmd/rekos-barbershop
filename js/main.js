@@ -156,6 +156,29 @@
             if (nameEl && rev.name)     nameEl.textContent = rev.name;
           });
         }
+        // Hours (from Supabase settings.hours — overrides localStorage)
+        if (s.hours) {
+          const days = ['montag','dienstag','mittwoch','donnerstag','freitag','samstag','sonntag'];
+          days.forEach(d => {
+            const timeEl = document.getElementById('ht-' + d);
+            const rowEl  = document.getElementById('hr-' + d);
+            if (!timeEl || !s.hours[d]) return;
+            if (s.hours[d].closed) {
+              timeEl.textContent = 'Geschlossen';
+              rowEl.classList.add('closed');
+            } else {
+              timeEl.textContent = s.hours[d].open + ' – ' + s.hours[d].close;
+              rowEl.classList.remove('closed');
+            }
+          });
+          // Re-run open/closed status with Supabase hours
+          const dayKeys = ['sonntag','montag','dienstag','mittwoch','donnerstag','freitag','samstag'];
+          const todayH  = s.hours[dayKeys[new Date().getDay()]];
+          if (todayH) {
+            const hrsEl = document.getElementById('status-hours');
+            if (hrsEl) hrsEl.textContent = todayH.closed ? 'Heute geschlossen' : (todayH.open + ' – ' + todayH.close + ' Uhr');
+          }
+        }
     }
 
     // Load from Supabase first, fall back to localStorage
