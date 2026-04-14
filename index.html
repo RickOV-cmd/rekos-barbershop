@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Reko's Barber Shop – Premium Barbershop Nordhorn</title>
+  <meta name="description" content="Reko's Barber Shop Nordhorn – Fade, Haarschnitt, Bart & Konturen. Neuenhauser Straße 17, 48529 Nordhorn. Der Barbershop in Nordhorn." />
+  <meta name="keywords" content="Barber Shop Nordhorn, Friseur Nordhorn, Herrenfriseur Nordhorn, Fade Nordhorn, Skin Fade Nordhorn, Haarschnitt Nordhorn" />
+  <link rel="canonical" href="https://rekos-barbershop.de/" />
+  <meta property="og:title" content="Reko's Barber Shop – Premium Barbershop Nordhorn" />
+  <meta property="og:description" content="Nordhorn's freshest barbershop. Präzision trifft auf Style." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:image" content="https://rekos-barbershop.de/assets/images/og-image.jpg" />
+  <meta property="og:url" content="https://rekos-barbershop.de/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Reko's Barber Shop",
+    "description": "Premium Barbershop in Nordhorn. Fade, Taper, Haarschnitt, Bart & Konturen.",
+    "url": "https://rekos-barbershop.de",
+    "telephone": "+49-5921-8506728",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Neuenhauser Straße 17",
+      "addressLocality": "Nordhorn",
+      "postalCode": "48529",
+      "addressCountry": "DE"
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "15:00" }
+    ],
+    "sameAs": ["https://www.instagram.com/rekos_barber_shop/"],
+    "image": "https://rekos-barbershop.de/assets/images/og-image.jpg",
+    "priceRange": "€–€€"
+  }
+  </script>
+
+  <!-- Fonts: Barlow Condensed (bold display) + Inter (clean UI) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/main.css">
+
+  <!-- GLightbox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/css/glightbox.min.css" />
+  <!-- Splitting.js CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.css" />
+</head>
+<body>
+
+  <!-- ════ LOADER ════ -->
+  <div id="loader" aria-hidden="true">
+    <div class="ld-brand">Reko's <em>Barber Shop</em></div>
+    <div class="ld-bar-wrap"><div class="ld-bar"></div></div>
+    <div class="ld-loc">Nordhorn · Deutschland</div>
+  </div>
+
+  <!-- ════ HEADER ════ -->
+  <header id="hdr">
+    <a href="#" class="hdr-logo" aria-label="Reko's Barber Shop">Reko's <em>Barber Shop</em></a>
+    <nav class="hdr-nav" aria-label="Hauptnavigation">
+      <a href="#services">Leistungen</a>
+      <a href="#gallery">Lookbook</a>
+      <a href="#reviews">Stimmen</a>
+      <a href="#location">Standort</a>
+      <a href="#cta-section" class="hdr-cta">Termin</a>
+    </nav>
+    <button class="hdr-ham" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ════ MOBILE NAV ════ -->
+  <nav id="mob-nav" aria-label="Mobile Navigation" aria-hidden="true">
+    <a href="#services" class="mob-link">Leistungen</a>
+    <a href="#gallery"  class="mob-link">Lookbook</a>
+    <a href="#reviews"  class="mob-link">Stimmen</a>
+    <a href="#location" class="mob-link">Standort</a>
+    <a href="#cta-section" class="mob-link">Termin</a>
+    <p class="mob-nav-sub">Nordhorn · Neuenhauser Str. 17</p>
+  </nav>
+
+  <!-- ════════════════════════════════════════════
+       §1 HERO
+  ════════════════════════════════════════════ -->
+  <section id="hero" aria-label="Hero">
+
+    <!-- Background -->
+    <div class="hero-bg" role="presentation">
+      <div class="hero-bg-ph">
+        <!-- Replace with: <img src="hero-bg.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.4;"> -->
+        <div class="hero-bg-ph-text" aria-hidden="true">STYLE</div>
+      </div>
+    </div>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-stripe" aria-hidden="true"></div>
+
+    <!-- Status badge -->
+    <div class="hero-status" id="hero-status" aria-live="polite">
+      <span class="status-dot" id="status-dot"></span>
+      <span class="status-text" id="status-text">Lädt...</span>
+      <span id="status-hours" style="display:block;font-size:.65rem;opacity:.65;letter-spacing:.05em;margin-top:2px;"></span>
+    </div>
+
+    <!-- Main content -->
+    <div class="hero-content">
+      <h1 class="hero-h1 h-xl">
+        <span class="clip-line d1"><span class="clip-inner">DEIN</span></span>
+        <span class="clip-line d2"><span class="clip-inner">STYLE.</span></span>
+        <span class="clip-line d3"><span class="clip-inner"><em>DEIN BARBER.</em></span></span>
+      </h1>
+      <div class="hero-lower">
+        <p class="hero-tagline" data-reveal="up" data-delay=".4">
+          Präzision, die sichtbar ist. Qualität, die man spürt.<br>
+          Reko's Barber Shop — Nordhorn's freshest barbershop.
+        </p>
+        <div class="hero-ctas" data-reveal="up" data-delay=".5">
+          <a href="tel:+4959218506728" class="btn btn-blue" aria-label="Reko's Barber Shop anrufen">
+            <span class="btn-inner">Jetzt anrufen <span class="arrow">→</span></span>
+          </a>
+          <a href="https://www.instagram.com/rekos_barber_shop/" target="_blank" rel="noopener"
+             class="btn btn-ghost" aria-label="Instagram Profil ansehen">
+            <span class="btn-inner">Instagram</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Stats bar -->
+    <div class="hero-bar" role="list">
+      <div class="hero-bar-item" role="listitem">
+        <div class="hbi-n"><span class="c-up" data-t="2500">0</span><em>+</em></div>
+        <div class="hbi-l">Zufriedene Kunden</div>
+      </div>
+      <div class="hero-bar-item" role="listitem">
+        <div class="hbi-n"><span class="c-up js-rating-val" data-t="5">0</span><em>★</em></div>
+        <div class="hbi-l">Google Rating</div>
+      </div>
+      <div class="hero-bar-item" role="listitem">
+        <div class="hbi-n"><span class="c-up js-years-val" data-t="10">0</span><em>+</em></div>
+        <div class="hbi-l">Jahre Erfahrung</div>
+      </div>
+      <div class="hero-bar-item" role="listitem">
+        <div class="hbi-n">NORDHORN</div>
+        <div class="hbi-l">Neuenhauser Str. 17</div>
+      </div>
+    </div>
+
+    <!-- Scroll cue -->
+    <div class="scroll-cue" aria-hidden="true">
+      <div class="sc-line"></div>
+      <span class="sc-text">Scroll</span>
+    </div>
+
+  </section>
+
+  <!-- ════ MARQUEE ════ -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <span class="m-item hi">PRÄZISION <span class="m-dot"></span></span>
+      <span class="m-item">FADE &amp; TAPER <span class="m-dot"></span></span>
+      <span class="m-item hi">NORDHORN <span class="m-dot"></span></span>
+      <span class="m-item">SKIN FADE <span class="m-dot"></span></span>
+      <span class="m-item hi">STYLE <span class="m-dot"></span></span>
+      <span class="m-item">BART KONTUR <span class="m-dot"></span></span>
+      <span class="m-item hi">PREMIUM BARBER <span class="m-dot"></span></span>
+      <span class="m-item">QUALITÄT <span class="m-dot"></span></span>
+      <span class="m-item hi">VERTRAUEN <span class="m-dot"></span></span>
+      <span class="m-item">HERRENFRISEUR <span class="m-dot"></span></span>
+      <span class="m-item hi">PRÄZISION <span class="m-dot"></span></span>
+      <span class="m-item">FADE &amp; TAPER <span class="m-dot"></span></span>
+      <span class="m-item hi">NORDHORN <span class="m-dot"></span></span>
+      <span class="m-item">SKIN FADE <span class="m-dot"></span></span>
+      <span class="m-item hi">STYLE <span class="m-dot"></span></span>
+      <span class="m-item">BART KONTUR <span class="m-dot"></span></span>
+      <span class="m-item hi">PREMIUM BARBER <span class="m-dot"></span></span>
+      <span class="m-item">QUALITÄT <span class="m-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- ════ BRAND STATEMENT ════ -->
+  <section id="statement" aria-label="Brand Statement">
+    <div class="stmt-ghost" aria-hidden="true">
+      <span class="stmt-ghost-text">REKO</span>
+    </div>
+    <div class="wrap">
+      <div class="stmt-inner">
+        <p class="stmt-text" id="stmt-main-text" data-reveal="up">
+          Ein guter Barber ist mehr als ein Handwerker.<br>
+          Er ist deine Konstante. Dein Stilberater.<br>
+          Bei Reko's gehst du immer perfekt raus.
+        </p>
+        <p class="stmt-sub" id="stmt-sub-text" data-reveal="up" data-delay=".2">
+          Nordhorn's Premium Barbershop seit über 10 Jahren
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-line"></div>
+
+  <!-- ════════════════════════════════════════════
+       §3 SERVICES
+  ════════════════════════════════════════════ -->
+  <section id="services" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="svc-head">
+        <div>
+          <div class="slabel" data-reveal="up">Leistungen</div>
+          <h2 class="h-lg" id="svc-h">
+            <span class="clip-line d1"><span class="clip-inner">ALLES,</span></span>
+            <span class="clip-line d2"><span class="clip-inner">WAS DU <em class="blue">BRAUCHST.</em></span></span>
+          </h2>
+        </div>
+        <p class="svc-intro" data-reveal="right" data-delay=".2">
+          Vom klassischen Cut bis zum perfekten Fade. Wir decken das komplette
+          Spektrum ab. Erstklassige Techniken, Profi-Produkte.
+        </p>
+      </div>
+
+      <div class="svc-grid">
+        <article class="svc-card" data-reveal="up">
+          <div class="svc-num">01 — Service</div>
+          <h3 class="svc-name" id="svc-1-name">Haarschnitt</h3>
+          <p class="svc-desc" id="svc-1-desc">Klassisch oder modern — präzise auf deine Gesichtsform abgestimmt. Beratung inklusive.</p>
+          <div class="svc-price">
+            <span class="svc-price-cur">€</span>
+            <span class="svc-price-val" id="svc-1-price">20</span>
+          </div>
+          <div class="svc-bg-num" aria-hidden="true">01</div>
+        </article>
+
+        <article class="svc-card" data-reveal="up" data-delay=".1">
+          <div class="svc-num">02 — Paket</div>
+          <h3 class="svc-name" id="svc-2-name">Kombi</h3>
+          <p class="svc-desc" id="svc-2-desc">Haarschnitt + Bartpflege — das komplette Paket. Raus von Kopf bis Kinn auf Punkt.</p>
+          <div class="svc-price">
+            <span class="svc-price-cur">€</span>
+            <span class="svc-price-val" id="svc-2-price">30</span>
+          </div>
+          <div class="svc-bg-num" aria-hidden="true">02</div>
+        </article>
+
+        <article class="svc-card" data-reveal="up" data-delay=".2">
+          <div class="svc-num">03 — Service</div>
+          <h3 class="svc-name" id="svc-3-name">Bart komplett</h3>
+          <p class="svc-desc" id="svc-3-desc">Bart formen, trimmen und pflegen — für das perfekte, gepflegte Gesamtbild.</p>
+          <div class="svc-price">
+            <span class="svc-price-cur">€</span>
+            <span class="svc-price-val" id="svc-3-price">10</span>
+          </div>
+          <div class="svc-bg-num" aria-hidden="true">03</div>
+        </article>
+
+        <article class="svc-card" data-reveal="up" data-delay=".1">
+          <div class="svc-num">04 — Service</div>
+          <h3 class="svc-name" id="svc-4-name">Maschinenschnitt</h3>
+          <p class="svc-desc" id="svc-4-desc">Sauber und schnell — nur mit der Maschine, ohne Schere. Zeitlos und präzise.</p>
+          <div class="svc-price">
+            <span class="svc-price-cur">€</span>
+            <span class="svc-price-val" id="svc-4-price">15</span>
+          </div>
+          <div class="svc-bg-num" aria-hidden="true">04</div>
+        </article>
+
+        <article class="svc-card" data-reveal="up" data-delay=".2">
+          <div class="svc-num">05 — Service</div>
+          <h3 class="svc-name" id="svc-5-name">Klass. Rasur</h3>
+          <p class="svc-desc" id="svc-5-desc">Klassische Rasur mit dem Rasiermesser — das ultimative Barber-Erlebnis.</p>
+          <div class="svc-price">
+            <span class="svc-price-cur">€</span>
+            <span class="svc-price-val" id="svc-5-price">5</span>
+          </div>
+          <div class="svc-bg-num" aria-hidden="true">05</div>
+        </article>
+
+        <article class="svc-card" data-reveal="up" data-delay=".3">
+          <div class="svc-num">06 — Service</div>
+          <h3 class="svc-name" id="svc-6-name">Gesichtspflege</h3>
+          <p class="svc-desc" id="svc-6-desc">Massage und Gesichtsmaske — Entspannung und Pflege auf höchstem Niveau.</p>
+          <div class="svc-price">
+            <span class="svc-price-cur">€</span>
+            <span class="svc-price-val" id="svc-6-price">5</span>
+          </div>
+          <div class="svc-bg-num" aria-hidden="true">06</div>
+        </article>
+
+        <article class="svc-card" data-reveal="up" data-delay=".1">
+          <div class="svc-num">07 — Service</div>
+          <h3 class="svc-name" id="svc-7-name">Augenbrauen</h3>
+          <p class="svc-desc" id="svc-7-desc">Augenbrauen formen und definieren für einen klaren, ausdrucksstarken Blick.</p>
+          <div class="svc-price">
+            <span class="svc-price-cur">€</span>
+            <span class="svc-price-val" id="svc-7-price">5</span>
+          </div>
+          <div class="svc-bg-num" aria-hidden="true">07</div>
+        </article>
+
+        <article class="svc-card" data-reveal="up" data-delay=".2">
+          <div class="svc-num">08 — Service</div>
+          <h3 class="svc-name" id="svc-8-name">Kinder bis 14</h3>
+          <p class="svc-desc" id="svc-8-desc">Haarschnitt für Kinder bis 14 Jahre — geduldig, professionell und kindgerecht.</p>
+          <div class="svc-price">
+            <span class="svc-price-cur">€</span>
+            <span class="svc-price-val" id="svc-8-price">15</span>
+          </div>
+          <div class="svc-bg-num" aria-hidden="true">08</div>
+        </article>
+      </div>
+
+      <div class="svc-cta-row" data-reveal="up">
+        <p class="svc-cta-text">Fragen? Ruf uns einfach an.</p>
+        <a href="tel:+4959218506728" id="phone-link-svc" class="btn btn-blue">
+          <span class="btn-inner"><span id="phone-display-svc">05921 8506728</span> <span class="arrow">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-line"></div>
+
+  <!-- ════════════════════════════════════════════
+       §4 WHY
+  ════════════════════════════════════════════ -->
+  <section id="why" aria-labelledby="why-h">
+    <div class="why-bg" aria-hidden="true">
+      <span class="why-bg-text">REKO'S</span>
+    </div>
+    <div class="wrap">
+      <div class="why-grid">
+        <div>
+          <div class="slabel" data-reveal="up">Warum wir</div>
+          <h2 class="h-lg" id="why-h">
+            <span class="clip-line d1"><span class="clip-inner">DER STANDARD</span></span>
+            <span class="clip-line d2"><span class="clip-inner">IN <em class="blue">NORDHORN.</em></span></span>
+          </h2>
+
+          <div class="why-feats">
+            <div class="why-feat" data-reveal="up" data-delay=".1">
+              <div class="wf-num">01</div>
+              <div>
+                <div class="wf-title">Saubere Übergänge</div>
+                <p class="wf-text">Fades, die wirklich faden. Technisch präzise, ästhetisch makellos.</p>
+              </div>
+            </div>
+            <div class="why-feat" data-reveal="up" data-delay=".2">
+              <div class="wf-num">02</div>
+              <div>
+                <div class="wf-title">Aktuelle Styles</div>
+                <p class="wf-text">Wir kennen die neuesten Trends und setzen sie perfekt um.</p>
+              </div>
+            </div>
+            <div class="why-feat" data-reveal="up" data-delay=".3">
+              <div class="wf-num">03</div>
+              <div>
+                <div class="wf-title">Entspannte Atmosphäre</div>
+                <p class="wf-text">Kein Stress — nur du, dein Barber und ein gutes Gespräch.</p>
+              </div>
+            </div>
+            <div class="why-feat" data-reveal="up" data-delay=".4">
+              <div class="wf-num">04</div>
+              <div>
+                <div class="wf-title">Zentral in Nordhorn</div>
+                <p class="wf-text">Leicht erreichbar, Parkplätze, kurze Wartezeiten.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-right" data-reveal="right" data-delay=".2">
+          <div class="stats-grid">
+            <div class="stat-block">
+              <div class="stat-n"><span class="c-up" data-t="500">0</span><em>+</em></div>
+              <div class="stat-l">Kunden / Monat</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-n"><span class="c-up js-rating-val" data-t="5">0</span><em>★</em></div>
+              <div class="stat-l">Google Rating</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-n"><span class="c-up js-years-val" data-t="10">0</span><em>+</em></div>
+              <div class="stat-l">Jahre Erfahrung</div>
+            </div>
+            <div class="stat-block">
+              <div class="stat-n"><span class="c-up" data-t="100">0</span><em>%</em></div>
+              <div class="stat-l">Hingabe</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-line"></div>
+
+  <!-- ════════════════════════════════════════════
+       §5 GALLERY
+  ════════════════════════════════════════════ -->
+  <section id="gallery" aria-labelledby="gallery-h">
+    <div class="wrap">
+      <div class="gallery-head">
+        <div>
+          <div class="slabel" data-reveal="up">Lookbook</div>
+          <h2 class="h-lg" id="gallery-h" data-reveal="up" data-delay=".1">
+            DIE ARBEIT<br><em class="blue">SPRICHT.</em>
+          </h2>
+        </div>
+        <div class="gallery-head-right" data-reveal="right" data-delay=".15">
+          <p>Täglich neue Ergebnisse. Vom perfekten Fade bis zum klassischen Cut — hier siehst du, was möglich ist.</p>
+        </div>
+      </div>
+
+      <div class="gallery-grid">
+        <a id="gallery-item-1" class="gi gi-1 feat" data-reveal="scale"
+           href="assets/images/gallery-1.jpg" data-gallery="rekos" data-glightbox="title: High Fade; description: Reko's Barber Shop">
+          <div class="gi-inner">
+            <span class="gi-ph">01</span>
+          </div>
+          <span class="gi-num">01</span>
+          <div class="gi-overlay"><span class="gi-tag">High Fade</span></div>
+        </a>
+        <a id="gallery-item-2" class="gi gi-2" data-reveal="scale" data-delay=".1"
+           href="assets/images/gallery-2.jpg" data-gallery="rekos" data-glightbox="title: Taper Fade">
+          <div class="gi-inner"><span class="gi-ph">02</span></div>
+          <span class="gi-num">02</span>
+          <div class="gi-overlay"><span class="gi-tag">Taper Fade</span></div>
+        </a>
+        <a id="gallery-item-3" class="gi gi-3" data-reveal="scale" data-delay=".15"
+           href="assets/images/gallery-3.jpg" data-gallery="rekos" data-glightbox="title: Skin Fade">
+          <div class="gi-inner"><span class="gi-ph">03</span></div>
+          <span class="gi-num">03</span>
+          <div class="gi-overlay"><span class="gi-tag">Skin Fade</span></div>
+        </a>
+        <a id="gallery-item-4" class="gi gi-4" data-reveal="scale" data-delay=".2"
+           href="assets/images/gallery-4.jpg" data-gallery="rekos" data-glightbox="title: Bart Kontur">
+          <div class="gi-inner"><span class="gi-ph">04</span></div>
+          <span class="gi-num">04</span>
+          <div class="gi-overlay"><span class="gi-tag">Bart Kontur</span></div>
+        </a>
+        <a id="gallery-item-5" class="gi gi-5" data-reveal="scale" data-delay=".1"
+           href="assets/images/gallery-5.jpg" data-gallery="rekos" data-glightbox="title: Classic Cut">
+          <div class="gi-inner"><span class="gi-ph">05</span></div>
+          <span class="gi-num">05</span>
+          <div class="gi-overlay"><span class="gi-tag">Classic Cut</span></div>
+        </a>
+        <a id="gallery-item-6" class="gi gi-6" data-reveal="scale" data-delay=".2"
+           href="assets/images/gallery-6.jpg" data-gallery="rekos" data-glightbox="title: Styling">
+          <div class="gi-inner"><span class="gi-ph">06</span></div>
+          <span class="gi-num">06</span>
+          <div class="gi-overlay"><span class="gi-tag">Styling</span></div>
+        </a>
+        <a id="gallery-item-7" class="gi gi-7" data-reveal="scale" data-delay=".3"
+           href="assets/images/gallery-7.jpg" data-gallery="rekos" data-glightbox="title: Kombi-Service">
+          <div class="gi-inner"><span class="gi-ph">07</span></div>
+          <span class="gi-num">07</span>
+          <div class="gi-overlay"><span class="gi-tag">Kombi-Service</span></div>
+        </a>
+      </div>
+
+      <div class="gallery-footer" data-reveal="up">
+        <p>Jeden Tag neue Ergebnisse auf Instagram</p>
+        <a href="https://www.instagram.com/rekos_barber_shop/" target="_blank" rel="noopener"
+           class="btn btn-ghost">
+          <span class="btn-inner">@rekos_barber_shop <span class="arrow">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-line"></div>
+
+  <!-- ════════════════════════════════════════════
+       §6 REVIEWS
+  ════════════════════════════════════════════ -->
+  <section id="reviews" aria-labelledby="reviews-h">
+    <div class="wrap">
+      <div class="reviews-head">
+        <div class="slabel" data-reveal="up">Kundenstimmen</div>
+        <h2 class="h-lg" id="reviews-h" data-reveal="up" data-delay=".1">
+          SIE SAGEN ES<br><em class="blue">AM BESTEN.</em>
+        </h2>
+      </div>
+
+      <div class="reviews-grid">
+        <article class="rev-card" data-reveal="up">
+          <div class="rev-accent"></div>
+          <div class="rev-stars" aria-label="5 von 5 Sternen">
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+          </div>
+          <p class="rev-text" id="rev-1-text">
+            Bester Barbershop in Nordhorn, ohne Frage. Reko weiß genau, was er tut.
+            Mein Fade sitzt immer perfekt — und die Atmosphäre ist entspannt und professionell zugleich.
+          </p>
+          <div class="rev-author">
+            <div class="rev-av" id="rev-1-av" aria-hidden="true">KM</div>
+            <div>
+              <div class="rev-name" id="rev-1-name">Kevin M.</div>
+              <div class="rev-src">Google Bewertung</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="rev-card" data-reveal="up" data-delay=".15">
+          <div class="rev-accent"></div>
+          <div class="rev-stars" aria-label="5 von 5 Sternen">
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+          </div>
+          <p class="rev-text" id="rev-2-text">
+            Endlich ein Barber in Nordhorn mit echtem Know-how. Skin Fade, Bart, alles top.
+            Bin jetzt Stammkunde und komme immer wieder.
+          </p>
+          <div class="rev-author">
+            <div class="rev-av" id="rev-2-av" aria-hidden="true">TK</div>
+            <div>
+              <div class="rev-name" id="rev-2-name">Tim K.</div>
+              <div class="rev-src">Google Bewertung</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="rev-card" data-reveal="up" data-delay=".3">
+          <div class="rev-accent"></div>
+          <div class="rev-stars" aria-label="5 von 5 Sternen">
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+          </div>
+          <p class="rev-text" id="rev-3-text">
+            Drittes Mal und immer wieder begeistert. Ehrliche Beratung, der Schnitt sitzt,
+            der Preis ist fair. Was will man mehr?
+          </p>
+          <div class="rev-author">
+            <div class="rev-av" id="rev-3-av" aria-hidden="true">JS</div>
+            <div>
+              <div class="rev-name" id="rev-3-name">Jonas S.</div>
+              <div class="rev-src">Google Bewertung</div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="rating-row" data-reveal="up">
+        <div class="rb-left">
+          <div class="rb-num" id="rb-num-val" aria-label="5.0 von 5 Sternen">5.0</div>
+          <div class="rb-stars-col">
+            <div class="rb-stars-row" aria-hidden="true">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              <span class="star">★</span><span class="star">★</span>
+            </div>
+            <div class="rb-src">Basierend auf Google Bewertungen</div>
+          </div>
+        </div>
+        <p class="rb-text">Reko's Barber Shop — der am besten bewertete Barbershop in Nordhorn.</p>
+        <!-- TODO: Echten Google Maps Review-Link eintragen -->
+        <a href="https://www.google.com/search?q=Reko%27s+Barber+Shop+Nordhorn+Bewertungen"
+           target="_blank" rel="noopener" class="btn btn-ghost">
+          <span class="btn-inner">Bewertungen lesen</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-line"></div>
+
+  <!-- ════════════════════════════════════════════
+       §7 LOCATION
+  ════════════════════════════════════════════ -->
+  <section id="location" aria-labelledby="loc-h">
+    <div class="wrap">
+      <div class="loc-grid">
+        <div class="loc-left">
+          <div class="slabel" data-reveal="up">Standort</div>
+          <div class="map-box" data-reveal="scale" data-delay=".1"
+               aria-label="Kartenansicht Reko's Barber Shop Nordhorn">
+            <iframe
+              src="https://maps.google.com/maps?q=Neuenhauser+Stra%C3%9Fe+17%2C+48529+Nordhorn%2C+Deutschland&output=embed&z=16"
+              class="map-iframe"
+              loading="lazy"
+              allowfullscreen
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Reko's Barber Shop auf Google Maps"></iframe>
+            <a href="https://www.google.com/maps/search/Neuenhauser+Stra%C3%9Fe+17,+48529+Nordhorn"
+               target="_blank" rel="noopener"
+               class="map-open-btn" aria-label="In Google Maps öffnen">
+              Google Maps ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="loc-right">
+          <div class="slabel" data-reveal="up">Öffnungszeiten &amp; Kontakt</div>
+          <h2 class="h-md" id="loc-h" data-reveal="up" data-delay=".1">
+            REKO'S<br><em class="blue">BARBERSHOP</em>
+          </h2>
+
+          <div class="hours-table" data-reveal="up" data-delay=".2">
+            <div class="hr-row" id="hr-montag"><span class="hr-day">Montag</span><span class="hr-time" id="ht-montag">09:00 – 18:00</span></div>
+            <div class="hr-row" id="hr-dienstag"><span class="hr-day">Dienstag</span><span class="hr-time" id="ht-dienstag">09:00 – 18:00</span></div>
+            <div class="hr-row" id="hr-mittwoch"><span class="hr-day">Mittwoch</span><span class="hr-time" id="ht-mittwoch">09:00 – 18:00</span></div>
+            <div class="hr-row" id="hr-donnerstag"><span class="hr-day">Donnerstag</span><span class="hr-time" id="ht-donnerstag">09:00 – 18:00</span></div>
+            <div class="hr-row" id="hr-freitag"><span class="hr-day">Freitag</span><span class="hr-time" id="ht-freitag">09:00 – 18:00</span></div>
+            <div class="hr-row" id="hr-samstag"><span class="hr-day">Samstag</span><span class="hr-time" id="ht-samstag">09:00 – 15:00</span></div>
+            <div class="hr-row closed" id="hr-sonntag"><span class="hr-day">Sonntag</span><span class="hr-time" id="ht-sonntag">Geschlossen</span></div>
+          </div>
+
+          <div class="loc-contact" data-reveal="up" data-delay=".3">
+            <div class="lc-row">
+              <span class="lc-dot"></span>
+              <div>
+                <div class="lc-label">Adresse</div>
+                <div class="lc-val">Neuenhauser Straße 17<br>48529 Nordhorn</div>
+              </div>
+            </div>
+            <div class="lc-row">
+              <span class="lc-dot"></span>
+              <div>
+                <div class="lc-label">Telefon</div>
+                <!-- TODO: Echte Telefonnummer eintragen -->
+                <div class="lc-val"><a href="tel:+4959218506728" id="phone-link-loc"><span id="phone-display-loc">05921&nbsp;8506728</span></a></div>
+              </div>
+            </div>
+            <div class="lc-row">
+              <span class="lc-dot"></span>
+              <div>
+                <div class="lc-label">Instagram</div>
+                <div class="lc-val">
+                  <a href="https://www.instagram.com/rekos_barber_shop/" target="_blank" rel="noopener">
+                    @rekos_barber_shop
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-line"></div>
+
+  <!-- ════════════════════════════════════════════
+       §8 FINAL CTA
+  ════════════════════════════════════════════ -->
+  <section id="cta-section" aria-label="Termin buchen">
+    <div class="cta-glow"></div>
+    <div class="cta-ghost" aria-hidden="true">TERMIN</div>
+    <div class="wrap">
+      <div class="cta-inner">
+        <p class="cta-label" data-reveal="up">Dein nächster Look wartet auf dich</p>
+        <h2 class="cta-h2 h-xl" data-reveal="up" data-delay=".1">
+          KOMM<br>EINFACH<br><em>VORBEI.</em>
+        </h2>
+        <p class="cta-sub" data-reveal="up" data-delay=".25">
+          Kein Ratespiel, kein Stress.
+          Ruf uns an oder schau direkt bei uns rein —
+          Neuenhauser Str. 17, Nordhorn.
+        </p>
+        <div class="cta-btns" data-reveal="up" data-delay=".35">
+          <a href="tel:+4959218506728" class="btn btn-blue">
+            <span class="btn-inner">Jetzt anrufen <span class="arrow">→</span></span>
+          </a>
+          <a href="https://www.instagram.com/rekos_barber_shop/" target="_blank" rel="noopener"
+             class="btn btn-ghost">
+            <span class="btn-inner">Instagram ansehen</span>
+          </a>
+        </div>
+        <p class="cta-note" data-reveal="up" data-delay=".45">
+          Mo–Fr 09–18 Uhr · Sa 09–15 Uhr · Neuenhauser Str. 17 · Nordhorn
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FOOTER ════ -->
+  <footer>
+    <div class="wrap">
+      <div class="ft-grid">
+        <div>
+          <div class="ft-logo">REKO'S <em>BARBER</em></div>
+          <p class="ft-tagline">Präzision. Stil. Vertrauen.<br>Nordhorn's Premium Barbershop.</p>
+          <div class="ft-socials">
+            <a href="https://www.instagram.com/rekos_barber_shop/" target="_blank" rel="noopener"
+               class="ft-soc" aria-label="Instagram">ig</a>
+            <a href="https://www.google.com/maps/search/Reko%27s+Barber+Shop+Nordhorn" target="_blank" rel="noopener"
+               class="ft-soc" aria-label="Google Maps">gm</a>
+          </div>
+        </div>
+        <div>
+          <div class="ft-col-title">Navigation</div>
+          <nav class="ft-links" aria-label="Footer Navigation">
+            <a href="#services">Leistungen</a>
+            <a href="#gallery">Lookbook</a>
+            <a href="#reviews">Bewertungen</a>
+            <a href="#location">Standort</a>
+          </nav>
+        </div>
+        <div>
+          <div class="ft-col-title">Leistungen</div>
+          <div style="display:flex;flex-direction:column;gap:10px;font-size:.8rem;color:rgba(240,234,224,.3);">
+            <span>Haarschnitt</span>
+            <span>Kombi-Paket</span>
+            <span>Bart komplett</span>
+            <span>Maschinenschnitt</span>
+            <span>Klass. Rasur</span>
+            <span>Gesichtspflege</span>
+            <span>Augenbrauen</span>
+            <span>Kinder bis 14</span>
+          </div>
+        </div>
+        <div>
+          <div class="ft-col-title">Kontakt</div>
+          <div class="ft-addr">
+            Neuenhauser Straße 17<br>
+            48529 Nordhorn<br><br>
+            Mo–Fr: 09–18 Uhr<br>
+            Sa: 09–15 Uhr<br><br>
+            <a href="tel:+4959218506728" style="color:var(--blue);">05921 8506728</a><br>
+            <a href="mailto:rekosbarbershop@gmail.com" style="color:rgba(240,234,224,.3);font-size:.72rem;">rekosbarbershop@gmail.com</a>
+          </div>
+        </div>
+      </div>
+      <div class="ft-bottom">
+        <span class="ft-copy" id="ft-copy-urban">© 2026 Reko's Barber Shop · Nordhorn</span>
+        <div class="ft-legal">
+          <!-- TODO: Impressum/Datenschutz-Seiten erstellen -->
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════ MOBILE STICKY CTA ════ -->
+  <div id="mob-cta-bar" role="complementary" aria-label="Jetzt anrufen">
+    <a href="https://www.instagram.com/rekos_barber_shop/" target="_blank" rel="noopener"
+       class="mcb-btn mcb-ghost">Instagram</a>
+    <a href="tel:+4959218506728" class="mcb-btn mcb-primary">
+      Jetzt anrufen →
+    </a>
+  </div>
+
+  <!-- ════════════════════════════════════════════
+       EXTERNAL LIBRARIES
+  ════════════════════════════════════════════ -->
+  <!-- Lenis smooth scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <!-- Splitting.js (character-level text animation) -->
+  <script src="https://cdn.jsdelivr.net/npm/splitting@1.0.6/dist/splitting.min.js"></script>
+  <!-- GLightbox (gallery) -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox@3.3.0/dist/js/glightbox.min.js"></script>
+
+  <!-- ════════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════════ -->
+  <!-- Supabase JS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script src="js/main.js"></script>
+
+  <!-- ════ GOOGLE ANALYTICS 4 ════ -->
+  <!--
+    SETUP GUIDE:
+    1. Gehe zu analytics.google.com → Verwaltung → Datenströme → Web
+    2. Kopiere deine "Mess-ID" (Format: G-XXXXXXXXXX)
+    3. Ersetze G-XXXXXXXXXX unten durch deine echte ID
+    4. Das Tracking wird erst aktiviert, wenn der Nutzer im Cookie-Banner zustimmt
+  -->
+  <script>
+    // GA4 — Consent-gated loading
+    (function initGA4() {
+      const GA_ID = 'G-XXXXXXXXXX'; // TODO: Ersetze mit echter Mess-ID
+
+      function loadGA() {
+        if (window._gaLoaded) return;
+        window._gaLoaded = true;
+        const s = document.createElement('script');
+        s.async = true;
+        s.src   = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+        document.head.appendChild(s);
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        window.gtag = gtag;
+        gtag('js', new Date());
+        gtag('config', GA_ID, { anonymize_ip: true });
+      }
+
+      if (localStorage.getItem('ga-consent') === 'true') {
+        loadGA();
+      }
+
+      window.acceptGA = function() {
+        localStorage.setItem('ga-consent', 'true');
+        loadGA();
+        hideBanner();
+      };
+      window.denyGA = function() {
+        localStorage.setItem('ga-consent', 'false');
+        hideBanner();
+      };
+      function hideBanner() {
+        const b = document.getElementById('cookie-banner');
+        if (b) { b.classList.remove('show'); setTimeout(() => b.remove(), 600); }
+      }
+
+      // Show banner if no decision yet
+      if (!localStorage.getItem('ga-consent')) {
+        window.addEventListener('DOMContentLoaded', () => {
+          const b = document.getElementById('cookie-banner');
+          if (b) setTimeout(() => b.classList.add('show'), 1500);
+        });
+      }
+    })();
+  </script>
+
+  <!-- ════ COOKIE BANNER ════ -->
+  <div id="cookie-banner" role="dialog" aria-label="Cookie-Einstellungen" aria-modal="true">
+    <p class="cb-text">
+      Diese Website nutzt Google Analytics für anonymisierte Nutzungsstatistiken.
+      Mehr Infos in unserer <a href="datenschutz.html">Datenschutzerklärung</a>.
+    </p>
+    <div class="cb-btns">
+      <button class="cb-deny" onclick="denyGA()">Ablehnen</button>
+      <button class="cb-accept" onclick="acceptGA()">Akzeptieren</button>
+    </div>
+  </div>
+
+
+  <!-- ════ CUSTOM CURSOR ════ -->
+  <div id="cursor" aria-hidden="true"></div>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin — Reko's Barber Shop</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/admin.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+  <script src="js/supabase-client.js"></script>
+</head>
+<body>
+
+  <!-- ════ LOGIN ════ -->
+  <div id="login-screen">
+    <div class="login-box">
+      <div class="login-logo">REKO'S <em>BARBER</em></div>
+      <div class="login-sub">Admin-Bereich</div>
+      <label class="login-label" for="email-input">E-Mail</label>
+      <input type="email" id="email-input" class="login-input"
+             placeholder="admin@rekosbarbershop.de" autocomplete="email" />
+      <label class="login-label" for="pw-input" style="margin-top:12px;">Passwort</label>
+      <input type="password" id="pw-input" class="login-input"
+             placeholder="••••••••" autocomplete="current-password" />
+      <div class="login-error" id="login-error"></div>
+      <button class="login-btn" id="login-btn">Anmelden</button>
+    </div>
+  </div>
+
+  <!-- ════ ADMIN PANEL ════ -->
+  <div id="admin-screen">
+    <header class="admin-header">
+      <div style="display:flex;align-items:center;gap:20px;">
+        <div class="admin-logo">REKO'S <em>BARBER</em></div>
+        <span class="admin-badge">Admin</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:16px;">
+        <a href="index.html" class="btn-preview" target="_blank">Website ansehen →</a>
+        <button class="admin-logout" id="logout-btn">Abmelden</button>
+      </div>
+    </header>
+
+    <main class="admin-main">
+      <h1 class="admin-section-title">Öffnungszeiten</h1>
+      <p class="admin-section-sub">Änderungen werden sofort auf der Website gespeichert.</p>
+
+      <form id="hours-form">
+        <div class="hours-grid">
+
+          <div class="day-row" id="row-montag">
+            <div class="day-name">Montag</div>
+            <input type="time" class="time-input open-time" id="open-montag" value="09:00" />
+            <div class="time-sep">–</div>
+            <input type="time" class="time-input close-time" id="close-montag" value="18:00" />
+            <div class="closed-wrap">
+              <label class="closed-label" for="closed-montag">Geschlossen</label>
+              <input type="checkbox" class="closed-cb" id="closed-montag" data-day="montag" />
+            </div>
+          </div>
+
+          <div class="day-row" id="row-dienstag">
+            <div class="day-name">Dienstag</div>
+            <input type="time" class="time-input open-time" id="open-dienstag" value="09:00" />
+            <div class="time-sep">–</div>
+            <input type="time" class="time-input close-time" id="close-dienstag" value="18:00" />
+            <div class="closed-wrap">
+              <label class="closed-label" for="closed-dienstag">Geschlossen</label>
+              <input type="checkbox" class="closed-cb" id="closed-dienstag" data-day="dienstag" />
+            </div>
+          </div>
+
+          <div class="day-row" id="row-mittwoch">
+            <div class="day-name">Mittwoch</div>
+            <input type="time" class="time-input open-time" id="open-mittwoch" value="09:00" />
+            <div class="time-sep">–</div>
+            <input type="time" class="time-input close-time" id="close-mittwoch" value="18:00" />
+            <div class="closed-wrap">
+              <label class="closed-label" for="closed-mittwoch">Geschlossen</label>
+              <input type="checkbox" class="closed-cb" id="closed-mittwoch" data-day="mittwoch" />
+            </div>
+          </div>
+
+          <div class="day-row" id="row-donnerstag">
+            <div class="day-name">Donnerstag</div>
+            <input type="time" class="time-input open-time" id="open-donnerstag" value="09:00" />
+            <div class="time-sep">–</div>
+            <input type="time" class="time-input close-time" id="close-donnerstag" value="18:00" />
+            <div class="closed-wrap">
+              <label class="closed-label" for="closed-donnerstag">Geschlossen</label>
+              <input type="checkbox" class="closed-cb" id="closed-donnerstag" data-day="donnerstag" />
+            </div>
+          </div>
+
+          <div class="day-row" id="row-freitag">
+            <div class="day-name">Freitag</div>
+            <input type="time" class="time-input open-time" id="open-freitag" value="09:00" />
+            <div class="time-sep">–</div>
+            <input type="time" class="time-input close-time" id="close-freitag" value="18:00" />
+            <div class="closed-wrap">
+              <label class="closed-label" for="closed-freitag">Geschlossen</label>
+              <input type="checkbox" class="closed-cb" id="closed-freitag" data-day="freitag" />
+            </div>
+          </div>
+
+          <div class="day-row" id="row-samstag">
+            <div class="day-name">Samstag</div>
+            <input type="time" class="time-input open-time" id="open-samstag" value="09:00" />
+            <div class="time-sep">–</div>
+            <input type="time" class="time-input close-time" id="close-samstag" value="15:00" />
+            <div class="closed-wrap">
+              <label class="closed-label" for="closed-samstag">Geschlossen</label>
+              <input type="checkbox" class="closed-cb" id="closed-samstag" data-day="samstag" />
+            </div>
+          </div>
+
+          <div class="day-row is-closed" id="row-sonntag">
+            <div class="day-name">Sonntag</div>
+            <input type="time" class="time-input open-time" id="open-sonntag" value="09:00" disabled />
+            <div class="time-sep">–</div>
+            <input type="time" class="time-input close-time" id="close-sonntag" value="15:00" disabled />
+            <div class="closed-wrap">
+              <label class="closed-label" for="closed-sonntag">Geschlossen</label>
+              <input type="checkbox" class="closed-cb" id="closed-sonntag" data-day="sonntag" checked />
+            </div>
+          </div>
+
+        </div><!-- /.hours-grid -->
+
+        <div class="form-actions">
+          <button type="submit" class="btn-save">Speichern</button>
+          <span class="save-status" id="save-status">✓ Gespeichert</span>
+          <button type="button" class="btn-reset" id="reset-btn">Zurücksetzen</button>
+        </div>
+      </form>
+
+      <div class="info-box">
+        <div class="info-box-title">Hinweis</div>
+        <p>
+          Alle Änderungen werden im Browser-Speicher (localStorage) hinterlegt und auf der
+          Website automatisch angezeigt — solange im <strong>selben Browser</strong> auf diesem Gerät.
+        </p>
+      </div>
+
+      <!-- ══ INHALTE ══ -->
+      <div class="admin-divider"></div>
+      <h1 class="admin-section-title">Inhalte</h1>
+      <p class="admin-section-sub">Telefonnummer, Bewertung und Texte anpassen.</p>
+
+      <div class="admin-card">
+        <div class="admin-card-title">Telefonnummer</div>
+        <div class="field-row">
+          <label>Anzeigetext <span class="field-hint">z.B. 05921 8506728</span></label>
+          <input type="text" id="ct-phone-display" class="admin-input" placeholder="05921 8506728" />
+        </div>
+        <div class="field-row">
+          <label>Nummer für Anrufe <span class="field-hint">z.B. +4959218506728</span></label>
+          <input type="text" id="ct-phone-href" class="admin-input" placeholder="+4959218506728" />
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-card-title">Statistiken</div>
+        <div class="field-row">
+          <label>Google-Bewertung <span class="field-hint">z.B. 5.0</span></label>
+          <input type="number" id="ct-rating" class="admin-input" min="1" max="5" step="0.1" style="width:140px;" />
+        </div>
+        <div class="field-row">
+          <label>Jahre Erfahrung <span class="field-hint">z.B. 10</span></label>
+          <input type="number" id="ct-exp" class="admin-input" min="1" max="99" style="width:140px;" />
+        </div>
+      </div>
+
+      <div class="admin-card">
+        <div class="admin-card-title">Brand Statement</div>
+        <div class="field-row">
+          <label>Haupttext <span class="field-hint">Zeilenumbrüche werden auf der Website übernommen</span></label>
+          <textarea id="ct-stmt" class="admin-textarea" rows="4"></textarea>
+        </div>
+        <div class="field-row">
+          <label>Unterzeile</label>
+          <input type="text" id="ct-stmt-sub" class="admin-input" />
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button class="btn-save" onclick="saveSettings()">Inhalte speichern</button>
+        <span class="save-status" id="ss-content">✓ Gespeichert</span>
+      </div>
+
+      <!-- ══ LEISTUNGEN ══ -->
+      <div class="admin-divider"></div>
+      <h1 class="admin-section-title">Leistungen</h1>
+      <p class="admin-section-sub">Name, Beschreibung und Preis aller 8 Leistungen bearbeiten.</p>
+
+      <div id="svc-list"></div>
+
+      <div class="form-actions">
+        <button class="btn-save" onclick="saveSettings()">Leistungen speichern</button>
+        <span class="save-status" id="ss-svc">✓ Gespeichert</span>
+      </div>
+
+      <!-- ══ GALERIE ══ -->
+      <div class="admin-divider"></div>
+      <h1 class="admin-section-title">Galerie</h1>
+      <p class="admin-section-sub">Bild-URLs für die 7 Galerie-Slots eingeben (z.B. https://... oder lokaler Pfad).</p>
+
+      <div id="gallery-admin-list"></div>
+
+      <div class="form-actions">
+        <button class="btn-save" onclick="saveSettings()">Galerie speichern</button>
+        <span class="save-status" id="ss-gallery">✓ Gespeichert</span>
+      </div>
+
+      <!-- ══ BEWERTUNGEN ══ -->
+      <div class="admin-divider"></div>
+      <h1 class="admin-section-title">Bewertungen</h1>
+      <p class="admin-section-sub">Die 3 angezeigten Kundenbewertungen bearbeiten.</p>
+
+      <div id="rev-list"></div>
+
+      <div class="form-actions">
+        <button class="btn-save" onclick="saveSettings()">Bewertungen speichern</button>
+        <span class="save-status" id="ss-rev">✓ Gespeichert</span>
+      </div>
+
+      <!-- ══ RESET ══ -->
+      <div class="admin-divider"></div>
+      <h1 class="admin-section-title">Zurücksetzen</h1>
+      <p class="admin-section-sub">Alle Änderungen löschen und Standardwerte wiederherstellen.</p>
+      <div class="form-actions">
+        <button class="btn-reset" id="reset-btn">Alle Daten zurücksetzen</button>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="js/admin.js"></script>
+
+</body>
+</html>

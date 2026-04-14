@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Datenschutzerklärung — Reko's Barber Shop Nordhorn</title>
+  <meta name="description" content="Datenschutzerklärung von Reko's Barber Shop, Nordhorn." />
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://rekos-barbershop.de/datenschutz.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:ital,wght@0,400;0,600;0,700;0,800;0,900;1,700;1,800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --black:      #060606;
+      --deep:       #0C0C0C;
+      --surface:    #111111;
+      --card:       #161616;
+      --border:     #1E1E1E;
+      --border-2:   #2A2A2A;
+      --cream:      #F0EAE0;
+      --cream-2:    #D8D2C8;
+      --cream-dim:  rgba(240,234,224,.18);
+      --blue:       #2B29C8;
+      --blue-hi:    #4F4EE0;
+      --blue-glow:  rgba(43,41,200,.22);
+      --f-disp: 'Barlow Condensed', sans-serif;
+      --f-body: 'Inter', -apple-system, sans-serif;
+      --ease:   cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; }
+    body {
+      background: var(--black);
+      color: var(--cream);
+      font-family: var(--f-body);
+      font-weight: 400;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: pointer; border: none; background: none; }
+
+    .wrap { width: 100%; max-width: 1440px; margin: 0 auto; padding: 0 56px; }
+
+    /* ─── HEADER ─── */
+    #hdr {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 500;
+      padding: 0 56px; height: 72px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(6,6,6,.92);
+      backdrop-filter: blur(24px) saturate(1.2);
+      border-bottom: 1px solid var(--border);
+    }
+    .hdr-logo {
+      font-family: var(--f-disp);
+      font-size: 1.2rem; font-weight: 900;
+      letter-spacing: .16em; text-transform: uppercase;
+    }
+    .hdr-logo em { color: var(--blue); font-style: normal; }
+    .hdr-back {
+      font-family: var(--f-body);
+      font-size: .65rem; font-weight: 500;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--cream-2);
+      transition: color .25s;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .hdr-back:hover { color: var(--cream); }
+
+    /* ─── PAGE CONTENT ─── */
+    .legal-page {
+      padding: 140px 0 120px;
+      min-height: 100vh;
+    }
+    .legal-header {
+      margin-bottom: 80px;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 48px;
+    }
+    .slabel {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: var(--f-body);
+      font-size: .62rem; font-weight: 600;
+      letter-spacing: .4em; text-transform: uppercase;
+      color: var(--blue);
+      margin-bottom: 20px;
+    }
+    .slabel::before {
+      content: ''; display: block;
+      width: 24px; height: 2px; background: var(--blue);
+    }
+    .legal-h1 {
+      font-family: var(--f-disp);
+      font-size: clamp(2.8rem, 6vw, 7.5rem);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -.01em; line-height: .88;
+      color: var(--cream);
+    }
+    .legal-h1 em { color: var(--blue); font-style: normal; }
+
+    /* ─── LEGAL BLOCKS ─── */
+    .legal-body {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
+      max-width: 960px;
+    }
+    .legal-section { display: contents; }
+    .legal-section-label {
+      padding: 32px 40px 32px 0;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+    }
+    .lsl-num {
+      font-family: var(--f-body);
+      font-size: .56rem; font-weight: 600;
+      letter-spacing: .3em; text-transform: uppercase;
+      color: var(--blue); margin-bottom: 8px;
+    }
+    .lsl-title {
+      font-family: var(--f-disp);
+      font-size: 1.1rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .06em;
+      color: var(--cream); line-height: 1.2;
+    }
+    .legal-section-content {
+      padding: 32px 0 32px 40px;
+      border-bottom: 1px solid var(--border);
+    }
+    .legal-section-content p,
+    .legal-section-content address {
+      font-size: .88rem; color: var(--cream-2);
+      line-height: 1.9; font-style: normal;
+      margin-bottom: 16px;
+    }
+    .legal-section-content p:last-child { margin-bottom: 0; }
+    .legal-section-content strong { color: var(--cream); font-weight: 500; }
+    .legal-section-content a { color: var(--blue); transition: opacity .2s; }
+    .legal-section-content a:hover { opacity: .75; }
+    .legal-section-content h3 {
+      font-family: var(--f-disp);
+      font-size: 1rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .08em;
+      color: var(--cream); margin: 24px 0 10px;
+    }
+    .legal-section-content h3:first-child { margin-top: 0; }
+    .legal-section-content ul {
+      list-style: none; margin-bottom: 16px;
+    }
+    .legal-section-content ul li {
+      font-size: .88rem; color: var(--cream-2);
+      line-height: 1.9; padding-left: 16px; position: relative;
+    }
+    .legal-section-content ul li::before {
+      content: '–'; position: absolute; left: 0; color: var(--blue);
+    }
+    .legal-section-content .placeholder {
+      color: var(--blue);
+      background: rgba(43,41,200,.1);
+      padding: 1px 6px;
+      border: 1px dashed rgba(43,41,200,.4);
+      font-family: var(--f-body);
+      font-size: .82rem;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--deep);
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+    }
+    .ft-bottom {
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .ft-copy { font-size: .7rem; color: var(--border-2); }
+    .ft-legal { display: flex; gap: 20px; }
+    .ft-legal a { font-size: .7rem; color: var(--border-2); transition: color .25s; }
+    .ft-legal a:hover { color: var(--blue); }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .wrap { padding: 0 20px; }
+      #hdr { padding: 0 20px; }
+      .legal-page { padding: 100px 0 80px; }
+      .legal-body { grid-template-columns: 1fr; }
+      .legal-section-label {
+        border-right: none; border-bottom: none;
+        padding: 24px 0 8px;
+      }
+      .legal-section-content { padding: 0 0 24px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════ HEADER ════ -->
+  <header id="hdr">
+    <a href="index.html" class="hdr-logo" aria-label="Reko's Barber Shop">REKO'S <em>BARBER</em></a>
+    <a href="index.html" class="hdr-back" aria-label="Zurück zur Startseite">← Startseite</a>
+  </header>
+
+  <!-- ════ DATENSCHUTZ ════ -->
+  <main class="legal-page">
+    <div class="wrap">
+
+      <div class="legal-header">
+        <div class="slabel">Rechtliches</div>
+        <h1 class="legal-h1">DATEN<em>SCHUTZ</em></h1>
+      </div>
+
+      <div class="legal-body">
+
+        <!-- §1 Verantwortlicher -->
+        <div class="legal-section">
+          <div class="legal-section-label">
+            <div class="lsl-num">§1</div>
+            <div class="lsl-title">Verantwortlicher</div>
+          </div>
+          <div class="legal-section-content">
+            <p>
+              Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und anderer
+              nationaler Datenschutzgesetze sowie sonstiger datenschutzrechtlicher Bestimmungen ist:
+            </p>
+            <address>
+              <strong><span class="placeholder">[VOLLSTÄNDIGER NAME]</span></strong><br>
+              Neuenhauser Straße 17, 48529 Nordhorn<br>
+              Telefon: <a href="tel:+4959218506728">05921 8506728</a><br>
+              E-Mail: <a href="mailto:rekosbarbershop@gmail.com">rekosbarbershop@gmail.com</a>
+            </address>
+          </div>
+        </div>
+
+        <!-- §2 Hosting -->
+        <div class="legal-section">
+          <div class="legal-section-label">
+            <div class="lsl-num">§2</div>
+            <div class="lsl-title">Hosting</div>
+          </div>
+          <div class="legal-section-content">
+            <h3>GitHub Pages</h3>
+            <p>
+              Diese Website wird derzeit über <strong>GitHub Pages</strong> gehostet, einem Dienst
+              der GitHub Inc. (88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) / Microsoft.
+              Beim Aufruf dieser Website werden automatisch folgende Daten in Server-Logfiles erfasst:
+            </p>
+            <ul>
+              <li>IP-Adresse des anfragenden Rechners (anonymisiert oder vollständig)</li>
+              <li>Datum und Uhrzeit des Zugriffs</li>
+              <li>Name und URL der abgerufenen Datei</li>
+              <li>Browser-Typ und -Version</li>
+              <li>Betriebssystem</li>
+            </ul>
+            <p>
+              Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse am sicheren
+              Betrieb der Website). GitHub verarbeitet diese Daten in den USA.
+              Weitere Informationen: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">
+                GitHub Privacy Statement
+              </a>.
+            </p>
+            <p>
+              <em>Hinweis: Sobald ein neuer Hoster gewählt wird, ist dieser Abschnitt entsprechend
+              anzupassen.</em>
+            </p>
+          </div>
+        </div>
+
+        <!-- §3 Google Fonts -->
+        <div class="legal-section">
+          <div class="legal-section-label">
+            <div class="lsl-num">§3</div>
+            <div class="lsl-title">Google Fonts</div>
+          </div>
+          <div class="legal-section-content">
+            <p>
+              Diese Website verwendet <strong>Google Fonts</strong>, einen Dienst der Google LLC
+              (1600 Amphitheatre Parkway, Mountain View, CA 94043, USA). Beim Laden der Schriftarten
+              wird Ihre IP-Adresse an Google-Server übertragen.
+            </p>
+            <p>
+              Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.
+              Weitere Informationen finden Sie in der
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">
+                Google Datenschutzerklärung
+              </a>.
+            </p>
+          </div>
+        </div>
+
+        <!-- §4 Google Analytics -->
+        <div class="legal-section">
+          <div class="legal-section-label">
+            <div class="lsl-num">§4</div>
+            <div class="lsl-title">Google Analytics 4</div>
+          </div>
+          <div class="legal-section-content">
+            <p>
+              Diese Website nutzt — <strong>nur nach Ihrer ausdrücklichen Einwilligung</strong> —
+              <strong>Google Analytics 4</strong>, einen Webanalysedienst der Google LLC.
+              Google Analytics 4 verwendet Cookies, die auf Ihrem Endgerät gespeichert werden
+              und eine Analyse Ihrer Nutzung der Website ermöglichen.
+            </p>
+            <p>
+              Die dabei erzeugten Informationen werden in der Regel an einen Server von Google
+              in den USA übertragen und dort gespeichert. Wir haben IP-Anonymisierung aktiviert,
+              sodass Ihre IP-Adresse innerhalb der EU / des EWR zuvor gekürzt wird.
+            </p>
+            <p>
+              <strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).<br>
+              Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie Ihre Browser-Cookies
+              löschen oder den Opt-out-Link unten nutzen.
+            </p>
+            <p>
+              <strong>Opt-out:</strong>
+              <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">
+                Google Analytics Opt-out Browser-Add-on
+              </a>
+            </p>
+            <p>
+              Wir haben mit Google einen Auftragsverarbeitungsvertrag (AVV) gemäß Art. 28 DSGVO
+              abgeschlossen. Weitere Informationen:
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">
+                Google Datenschutzerklärung
+              </a>.
+            </p>
+          </div>
+        </div>
+
+        <!-- §5 Google Maps -->
+        <div class="legal-section">
+          <div class="legal-section-label">
+            <div class="lsl-num">§5</div>
+            <div class="lsl-title">Google Maps</div>
+          </div>
+          <div class="legal-section-content">
+            <p>
+              Diese Website enthält einen Link zu <strong>Google Maps</strong>, dem Kartendienst
+              der Google LLC. Wenn Sie auf den Google Maps-Link klicken, werden Sie auf die
+              Website von Google weitergeleitet. Dabei werden Daten (u. a. Ihre IP-Adresse)
+              an Google übertragen.
+            </p>
+            <p>
+              Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.
+              Weitere Informationen:
+              <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">
+                Google Datenschutzerklärung
+              </a>.
+            </p>
+          </div>
+        </div>
+
+        <!-- §6 Instagram -->
+        <div class="legal-section">
+          <div class="legal-section-label">
+            <div class="lsl-num">§6</div>
+            <div class="lsl-title">Instagram-Links</div>
+          </div>
+          <div class="legal-section-content">
+            <p>
+              Diese Website enthält Links zum Instagram-Profil
+              <a href="https://www.instagram.com/rekos_barber_shop/" target="_blank" rel="noopener">
+                @rekos_barber_shop
+              </a>. Dabei handelt es sich um reine externe Links —
+              es werden <strong>keine Instagram-Plugins</strong> (z. B. Like-Buttons, eingebettete
+              Feeds) eingesetzt. Erst wenn Sie auf einen Link klicken, verlassen Sie diese Website
+              und gelangen zu Instagram (Meta Platforms Ireland Limited). Es werden keine Daten
+              durch uns an Instagram übermittelt.
+            </p>
+          </div>
+        </div>
+
+        <!-- §7 Cookies -->
+        <div class="legal-section">
+          <div class="legal-section-label">
+            <div class="lsl-num">§7</div>
+            <div class="lsl-title">Cookies</div>
+          </div>
+          <div class="legal-section-content">
+            <p>
+              Diese Website setzt technisch notwendige Cookies und — nach Ihrer Einwilligung —
+              Analyse-Cookies (Google Analytics 4).
+            </p>
+            <h3>Technisch notwendige Cookies</h3>
+            <p>
+              Der Wert <code>ga-consent</code> wird im <strong>localStorage</strong> Ihres
+              Browsers gespeichert, um Ihre Cookie-Entscheidung zu merken. Dies ist kein
+              Tracking-Cookie und wird nicht an Dritte übermittelt.
+            </p>
+            <h3>Analyse-Cookies (nur mit Einwilligung)</h3>
+            <p>
+              Bei Zustimmung setzt Google Analytics 4 Cookies (u. a. <code>_ga</code>,
+              <code>_ga_XXXXXXXXXX</code>) zur Analyse des Nutzerverhaltens.
+              Sie können Ihre Einwilligung jederzeit durch Löschen der Browser-Cookies widerrufen.
+            </p>
+          </div>
+        </div>
+
+        <!-- §8 Betroffenenrechte -->
+        <div class="legal-section">
+          <div class="legal-section-label">
+            <div class="lsl-num">§8</div>
+            <div class="lsl-title">Ihre Rechte</div>
+          </div>
+          <div class="legal-section-content">
+            <p>
+              Nach der DSGVO stehen Ihnen folgende Rechte zu:
+            </p>
+            <ul>
+              <li><strong>Recht auf Auskunft</strong> (Art. 15 DSGVO)</li>
+              <li><strong>Recht auf Berichtigung</strong> (Art. 16 DSGVO)</li>
+              <li><strong>Recht auf Löschung</strong> (Art. 17 DSGVO)</li>
+              <li><strong>Recht auf Einschränkung der Verarbeitung</strong> (Art. 18 DSGVO)</li>
+              <li><strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+              <li><strong>Widerspruchsrecht</strong> (Art. 21 DSGVO)</li>
+              <li><strong>Recht auf Widerruf der Einwilligung</strong> (Art. 7 Abs. 3 DSGVO)</li>
+            </ul>
+            <p>
+              Zur Ausübung Ihrer Rechte wenden Sie sich an:<br>
+              <a href="mailto:rekosbarbershop@gmail.com">rekosbarbershop@gmail.com</a>
+            </p>
+            <p>
+              Sie haben außerdem das Recht, sich bei einer Datenschutz-Aufsichtsbehörde zu
+              beschweren. Die zuständige Aufsichtsbehörde für Nordrhein-Westfalen ist die
+              <a href="https://www.ldi.nrw.de" target="_blank" rel="noopener">
+                Landesbeauftragte für Datenschutz und Informationsfreiheit NRW
+              </a>.
+            </p>
+          </div>
+        </div>
+
+        <!-- §9 Aktualisierung -->
+        <div class="legal-section">
+          <div class="legal-section-label">
+            <div class="lsl-num">§9</div>
+            <div class="lsl-title">Aktualität</div>
+          </div>
+          <div class="legal-section-content">
+            <p>
+              Diese Datenschutzerklärung ist aktuell gültig und hat den Stand
+              <strong id="ds-date">April 2026</strong>.
+            </p>
+            <p>
+              Durch die Weiterentwicklung unserer Website oder aufgrund geänderter gesetzlicher
+              oder behördlicher Vorgaben kann es notwendig werden, diese Datenschutzerklärung
+              zu ändern.
+            </p>
+          </div>
+        </div>
+
+      </div><!-- /.legal-body -->
+
+    </div>
+  </main>
+
+  <!-- ════ FOOTER ════ -->
+  <footer>
+    <div class="wrap">
+      <div class="ft-bottom">
+        <span class="ft-copy" id="ft-copy-ds">© 2026 Reko's Barber Shop · Nordhorn</span>
+        <div class="ft-legal">
+          <a href="impressum.html">Impressum</a>
+          <a href="datenschutz.html" aria-current="page">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const el = document.getElementById('ft-copy-ds');
+    if (el) el.textContent = '© ' + new Date().getFullYear() + " Reko's Barber Shop · Nordhorn";
+  </script>
+
+</body>
+</html>

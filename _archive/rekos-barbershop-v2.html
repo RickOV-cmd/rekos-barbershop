@@ -1,0 +1,2898 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Reko's Barber Shop – Premium Barbershop Nordhorn</title>
+  <meta name="description" content="Reko's Barber Shop Nordhorn – Fade, Haarschnitt, Bart & Konturen. Neuenhauser Straße 17, 48529 Nordhorn. Der Barbershop in Nordhorn." />
+  <meta name="keywords" content="Barber Shop Nordhorn, Friseur Nordhorn, Herrenfriseur Nordhorn, Fade Nordhorn, Bart trimmen Nordhorn, Haarschnitt Nordhorn, Skin Fade Nordhorn" />
+  <link rel="canonical" href="https://rekos-barbershop.de/" />
+  <meta property="og:title" content="Reko's Barber Shop – Premium Barbershop Nordhorn" />
+  <meta property="og:description" content="Präzision. Stil. Vertrauen. Dein Premium Barber in Nordhorn." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="de_DE" />
+  <meta property="og:image" content="https://rekos-barbershop.de/assets/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://rekos-barbershop.de/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Reko's Barber Shop – Premium Barbershop Nordhorn" />
+  <meta name="twitter:description" content="Präzision. Stil. Vertrauen. Dein Premium Barber in Nordhorn." />
+
+  <!-- ═══ STRUCTURED DATA — LocalBusiness ═══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HairSalon",
+    "name": "Reko's Barber Shop",
+    "description": "Premium Barbershop in Nordhorn. Fade, Taper, Haarschnitt, Bart & Konturen. Präzision, Stil und Vertrauen seit über 10 Jahren.",
+    "url": "https://rekos-barbershop.de",
+    "telephone": "+49-XXXX-XXXXXXX",
+    "email": "info@rekos-barbershop.de",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Neuenhauser Straße 17",
+      "addressLocality": "Nordhorn",
+      "postalCode": "48529",
+      "addressCountry": "DE"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 52.4305,
+      "longitude": 7.0680
+    },
+    "openingHoursSpecification": [
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "09:00", "closes": "18:00" },
+      { "@type": "OpeningHoursSpecification", "dayOfWeek": "Saturday", "opens": "09:00", "closes": "15:00" }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/rekos.barbershop/",
+      "https://www.facebook.com/rekosbarbershop"
+    ],
+    "image": "https://rekos-barbershop.de/assets/images/og-image.jpg",
+    "priceRange": "€–€€",
+    "currenciesAccepted": "EUR",
+    "paymentAccepted": "Cash, EC-Karte",
+    "areaServed": "Nordhorn",
+    "serviceType": ["Haarschnitt", "Fade", "Taper", "Bart", "Skin Fade", "Konturschnitt", "Styling"]
+  }
+  </script>
+
+  <!-- Fonts: Big Shoulders Display + DM Serif Display + Jost -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;700;800;900&family=DM+Serif+Display:ital@0;1&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ══════════════════════════════════════════════
+       DESIGN SYSTEM — V2
+    ══════════════════════════════════════════════ */
+    :root {
+      --black:        #050505;
+      --deep:         #090909;
+      --surface:      #0e0e0e;
+      --card:         #131313;
+      --card-hi:      #191919;
+      --border:       #1a1a1a;
+      --border-light: #272727;
+      --border-gold:  rgba(200,168,100,0.25);
+
+      --text-1:  #eee8df;
+      --text-2:  #9a9186;
+      --text-3:  #504b46;
+      --text-4:  #2e2b28;
+
+      --gold:        #c8a864;
+      --gold-hi:     #dfc083;
+      --gold-lo:     #9e7d3e;
+      --gold-glow:   rgba(200,168,100,0.18);
+      --gold-subtle: rgba(200,168,100,0.07);
+
+      --red:   #a82e25;
+      --white: #ffffff;
+
+      --f-disp: 'Big Shoulders Display', sans-serif;
+      --f-serif:'DM Serif Display', serif;
+      --f-body: 'Jost', sans-serif;
+
+      --ease:    cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+      --spring:  cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    /* ══════════════════════════════════════════════
+       RESET
+    ══════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background: var(--black);
+      color: var(--text-1);
+      font-family: var(--f-body);
+      font-weight: 300;
+      line-height: 1.65;
+      overflow-x: hidden;
+      cursor: none;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a   { color: inherit; text-decoration: none; }
+    button { font-family: inherit; cursor: none; border: none; background: none; }
+    ul  { list-style: none; }
+
+    /* ══════════════════════════════════════════════
+       FILM GRAIN OVERLAY
+    ══════════════════════════════════════════════ */
+    #grain {
+      position: fixed; inset: 0;
+      pointer-events: none;
+      z-index: 9998;
+      opacity: 1;
+    }
+
+    /* ══════════════════════════════════════════════
+       CUSTOM CURSOR
+    ══════════════════════════════════════════════ */
+    #cur-dot {
+      position: fixed; width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%,-50%);
+      transition: width .15s var(--ease), height .15s var(--ease), background .2s;
+      will-change: transform;
+    }
+    #cur-ring {
+      position: fixed; width: 32px; height: 32px;
+      border: 1px solid rgba(200,168,100,.4);
+      border-radius: 50%;
+      pointer-events: none; z-index: 9997;
+      transform: translate(-50%,-50%);
+      transition: width .3s var(--ease), height .3s var(--ease),
+                  border-color .3s, transform .05s linear;
+      will-change: transform;
+    }
+    body.cursor-hover #cur-dot  { width: 10px; height: 10px; background: var(--gold-hi); }
+    body.cursor-hover #cur-ring { width: 48px; height: 48px; border-color: rgba(200,168,100,.6); }
+
+    /* ══════════════════════════════════════════════
+       LOADING SCREEN
+    ══════════════════════════════════════════════ */
+    #loader {
+      position: fixed; inset: 0; background: var(--black);
+      z-index: 10000; display: flex;
+      align-items: center; justify-content: center;
+      flex-direction: column; gap: 32px;
+      transition: opacity .8s var(--ease), visibility .8s;
+    }
+    #loader.out { opacity: 0; visibility: hidden; }
+
+    .ld-brand {
+      font-family: var(--f-disp);
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 900;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--text-1);
+      overflow: hidden;
+    }
+    .ld-brand em { color: var(--gold); font-style: normal; }
+
+    .ld-progress {
+      width: 180px; height: 1px;
+      background: var(--border);
+      overflow: hidden;
+    }
+    .ld-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold-lo), var(--gold-hi));
+      width: 0;
+      animation: ldBar 1.9s var(--ease) forwards;
+    }
+    @keyframes ldBar { to { width: 100%; } }
+
+    .ld-loc {
+      font-family: var(--f-body);
+      font-size: .65rem;
+      letter-spacing: .4em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      animation: ldFade 1s .6s both;
+    }
+    @keyframes ldFade { from { opacity: 0; } to { opacity: 1; } }
+
+    /* ══════════════════════════════════════════════
+       HEADER
+    ══════════════════════════════════════════════ */
+    #hdr {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 500;
+      padding: 28px 56px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: padding .4s var(--ease), background .4s, border-color .4s;
+      border-bottom: 1px solid transparent;
+    }
+    #hdr.scrolled {
+      padding: 16px 56px;
+      background: rgba(5,5,5,.88);
+      backdrop-filter: blur(24px) saturate(1.2);
+      -webkit-backdrop-filter: blur(24px) saturate(1.2);
+      border-bottom-color: var(--border);
+    }
+
+    .hdr-logo {
+      font-family: var(--f-disp);
+      font-size: 1.25rem;
+      font-weight: 900;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+    .hdr-logo em { color: var(--gold); font-style: normal; }
+
+    .hdr-nav { display: flex; gap: 36px; align-items: center; }
+    .hdr-nav a {
+      font-family: var(--f-body);
+      font-size: .72rem;
+      font-weight: 400;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      transition: color .25s;
+      position: relative;
+    }
+    .hdr-nav a::after {
+      content: '';
+      position: absolute; bottom: -3px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width .3s var(--ease);
+    }
+    .hdr-nav a:hover { color: var(--text-1); }
+    .hdr-nav a:hover::after { width: 100%; }
+
+    .hdr-cta {
+      font-family: var(--f-disp) !important;
+      font-size: .72rem !important; font-weight: 700 !important;
+      letter-spacing: .2em !important; text-transform: uppercase !important;
+      padding: 10px 26px;
+      border: 1px solid var(--gold) !important;
+      color: var(--gold) !important;
+      border-radius: 2px;
+      transition: background .3s, color .3s !important;
+    }
+    .hdr-cta:hover {
+      background: var(--gold) !important;
+      color: var(--black) !important;
+    }
+    .hdr-cta::after { display: none !important; }
+
+    /* Hamburger */
+    .hdr-ham {
+      display: none; flex-direction: column; gap: 6px;
+      padding: 4px; background: none;
+    }
+    .hdr-ham span {
+      display: block; width: 22px; height: 1px;
+      background: var(--text-1);
+      transition: all .3s var(--ease);
+    }
+    .hdr-ham.open span:nth-child(1) { transform: rotate(45deg) translate(5px,5px); }
+    .hdr-ham.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .hdr-ham.open span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px); }
+
+    /* Mobile nav drawer */
+    #mob-nav {
+      position: fixed; inset: 0; background: var(--black);
+      z-index: 490;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center; gap: 8px;
+      opacity: 0; visibility: hidden;
+      transition: opacity .4s var(--ease), visibility .4s;
+    }
+    #mob-nav.open { opacity: 1; visibility: visible; }
+    #mob-nav a {
+      font-family: var(--f-disp);
+      font-size: clamp(2.2rem, 8vw, 3.5rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      color: var(--text-3);
+      transition: color .25s;
+      line-height: 1.2;
+    }
+    #mob-nav a:hover { color: var(--gold); }
+    .mob-nav-sub {
+      margin-top: 32px;
+      font-size: .7rem;
+      letter-spacing: .3em;
+      text-transform: uppercase;
+      color: var(--text-4);
+    }
+
+    /* ══════════════════════════════════════════════
+       BUTTONS — MAGNETIC
+    ══════════════════════════════════════════════ */
+    .btn {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-family: var(--f-disp);
+      font-size: .78rem; font-weight: 700;
+      letter-spacing: .22em; text-transform: uppercase;
+      padding: 18px 40px;
+      border: none; cursor: none;
+      transition: transform .3s var(--ease), box-shadow .3s, background .3s, color .3s;
+      position: relative; overflow: hidden;
+      border-radius: 2px;
+      user-select: none;
+      will-change: transform;
+    }
+    .btn .btn-inner {
+      position: relative; z-index: 1;
+      display: flex; align-items: center; gap: 12px;
+      transition: transform .3s var(--ease);
+    }
+    .btn::before {
+      content: '';
+      position: absolute; inset: 0;
+      transform: scaleX(0); transform-origin: right;
+      transition: transform .4s var(--ease);
+    }
+    .btn:hover::before { transform: scaleX(1); transform-origin: left; }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--black);
+    }
+    .btn-gold::before { background: var(--gold-hi); }
+    .btn-gold:hover {
+      box-shadow: 0 8px 40px rgba(200,168,100,.32);
+      transform: translateY(-2px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--text-1);
+      border: 1px solid var(--border-light);
+    }
+    .btn-ghost::before { background: rgba(255,255,255,.04); }
+    .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+    .btn-bare {
+      background: transparent; color: var(--gold);
+      padding: 0; letter-spacing: .18em; font-size: .72rem;
+    }
+    .btn-bare .arrow { transition: transform .3s var(--ease); }
+    .btn-bare:hover .arrow { transform: translateX(6px); }
+
+    /* ══════════════════════════════════════════════
+       LAYOUT UTILS
+    ══════════════════════════════════════════════ */
+    .wrap {
+      width: 100%; max-width: 1440px;
+      margin: 0 auto; padding: 0 56px;
+    }
+    .gold  { color: var(--gold); }
+    .serif { font-family: var(--f-serif); font-style: italic; }
+
+    /* ── SECTION LABEL ── */
+    .slabel {
+      display: inline-flex; align-items: center; gap: 14px;
+      font-family: var(--f-body);
+      font-size: .62rem; font-weight: 400;
+      letter-spacing: .42em; text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 20px;
+    }
+    .slabel::before {
+      content: ''; display: block;
+      width: 28px; height: 1px; background: var(--gold);
+    }
+
+    /* ── HEADINGS ── */
+    .h-xl {
+      font-family: var(--f-disp);
+      font-size: clamp(4.5rem, 12vw, 12rem);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -.02em; line-height: .88;
+    }
+    .h-lg {
+      font-family: var(--f-disp);
+      font-size: clamp(3rem, 7vw, 7rem);
+      font-weight: 800; text-transform: uppercase;
+      letter-spacing: -.01em; line-height: .9;
+    }
+    .h-md {
+      font-family: var(--f-disp);
+      font-size: clamp(1.8rem, 3.5vw, 3.2rem);
+      font-weight: 700; text-transform: uppercase;
+      letter-spacing: .02em;
+    }
+    .h-serif {
+      font-family: var(--f-serif);
+      font-size: clamp(1.6rem, 3vw, 2.8rem);
+      font-weight: 400; font-style: italic;
+      line-height: 1.25;
+    }
+    .h-micro {
+      font-family: var(--f-body);
+      font-size: .75rem; font-weight: 400;
+      letter-spacing: .12em;
+      line-height: 1.9;
+      color: var(--text-2);
+    }
+
+    /* ── DIVIDER ── */
+    .div-line {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-light) 30%, var(--border-light) 70%, transparent);
+    }
+    .div-gold {
+      position: relative; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-lo) 40%, var(--gold-lo) 60%, transparent);
+    }
+    .div-diamond {
+      position: relative; text-align: center; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--border-light) 40%, var(--border-light) 60%, transparent);
+      margin: 0;
+    }
+    .div-diamond::after {
+      content: '◆';
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      background: var(--black);
+      padding: 0 16px;
+      color: var(--gold);
+      font-size: .45rem;
+    }
+
+    /* ══════════════════════════════════════════════
+       SCROLL REVEAL
+    ══════════════════════════════════════════════ */
+    [data-reveal] {
+      opacity: 0;
+      transition: opacity .9s var(--ease), transform .9s var(--ease);
+    }
+    [data-reveal="up"]    { transform: translateY(40px); }
+    [data-reveal="left"]  { transform: translateX(-40px); }
+    [data-reveal="right"] { transform: translateX(40px); }
+    [data-reveal="scale"] { transform: scale(.96); }
+    [data-reveal].in { opacity: 1; transform: none; }
+
+    /* ── CLIP TEXT REVEAL ── */
+    .clip-line { overflow: hidden; }
+    .clip-inner {
+      display: block;
+      transform: translateY(105%);
+      transition: transform .9s var(--ease);
+    }
+    .clip-line.in .clip-inner { transform: translateY(0); }
+
+    /* ── DELAY HELPERS ── */
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
+    .d5 { transition-delay: .5s; }
+    .d6 { transition-delay: .6s; }
+    .d7 { transition-delay: .7s; }
+
+    /* ══════════════════════════════════════════════
+       §1  HERO — ASYMMETRIC CINEMATIC
+    ══════════════════════════════════════════════ */
+    #hero {
+      position: relative; height: 100svh; min-height: 680px;
+      overflow: hidden; background: var(--black);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    /* giant ghost text */
+    .hero-ghost {
+      position: absolute;
+      bottom: -4%;
+      left: -2%;
+      font-family: var(--f-disp);
+      font-size: clamp(9rem, 24vw, 26rem);
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: -.04em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,.028);
+      pointer-events: none; user-select: none;
+      white-space: nowrap;
+      line-height: 1;
+      z-index: 0;
+    }
+
+    /* left panel — content */
+    .hero-left {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 56px 88px;
+    }
+
+    .hero-open-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 36px;
+    }
+    .open-dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: #4ade80;
+      box-shadow: 0 0 0 0 rgba(74,222,128,.4);
+      animation: ping 2s infinite;
+    }
+    @keyframes ping {
+      0%,100% { box-shadow: 0 0 0 0 rgba(74,222,128,.4); }
+      50%      { box-shadow: 0 0 0 8px rgba(74,222,128,0); }
+    }
+    .open-text {
+      font-family: var(--f-body);
+      font-size: .62rem; font-weight: 400;
+      letter-spacing: .32em; text-transform: uppercase;
+      color: var(--text-3);
+    }
+
+    .hero-h1 { position: relative; }
+    .hero-h1 .line { display: block; }
+    .hero-h1 .accent { color: var(--gold); }
+
+    .hero-copy {
+      margin-top: 28px;
+      font-size: .9rem; line-height: 1.85;
+      color: var(--text-2);
+      max-width: 360px;
+    }
+
+    .hero-ctas {
+      display: flex; gap: 14px; flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    /* right panel — visual card */
+    .hero-right {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 56px 88px 0;
+      gap: 32px;
+    }
+
+    .hero-visual {
+      flex: 1;
+      background: var(--card);
+      border: 1px solid var(--border);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .6s var(--ease);
+    }
+    .hero-visual:hover { transform: scale(.992); }
+
+    /* cinematic light sweep */
+    .hero-visual::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(
+        105deg,
+        transparent 30%,
+        rgba(200,168,100,.04) 50%,
+        transparent 70%
+      );
+      animation: sweep 5s ease-in-out infinite;
+    }
+    @keyframes sweep {
+      0%,100% { opacity: 0; transform: translateX(-100%); }
+      50%      { opacity: 1; transform: translateX(100%); }
+    }
+
+    .hero-visual-content {
+      position: relative; z-index: 1;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 16px; padding: 40px;
+      text-align: center;
+    }
+    .hero-vis-icon {
+      font-size: 3.5rem; opacity: .07; color: var(--gold);
+      transform: rotate(-20deg);
+      display: block;
+    }
+    .hero-vis-label {
+      font-size: .62rem; letter-spacing: .35em;
+      text-transform: uppercase; color: var(--text-4);
+    }
+
+    /* cinematic bars top/bottom */
+    .hero-bar-t, .hero-bar-b {
+      position: absolute; left: 0; right: 0;
+      height: 6%; background: var(--black); z-index: 3;
+    }
+    .hero-bar-t { top: 0; }
+    .hero-bar-b { bottom: 0; }
+
+    /* Barber pole accent */
+    .hero-pole {
+      position: absolute; right: 0; top: 0; bottom: 0;
+      width: 3px; z-index: 3;
+      overflow: hidden;
+    }
+    .hero-pole-inner {
+      position: absolute; inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        var(--red) 0, var(--red) 7px,
+        var(--white) 7px, var(--white) 14px,
+        #1b4f96 14px, #1b4f96 21px,
+        var(--white) 21px, var(--white) 28px
+      );
+      animation: poleScroll 2.4s linear infinite;
+    }
+    @keyframes poleScroll {
+      to { background-position: 0 56px; }
+    }
+
+    .hero-stats-row {
+      display: flex; gap: 0;
+      border: 1px solid var(--border);
+    }
+    .h-stat {
+      flex: 1; padding: 20px 24px;
+      border-right: 1px solid var(--border);
+      transition: background .3s;
+    }
+    .h-stat:last-child { border-right: none; }
+    .h-stat:hover { background: var(--card); }
+    .h-stat-n {
+      font-family: var(--f-disp);
+      font-size: 2rem; font-weight: 900;
+      color: var(--text-1); line-height: 1;
+    }
+    .h-stat-n em { color: var(--gold); font-style: normal; }
+    .h-stat-l {
+      font-size: .6rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--text-3);
+      margin-top: 4px;
+    }
+
+    /* hero bottom strip */
+    .hero-strip {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 4;
+      height: 72px;
+      background: rgba(5,5,5,.7);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center;
+      padding: 0 56px;
+      gap: 32px;
+    }
+    .hero-strip-item {
+      display: flex; align-items: center; gap: 10px;
+      flex-shrink: 0;
+    }
+    .hs-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--gold); }
+    .hs-text {
+      font-size: .62rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--text-3);
+      white-space: nowrap;
+    }
+    .hero-strip-divider {
+      width: 1px; height: 20px;
+      background: var(--border); flex-shrink: 0;
+    }
+
+    /* scroll cue */
+    .scroll-cue {
+      position: absolute; left: 56px; bottom: 100px; z-index: 5;
+      display: flex; align-items: center; gap: 10px;
+      writing-mode: vertical-rl; text-orientation: mixed;
+      transform: rotate(180deg);
+    }
+    .sc-line {
+      width: 1px; height: 48px;
+      background: linear-gradient(to top, transparent, var(--text-4));
+      animation: scLine 2s ease-in-out infinite;
+    }
+    @keyframes scLine {
+      0%,100% { transform: scaleY(1); opacity: .5; }
+      50%      { transform: scaleY(.5); opacity: 1; }
+    }
+    .sc-text {
+      font-size: .58rem; letter-spacing: .3em;
+      text-transform: uppercase; color: var(--text-4);
+    }
+
+    /* ══════════════════════════════════════════════
+       §  MARQUEE STRIP
+    ══════════════════════════════════════════════ */
+    .marquee-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--deep); overflow: hidden;
+      padding: 18px 0;
+    }
+    .marquee-track {
+      display: flex; gap: 0;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    .m-item {
+      display: flex; align-items: center; gap: 32px;
+      padding: 0 32px;
+      font-family: var(--f-disp);
+      font-size: .8rem; font-weight: 700;
+      letter-spacing: .24em; text-transform: uppercase;
+      color: var(--text-3);
+      white-space: nowrap;
+    }
+    .m-item .m-dot {
+      display: inline-block; width: 5px; height: 5px;
+      border-radius: 50%; background: var(--gold); flex-shrink: 0;
+    }
+    .m-item.hi { color: var(--gold); }
+
+    /* ══════════════════════════════════════════════
+       §2  ABOUT / BRAND STORY
+    ══════════════════════════════════════════════ */
+    #about {
+      padding: 160px 0;
+      background: var(--deep);
+    }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 5fr 7fr;
+      gap: 0; align-items: stretch;
+    }
+
+    /* visual side */
+    .about-vis {
+      position: relative;
+      border-right: 1px solid var(--border);
+      padding-right: 80px;
+    }
+    .about-img-wrap {
+      width: 100%; aspect-ratio: 2/3;
+      background: var(--card);
+      border: 1px solid var(--border);
+      position: relative; overflow: hidden;
+      display: flex; align-items: flex-end; padding: 28px;
+    }
+    .about-img-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 40%, rgba(5,5,5,.7) 100%);
+    }
+    .about-img-center {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .about-scissors {
+      font-size: 6rem; opacity: .05; color: var(--gold);
+      transform: rotate(-25deg);
+    }
+    .about-img-label {
+      position: relative; z-index: 1;
+      font-size: .58rem; letter-spacing: .3em;
+      text-transform: uppercase; color: var(--text-4);
+    }
+    /* experience badge */
+    .about-badge {
+      position: absolute; top: -20px; right: -20px;
+      width: 90px; height: 90px;
+      border: 1px solid var(--border-gold);
+      background: var(--black);
+      border-radius: 50%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      text-align: center;
+      animation: spinSlow 18s linear infinite;
+    }
+    .about-badge-n {
+      font-family: var(--f-disp);
+      font-size: 1.5rem; font-weight: 900;
+      color: var(--gold); line-height: 1;
+    }
+    .about-badge-l {
+      font-size: .5rem; letter-spacing: .12em;
+      text-transform: uppercase; color: var(--text-4);
+      margin-top: 2px;
+    }
+    @keyframes spinSlow { to { transform: rotate(360deg); } }
+
+    /* content side */
+    .about-content { padding-left: 80px; }
+
+    .about-body {
+      font-size: 1rem; line-height: 1.95;
+      color: var(--text-2); margin-top: 28px;
+    }
+    .about-body strong { color: var(--text-1); font-weight: 400; }
+
+    .about-pull {
+      margin-top: 48px; padding: 36px;
+      border: 1px solid var(--border-gold);
+      background: var(--gold-subtle);
+      position: relative;
+    }
+    .about-pull::before {
+      content: '"';
+      position: absolute; top: -20px; left: 28px;
+      font-family: var(--f-serif);
+      font-size: 5rem; line-height: 1;
+      color: var(--gold); opacity: .25;
+    }
+    .about-pull-text {
+      font-family: var(--f-serif);
+      font-size: 1.3rem; font-style: italic;
+      color: var(--text-1); line-height: 1.6;
+    }
+    .about-pull-attr {
+      margin-top: 14px;
+      font-size: .62rem; letter-spacing: .25em;
+      text-transform: uppercase; color: var(--text-3);
+    }
+
+    .about-traits {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 0; margin-top: 48px;
+      border: 1px solid var(--border);
+    }
+    .about-trait {
+      padding: 24px 20px;
+      border-right: 1px solid var(--border);
+      transition: background .3s;
+    }
+    .about-trait:last-child { border-right: none; }
+    .about-trait:hover { background: var(--card); }
+    .at-icon { font-size: 1rem; color: var(--gold); margin-bottom: 10px; }
+    .at-name {
+      font-family: var(--f-disp);
+      font-size: .85rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-1);
+    }
+    .at-desc {
+      font-size: .78rem; color: var(--text-3);
+      margin-top: 4px; line-height: 1.6;
+    }
+
+    /* ══════════════════════════════════════════════
+       §  MANIFESTO SECTION
+    ══════════════════════════════════════════════ */
+    #manifesto {
+      padding: 140px 0;
+      background: var(--surface);
+      position: relative; overflow: hidden;
+    }
+    .manifesto-bg {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 70% 70% at 50% 50%,
+        var(--gold-subtle) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .manifesto-inner {
+      position: relative; text-align: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .manifesto-eyebrow {
+      display: inline-flex; align-items: center; gap: 20px;
+      margin-bottom: 40px;
+    }
+    .manifesto-eyebrow::before, .manifesto-eyebrow::after {
+      content: ''; display: block;
+      width: 60px; height: 1px; background: var(--gold);
+      opacity: .5;
+    }
+    .manifesto-eyebrow span {
+      font-size: .62rem; letter-spacing: .42em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .manifesto-text {
+      font-family: var(--f-serif);
+      font-size: clamp(1.6rem, 3.5vw, 3.2rem);
+      font-style: italic;
+      color: var(--text-1);
+      line-height: 1.45;
+    }
+    .manifesto-text em { color: var(--gold); font-style: normal; }
+    .manifesto-sub {
+      margin-top: 40px;
+      font-size: .8rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--text-3);
+    }
+
+    /* ══════════════════════════════════════════════
+       §3  SERVICES
+    ══════════════════════════════════════════════ */
+    #services {
+      padding: 160px 0;
+      background: var(--black);
+    }
+    .svc-head {
+      display: grid; grid-template-columns: 1fr 1fr;
+      align-items: flex-end; gap: 40px;
+      margin-bottom: 80px;
+    }
+    .svc-intro { font-size: .9rem; color: var(--text-2); line-height: 1.9; }
+
+    /* Card grid */
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .svc-card {
+      background: var(--black);
+      padding: 52px 44px;
+      position: relative; overflow: hidden;
+      cursor: none;
+      transition: background .35s var(--ease);
+    }
+    .svc-card::after {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 2px; height: 0;
+      background: linear-gradient(to bottom, var(--gold-lo), var(--gold));
+      transition: height .5s var(--ease);
+    }
+    .svc-card:hover { background: var(--card); }
+    .svc-card:hover::after { height: 100%; }
+
+    /* large background number */
+    .svc-num-bg {
+      position: absolute; bottom: -12px; right: -8px;
+      font-family: var(--f-disp);
+      font-size: 7rem; font-weight: 900;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,.035);
+      pointer-events: none; line-height: 1;
+      transition: color .35s;
+    }
+    .svc-card:hover .svc-num-bg {
+      -webkit-text-stroke-color: rgba(200,168,100,.08);
+    }
+
+    .svc-num {
+      font-family: var(--f-body);
+      font-size: .58rem; letter-spacing: .35em;
+      text-transform: uppercase; color: var(--text-4);
+      margin-bottom: 28px;
+    }
+    .svc-icon { font-size: 1.6rem; margin-bottom: 16px; display: block; }
+    .svc-name {
+      font-family: var(--f-disp);
+      font-size: 1.6rem; font-weight: 800;
+      text-transform: uppercase; letter-spacing: .04em;
+      color: var(--text-1); margin-bottom: 14px;
+      line-height: 1.1;
+    }
+    .svc-desc { font-size: .85rem; color: var(--text-2); line-height: 1.8; }
+    .svc-price {
+      margin-top: 36px; display: flex;
+      align-items: baseline; gap: 3px;
+    }
+    .svc-price-from {
+      font-size: .6rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--text-4);
+    }
+    .svc-price-val {
+      font-family: var(--f-disp);
+      font-size: 2rem; font-weight: 900;
+      color: var(--gold); line-height: 1;
+    }
+    .svc-price-cur {
+      font-family: var(--f-disp);
+      font-size: 1rem; font-weight: 700;
+      color: var(--gold);
+    }
+    .svc-card.feat { background: var(--card); }
+    .svc-card.feat .svc-name { color: var(--gold); }
+
+    /* services CTA bar */
+    .svc-cta-bar {
+      margin-top: 1px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-top: none;
+      padding: 28px 44px;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 20px;
+      flex-wrap: wrap;
+    }
+    .svc-cta-text {
+      font-family: var(--f-serif);
+      font-size: 1.1rem; font-style: italic;
+      color: var(--text-2);
+    }
+
+    /* ══════════════════════════════════════════════
+       §4  WHY US
+    ══════════════════════════════════════════════ */
+    #why {
+      padding: 160px 0;
+      background: var(--deep);
+      position: relative; overflow: hidden;
+    }
+    .why-watermark {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      pointer-events: none; overflow: hidden;
+    }
+    .why-watermark span {
+      font-family: var(--f-disp);
+      font-size: clamp(12rem, 30vw, 32rem);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -.04em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(255,255,255,.018);
+      white-space: nowrap; line-height: 1;
+      user-select: none;
+    }
+    .why-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 100px; align-items: center;
+    }
+    .why-features {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 40px; margin-top: 52px;
+    }
+    .why-feat { padding-top: 20px; border-top: 1px solid var(--border); }
+    .wf-num {
+      font-family: var(--f-disp);
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .3em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 14px;
+    }
+    .wf-title {
+      font-family: var(--f-disp);
+      font-size: 1.05rem; font-weight: 700;
+      letter-spacing: .06em; text-transform: uppercase;
+      color: var(--text-1); margin-bottom: 8px;
+    }
+    .wf-text { font-size: .82rem; color: var(--text-2); line-height: 1.75; }
+
+    /* Stat blocks */
+    .why-stats {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .stat-block {
+      background: var(--black);
+      padding: 44px 36px;
+      text-align: center;
+      transition: background .3s;
+      cursor: none;
+    }
+    .stat-block:hover { background: var(--card); }
+    .stat-n {
+      font-family: var(--f-disp);
+      font-size: 4.5rem; font-weight: 900;
+      color: var(--text-1); line-height: 1;
+    }
+    .stat-n em { color: var(--gold); font-style: normal; }
+    .stat-l {
+      font-size: .6rem; letter-spacing: .25em;
+      text-transform: uppercase; color: var(--text-3);
+      margin-top: 10px;
+    }
+
+    /* ══════════════════════════════════════════════
+       §5  GALLERY — EDITORIAL GRID
+    ══════════════════════════════════════════════ */
+    #gallery { padding: 160px 0; background: var(--black); }
+
+    .gallery-head { text-align: center; margin-bottom: 72px; }
+
+    /* Desktop masonry-style grid */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: repeat(3, 220px);
+      gap: 2px;
+    }
+    .gi { grid-column: span 3; grid-row: span 1; }
+    .gi-1 { grid-column: 1 / 6; grid-row: 1 / 3; }   /* big left */
+    .gi-2 { grid-column: 6 / 9; grid-row: 1 / 2; }
+    .gi-3 { grid-column: 9 / 13; grid-row: 1 / 3; }  /* big right */
+    .gi-4 { grid-column: 6 / 9; grid-row: 2 / 3; }
+    .gi-5 { grid-column: 1 / 5; grid-row: 3 / 4; }
+    .gi-6 { grid-column: 5 / 9; grid-row: 3 / 4; }
+    .gi-7 { grid-column: 9 / 13; grid-row: 3 / 4; }
+
+    .gi {
+      background: var(--card); border: 1px solid var(--border);
+      overflow: hidden; position: relative; cursor: none;
+    }
+    .gi-inner {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      transition: transform .7s var(--ease);
+    }
+    .gi:hover .gi-inner { transform: scale(1.06); }
+    .gi-icon { font-size: 2.2rem; opacity: .07; color: var(--gold); }
+
+    .gi-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(5,5,5,.8) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity .4s var(--ease);
+      display: flex; align-items: flex-end;
+      padding: 20px 22px;
+    }
+    .gi:hover .gi-overlay { opacity: 1; }
+    .gi-tag {
+      font-family: var(--f-disp);
+      font-size: .65rem; font-weight: 700;
+      letter-spacing: .25em; text-transform: uppercase;
+      color: var(--text-1);
+    }
+
+    /* Tag corner */
+    .gi-num {
+      position: absolute; top: 14px; left: 14px; z-index: 2;
+      font-size: .55rem; letter-spacing: .3em;
+      text-transform: uppercase; color: var(--text-4);
+    }
+
+    .gallery-footer {
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap;
+      gap: 20px; margin-top: 48px;
+      padding-top: 32px; border-top: 1px solid var(--border);
+    }
+    .gallery-footer-text {
+      font-family: var(--f-serif);
+      font-size: 1.1rem; font-style: italic;
+      color: var(--text-2);
+    }
+
+    /* ══════════════════════════════════════════════
+       §  BEFORE / AFTER
+    ══════════════════════════════════════════════ */
+    #ba-section { padding: 80px 0 160px; background: var(--black); }
+    .ba-head { text-align: center; margin-bottom: 56px; }
+    .ba-wrap { max-width: 640px; margin: 0 auto; position: relative; }
+    .ba-slider {
+      width: 100%; aspect-ratio: 4/3;
+      position: relative; overflow: hidden;
+      border: 1px solid var(--border);
+      user-select: none;
+    }
+    .ba-side {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .ba-before { background: var(--surface); }
+    .ba-after  { background: var(--card); clip-path: inset(0 50% 0 0); }
+    .ba-ph {
+      display: flex; flex-direction: column;
+      align-items: center; gap: 12px;
+    }
+    .ba-ph-icon { font-size: 2.8rem; opacity: .1; color: var(--gold); }
+    .ba-ph-text {
+      font-size: .6rem; letter-spacing: .28em;
+      text-transform: uppercase; color: var(--text-4);
+    }
+    .ba-handle {
+      position: absolute; top: 0; bottom: 0; left: 50%;
+      width: 2px; background: var(--gold); z-index: 10;
+      cursor: ew-resize; transform: translateX(-50%);
+    }
+    .ba-btn {
+      position: absolute; top: 50%; left: 50%;
+      transform: translate(-50%,-50%);
+      width: 44px; height: 44px;
+      border: 2px solid var(--gold);
+      border-radius: 50%; background: var(--black);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: .75rem;
+      box-shadow: 0 0 20px rgba(200,168,100,.2);
+    }
+    .ba-lbl {
+      position: absolute; bottom: 14px; z-index: 5;
+      font-size: .6rem; letter-spacing: .28em;
+      text-transform: uppercase; color: var(--text-3);
+    }
+    .ba-lbl-b { left: 14px; }
+    .ba-lbl-a { right: 14px; }
+
+    /* ══════════════════════════════════════════════
+       §6  REVIEWS
+    ══════════════════════════════════════════════ */
+    #reviews {
+      padding: 160px 0;
+      background: var(--deep);
+    }
+    .reviews-head { text-align: center; margin-bottom: 80px; }
+
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 1px; background: var(--border);
+      border: 1px solid var(--border);
+    }
+    .rev-card {
+      background: var(--deep);
+      padding: 44px 40px;
+      position: relative; overflow: hidden;
+      transition: background .3s var(--ease);
+    }
+    .rev-card:hover { background: var(--card); }
+    .rev-qmark {
+      position: absolute; top: 12px; left: 28px;
+      font-family: var(--f-serif);
+      font-size: 6rem; line-height: 1;
+      color: var(--gold); opacity: .08;
+      pointer-events: none;
+    }
+    .rev-stars {
+      display: flex; gap: 3px; margin-bottom: 18px;
+    }
+    .star { color: var(--gold); font-size: .75rem; }
+    .rev-text {
+      font-family: var(--f-serif);
+      font-size: .98rem; font-style: italic;
+      color: var(--text-2); line-height: 1.85;
+      margin-bottom: 28px;
+    }
+    .rev-author { display: flex; align-items: center; gap: 14px; }
+    .rev-av {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--border);
+      border: 1px solid var(--border-light);
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--f-disp);
+      font-size: .85rem; font-weight: 700; color: var(--gold);
+      flex-shrink: 0;
+    }
+    .rev-name {
+      font-family: var(--f-disp);
+      font-size: .8rem; font-weight: 700;
+      letter-spacing: .1em; text-transform: uppercase;
+      color: var(--text-1);
+    }
+    .rev-src { font-size: .68rem; color: var(--text-3); letter-spacing: .1em; }
+
+    /* Rating banner */
+    .rating-banner {
+      margin-top: 1px;
+      background: var(--card);
+      border: 1px solid var(--border); border-top: none;
+      padding: 36px 48px;
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 24px;
+    }
+    .rb-left { display: flex; align-items: center; gap: 24px; }
+    .rb-num {
+      font-family: var(--f-disp);
+      font-size: 4.5rem; font-weight: 900;
+      color: var(--gold); line-height: 1;
+    }
+    .rb-stars-col { display: flex; flex-direction: column; gap: 6px; }
+    .rb-stars-row { display: flex; gap: 4px; }
+    .rb-src {
+      font-size: .6rem; letter-spacing: .25em;
+      text-transform: uppercase; color: var(--text-3);
+    }
+    .rb-text {
+      font-family: var(--f-serif);
+      font-size: 1.05rem; font-style: italic;
+      color: var(--text-2); max-width: 380px;
+    }
+
+    /* ══════════════════════════════════════════════
+       §7  LOCATION
+    ══════════════════════════════════════════════ */
+    #location { padding: 160px 0; background: var(--black); }
+    .loc-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 0;
+    }
+    .loc-left {
+      border-right: 1px solid var(--border);
+      padding-right: 80px;
+    }
+
+    .map-box {
+      width: 100%; aspect-ratio: 4/3;
+      background: var(--card);
+      border: 1px solid var(--border);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+    }
+    /* map grid lines */
+    .map-box::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(200,168,100,.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(200,168,100,.05) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+    .map-pin-wrap {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 12px;
+    }
+    .map-pin-body {
+      width: 44px; height: 44px;
+      background: var(--gold);
+      border-radius: 50% 50% 50% 0;
+      transform: rotate(-45deg);
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 24px rgba(200,168,100,.35);
+      animation: pinBob 2.5s ease-in-out infinite;
+    }
+    @keyframes pinBob {
+      0%,100% { transform: rotate(-45deg) translateY(0); }
+      50%      { transform: rotate(-45deg) translateY(-6px); }
+    }
+    .map-pin-inner {
+      width: 10px; height: 10px;
+      background: var(--black); border-radius: 50%;
+      transform: rotate(45deg);
+    }
+    .map-pin-label {
+      font-size: .6rem; letter-spacing: .25em;
+      text-transform: uppercase; color: var(--text-3);
+    }
+    .map-open-btn {
+      position: absolute; bottom: 16px; right: 16px;
+      font-family: var(--f-disp);
+      font-size: .62rem; font-weight: 600;
+      letter-spacing: .2em; text-transform: uppercase;
+      color: var(--gold);
+      background: var(--black);
+      border: 1px solid var(--border-light);
+      padding: 8px 16px;
+      transition: border-color .3s, color .3s;
+    }
+    .map-open-btn:hover { border-color: var(--gold); }
+
+    .loc-right { padding-left: 80px; }
+
+    .hours-table { margin-top: 36px; border-top: 1px solid var(--border); }
+    .hr-row {
+      display: flex; justify-content: space-between;
+      align-items: center; padding: 14px 0;
+      border-bottom: 1px solid var(--border);
+      transition: background .2s;
+    }
+    .hr-row:hover { background: var(--card); padding-left: 8px; padding-right: 8px; }
+    .hr-day {
+      font-family: var(--f-body);
+      font-size: .8rem; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--text-2);
+    }
+    .hr-time {
+      font-family: var(--f-disp);
+      font-size: .85rem; font-weight: 700;
+      letter-spacing: .05em; color: var(--text-1);
+    }
+    .hr-row.today .hr-day { color: var(--gold); }
+    .hr-row.today .hr-time { color: var(--gold); }
+    .hr-row.closed .hr-time { color: var(--text-4); }
+
+    .loc-contact { margin-top: 44px; display: flex; flex-direction: column; gap: 20px; }
+    .lc-row { display: flex; gap: 16px; align-items: flex-start; }
+    .lc-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold); flex-shrink: 0; margin-top: 7px;
+    }
+    .lc-label {
+      font-size: .58rem; letter-spacing: .3em;
+      text-transform: uppercase; color: var(--text-4);
+      margin-bottom: 3px;
+    }
+    .lc-val { font-size: .9rem; color: var(--text-1); line-height: 1.6; }
+    .lc-val a { color: var(--gold); transition: opacity .2s; }
+    .lc-val a:hover { opacity: .8; }
+
+    /* ══════════════════════════════════════════════
+       §8  FINAL CTA
+    ══════════════════════════════════════════════ */
+    #cta-section {
+      padding: 180px 0;
+      background: var(--surface);
+      position: relative; overflow: hidden;
+    }
+    .cta-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse 55% 60% at 50% 50%,
+        rgba(200,168,100,.06) 0%, transparent 65%);
+      pointer-events: none;
+    }
+    /* big ghost text */
+    .cta-ghost {
+      position: absolute;
+      bottom: -5%; left: 50%;
+      transform: translateX(-50%);
+      font-family: var(--f-disp);
+      font-size: clamp(8rem, 22vw, 24rem);
+      font-weight: 900; text-transform: uppercase;
+      letter-spacing: -.03em;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(200,168,100,.04);
+      pointer-events: none; white-space: nowrap; line-height: 1;
+      user-select: none;
+    }
+    .cta-inner {
+      position: relative; text-align: center;
+      max-width: 860px; margin: 0 auto;
+    }
+    .cta-eyebrow {
+      display: inline-flex; align-items: center; gap: 16px;
+      margin-bottom: 36px;
+    }
+    .cta-eyebrow::before, .cta-eyebrow::after {
+      content: ''; display: block;
+      width: 50px; height: 1px; background: var(--gold); opacity: .5;
+    }
+    .cta-eyebrow span {
+      font-size: .62rem; letter-spacing: .42em;
+      text-transform: uppercase; color: var(--gold);
+    }
+    .cta-sub {
+      margin-top: 28px;
+      font-size: .92rem; color: var(--text-2);
+      line-height: 1.9; max-width: 520px; margin-left: auto; margin-right: auto;
+    }
+    .cta-btns {
+      display: flex; gap: 16px; justify-content: center;
+      flex-wrap: wrap; margin-top: 52px;
+    }
+    .cta-note {
+      margin-top: 28px;
+      font-size: .62rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--text-4);
+    }
+
+    /* ══════════════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════════════ */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 88px 0 40px;
+    }
+    .ft-grid {
+      display: grid;
+      grid-template-columns: 2.5fr 1fr 1fr 1fr;
+      gap: 56px; margin-bottom: 72px;
+    }
+    .ft-logo {
+      font-family: var(--f-disp);
+      font-size: 1.5rem; font-weight: 900;
+      letter-spacing: .14em; text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+    .ft-logo em { color: var(--gold); font-style: normal; }
+    .ft-tagline {
+      font-family: var(--f-serif);
+      font-size: .95rem; font-style: italic;
+      color: var(--text-2); line-height: 1.75;
+      max-width: 260px;
+    }
+    .ft-socials {
+      display: flex; gap: 10px; margin-top: 28px;
+    }
+    .ft-soc {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 600;
+      color: var(--text-3);
+      transition: border-color .3s, color .3s, background .3s;
+      text-transform: uppercase;
+      font-family: var(--f-body);
+    }
+    .ft-soc:hover { border-color: var(--gold); color: var(--gold); }
+
+    .ft-col-title {
+      font-family: var(--f-body);
+      font-size: .6rem; font-weight: 400;
+      letter-spacing: .36em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 20px;
+    }
+    .ft-links { display: flex; flex-direction: column; gap: 11px; }
+    .ft-links a {
+      font-size: .82rem; color: var(--text-2);
+      transition: color .25s, padding-left .25s;
+    }
+    .ft-links a:hover { color: var(--text-1); padding-left: 6px; }
+    .ft-addr { font-size: .82rem; color: var(--text-2); line-height: 2.1; }
+
+    .ft-bottom {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      display: flex; justify-content: space-between;
+      align-items: center; flex-wrap: wrap; gap: 14px;
+    }
+    .ft-copy { font-size: .72rem; color: var(--text-4); letter-spacing: .08em; }
+    .ft-legal { display: flex; gap: 20px; }
+    .ft-legal a {
+      font-size: .72rem; color: var(--text-4);
+      transition: color .25s;
+    }
+    .ft-legal a:hover { color: var(--gold); }
+
+    /* ══════════════════════════════════════════════
+       FLOATING WHATSAPP BUTTON
+    ══════════════════════════════════════════════ */
+    #wa-float {
+      position: fixed; bottom: 32px; right: 32px; z-index: 600;
+      width: 56px; height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 24px rgba(37,211,102,.35);
+      transition: transform .3s var(--spring), box-shadow .3s;
+      cursor: none;
+      animation: waBounce 3s ease-in-out 4s infinite;
+    }
+    @keyframes waBounce {
+      0%,80%,100% { transform: translateY(0); }
+      40% { transform: translateY(-8px); }
+    }
+    #wa-float:hover {
+      transform: scale(1.12);
+      box-shadow: 0 8px 36px rgba(37,211,102,.5);
+      animation: none;
+    }
+    #wa-float svg { width: 26px; height: 26px; fill: white; }
+
+    .wa-tooltip {
+      position: absolute; right: 68px; top: 50%;
+      transform: translateY(-50%);
+      background: var(--card);
+      border: 1px solid var(--border);
+      padding: 8px 16px;
+      white-space: nowrap;
+      font-size: .68rem; letter-spacing: .15em;
+      text-transform: uppercase; color: var(--text-1);
+      opacity: 0; pointer-events: none;
+      transition: opacity .3s;
+    }
+    #wa-float:hover .wa-tooltip { opacity: 1; }
+
+    /* ══════════════════════════════════════════════
+       MOBILE STICKY CTA BAR
+    ══════════════════════════════════════════════ */
+    #mob-cta-bar {
+      display: none;
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 600;
+      background: rgba(9,9,9,.95);
+      backdrop-filter: blur(16px);
+      border-top: 1px solid var(--border);
+      padding: 12px 20px;
+      gap: 10px;
+      align-items: center;
+    }
+    #mob-cta-bar .mcb-btn {
+      flex: 1;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      padding: 14px;
+      font-family: var(--f-disp);
+      font-size: .75rem; font-weight: 700;
+      letter-spacing: .18em; text-transform: uppercase;
+      border-radius: 2px;
+    }
+    .mcb-primary { background: var(--gold); color: var(--black); }
+    .mcb-wa      { background: #25D366; color: white; }
+
+    /* ══════════════════════════════════════════════
+       RESPONSIVE
+    ══════════════════════════════════════════════ */
+    @media (max-width: 1200px) {
+      .wrap { padding: 0 40px; }
+      #hdr, #hdr.scrolled { padding-left: 40px; padding-right: 40px; }
+      .hero-left, .hero-right { padding-left: 40px; padding-right: 40px; }
+      .about-grid { grid-template-columns: 1fr 1fr; }
+      .about-content { padding-left: 60px; }
+      .about-vis { padding-right: 60px; }
+      .loc-left { padding-right: 60px; }
+      .loc-right { padding-left: 60px; }
+    }
+
+    @media (max-width: 1024px) {
+      .wrap { padding: 0 28px; }
+      #hdr, #hdr.scrolled { padding-left: 28px; padding-right: 28px; }
+      .hdr-nav { display: none; }
+      .hdr-ham { display: flex; }
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 0 28px 80px; }
+      .hero-strip { padding: 0 28px; }
+      .scroll-cue { left: 28px; }
+      .about-grid { grid-template-columns: 1fr; }
+      .about-vis { padding-right: 0; border-right: none; border-bottom: 1px solid var(--border); padding-bottom: 60px; margin-bottom: 60px; }
+      .about-content { padding-left: 0; }
+      .about-badge { right: 0; }
+      .svc-grid { grid-template-columns: 1fr 1fr; }
+      .why-grid { grid-template-columns: 1fr; gap: 64px; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: repeat(4, 200px);
+      }
+      .gi-1 { grid-column: 1/3; grid-row: 1/3; }
+      .gi-2 { grid-column: 3/4; grid-row: 1/2; }
+      .gi-3 { grid-column: 3/4; grid-row: 2/3; }
+      .gi-4 { grid-column: 1/2; grid-row: 3/4; }
+      .gi-5 { grid-column: 2/3; grid-row: 3/4; }
+      .gi-6 { grid-column: 3/4; grid-row: 3/4; }
+      .gi-7 { grid-column: 1/4; grid-row: 4/5; }
+      .reviews-grid { grid-template-columns: 1fr 1fr; }
+      .loc-grid { grid-template-columns: 1fr; gap: 64px; }
+      .loc-left { border-right: none; padding-right: 0; }
+      .loc-right { padding-left: 0; }
+      .ft-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      #about, #manifesto, #services, #why, #gallery, #ba-section, #reviews, #location, #cta-section { padding: 100px 0; }
+      .wrap { padding: 0 20px; }
+      #hdr, #hdr.scrolled { padding-left: 20px; padding-right: 20px; }
+      .hero-strip { flex-wrap: wrap; gap: 12px; padding: 0 20px; height: auto; padding-top: 14px; padding-bottom: 14px; }
+      .hero-left { padding: 0 20px 72px; }
+      .svc-grid { grid-template-columns: 1fr; }
+      .svc-head { grid-template-columns: 1fr; }
+      .svc-cta-bar { padding: 20px; }
+      .why-features { grid-template-columns: 1fr; }
+      .why-stats { grid-template-columns: 1fr 1fr; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: repeat(5, 160px);
+      }
+      .gi-1 { grid-column: 1/3; grid-row: 1/2; }
+      .gi-2 { grid-column: 1/2; grid-row: 2/3; }
+      .gi-3 { grid-column: 2/3; grid-row: 2/3; }
+      .gi-4 { grid-column: 1/2; grid-row: 3/4; }
+      .gi-5 { grid-column: 2/3; grid-row: 3/4; }
+      .gi-6 { grid-column: 1/2; grid-row: 4/5; }
+      .gi-7 { grid-column: 2/3; grid-row: 4/5; }
+      .reviews-grid { grid-template-columns: 1fr; }
+      .rating-banner { flex-direction: column; padding: 24px 20px; }
+      .about-traits { grid-template-columns: 1fr; }
+      .ft-grid { grid-template-columns: 1fr; gap: 36px; }
+      .ft-bottom { flex-direction: column; text-align: center; }
+      #wa-float { bottom: 80px; right: 20px; }
+      #mob-cta-bar { display: flex; }
+      body { padding-bottom: 70px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-ctas { flex-direction: column; }
+      .cta-btns { flex-direction: column; align-items: center; }
+      .btn { justify-content: center; }
+    }
+
+    /* ══════════════════════════════════════════════
+       MOBILE HERO STATS (shown only on mobile)
+    ══════════════════════════════════════════════ */
+    #hero-mob-stats {
+      display: none;
+      background: var(--deep);
+      border-bottom: 1px solid var(--border);
+    }
+    #hero-mob-stats .mob-stats-inner {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+    #hero-mob-stats .ms-item {
+      padding: 22px 16px;
+      border-right: 1px solid var(--border);
+      text-align: center;
+    }
+    #hero-mob-stats .ms-item:last-child { border-right: none; }
+    #hero-mob-stats .ms-n {
+      font-family: var(--f-disp);
+      font-size: 1.8rem; font-weight: 900;
+      color: var(--text-1); line-height: 1;
+    }
+    #hero-mob-stats .ms-n em { color: var(--gold); font-style: normal; }
+    #hero-mob-stats .ms-l {
+      font-size: .58rem; letter-spacing: .2em;
+      text-transform: uppercase; color: var(--text-3);
+      margin-top: 4px;
+    }
+
+    @media (max-width: 1024px) {
+      #hero-mob-stats { display: block; }
+    }
+
+    /* ══════════════════════════════════════════════
+       SCROLLBAR + SELECTION
+    ══════════════════════════════════════════════ */
+    ::-webkit-scrollbar { width: 3px; }
+    ::-webkit-scrollbar-track { background: var(--black); }
+    ::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 2px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--gold); }
+    ::selection { background: rgba(200,168,100,.25); color: var(--text-1); }
+  </style>
+</head>
+<body>
+
+  <!-- ════ CANVAS GRAIN ════ -->
+  <canvas id="grain" aria-hidden="true"></canvas>
+
+  <!-- ════ CURSOR ════ -->
+  <div id="cur-dot"></div>
+  <div id="cur-ring"></div>
+
+  <!-- ════ LOADER ════ -->
+  <div id="loader">
+    <div class="ld-brand">REKO'S <em>BARBER</em></div>
+    <div class="ld-progress"><div class="ld-bar"></div></div>
+    <div class="ld-loc">Nordhorn · Deutschland</div>
+  </div>
+
+  <!-- ════ HEADER ════ -->
+  <header id="hdr">
+    <a href="#" class="hdr-logo" aria-label="Reko's Barber Shop">REKO'S <em>BARBER</em></a>
+    <nav class="hdr-nav" aria-label="Hauptnavigation">
+      <a href="#about">Story</a>
+      <a href="#services">Leistungen</a>
+      <a href="#gallery">Lookbook</a>
+      <a href="#reviews">Stimmen</a>
+      <a href="#location">Standort</a>
+      <a href="#cta-section" class="hdr-cta">Termin</a>
+    </nav>
+    <button class="hdr-ham" id="hamburger" aria-label="Menü öffnen" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <!-- ════ MOBILE NAV ════ -->
+  <nav id="mob-nav" aria-label="Mobile Navigation" aria-hidden="true">
+    <a href="#about"   class="mob-link">Story</a>
+    <a href="#services" class="mob-link">Leistungen</a>
+    <a href="#gallery"  class="mob-link">Lookbook</a>
+    <a href="#reviews"  class="mob-link">Stimmen</a>
+    <a href="#location" class="mob-link">Standort</a>
+    <a href="#cta-section" class="mob-link">Termin buchen</a>
+    <p class="mob-nav-sub">Nordhorn · Neuenhauser Str. 17</p>
+  </nav>
+
+  <!-- ════════════════════════════════════════════
+       §1 HERO
+  ════════════════════════════════════════════ -->
+  <section id="hero" aria-label="Hero">
+
+    <div class="hero-ghost" aria-hidden="true">REKO'S</div>
+
+    <!-- Left panel -->
+    <div class="hero-left">
+      <!-- Live status -->
+      <div class="hero-open-badge" id="open-badge">
+        <span class="open-dot"></span>
+        <span class="open-text" id="open-text">Lädt...</span>
+      </div>
+
+      <!-- Headline -->
+      <h1 class="hero-h1 h-xl">
+        <span class="clip-line d1"><span class="clip-inner">DEIN</span></span>
+        <span class="clip-line d2"><span class="clip-inner">STYLE.</span></span>
+        <span class="clip-line d3"><span class="clip-inner accent">DEIN BARBER.</span></span>
+      </h1>
+
+      <p class="hero-copy">
+        Präzision, die sichtbar ist. Qualität, die man spürt.
+        Reko's Barber Shop – der Premium-Barbershop in Nordhorn.
+      </p>
+
+      <div class="hero-ctas">
+        <!-- TODO: Echte WhatsApp-Nummer eintragen, z.B. wa.me/4915912345678 -->
+        <a href="https://wa.me/49XXXXXXXXXX?text=Hallo%20Reko%2C%20ich%20m%C3%B6chte%20einen%20Termin."
+           target="_blank" rel="noopener"
+           class="btn btn-gold magnetic"
+           aria-label="Termin via WhatsApp anfragen">
+          <span class="btn-inner">Termin anfragen <span class="arrow">→</span></span>
+        </a>
+        <a href="#services" class="btn btn-ghost magnetic">
+          <span class="btn-inner">Leistungen</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Right panel — visual -->
+    <div class="hero-right">
+      <div class="hero-visual" role="img" aria-label="Barbershop Atmosphäre">
+        <!-- Replace with: <img src="barber-hero.jpg" alt="Reko's Barber Shop" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"> -->
+        <div class="hero-visual-content">
+          <span class="hero-vis-icon" aria-hidden="true">✂</span>
+          <span class="hero-vis-label">Foto einfügen</span>
+        </div>
+      </div>
+      <div class="hero-pole" aria-hidden="true"><div class="hero-pole-inner"></div></div>
+      <div class="hero-stats-row" role="list">
+        <div class="h-stat" role="listitem">
+          <div class="h-stat-n"><span class="c-up" data-t="2500">0</span><em>+</em></div>
+          <div class="h-stat-l">Kunden</div>
+        </div>
+        <div class="h-stat" role="listitem">
+          <div class="h-stat-n"><span class="c-up" data-t="5">0</span><em>★</em></div>
+          <div class="h-stat-l">Google</div>
+        </div>
+        <div class="h-stat" role="listitem">
+          <div class="h-stat-n"><span class="c-up" data-t="10">0</span><em>+</em></div>
+          <div class="h-stat-l">Jahre</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cinematic bars -->
+    <div class="hero-bar-t" aria-hidden="true"></div>
+    <div class="hero-bar-b" aria-hidden="true"></div>
+
+    <!-- Scroll cue -->
+    <div class="scroll-cue" aria-hidden="true">
+      <div class="sc-line"></div>
+      <span class="sc-text">Scroll</span>
+    </div>
+
+  </section>
+
+  <!-- ════ MOBILE HERO STATS (only visible below 1024px) ════ -->
+  <div id="hero-mob-stats" aria-label="Kennzahlen">
+    <div class="mob-stats-inner">
+      <div class="ms-item">
+        <div class="ms-n">2500<em>+</em></div>
+        <div class="ms-l">Kunden</div>
+      </div>
+      <div class="ms-item">
+        <div class="ms-n">5<em>★</em></div>
+        <div class="ms-l">Google</div>
+      </div>
+      <div class="ms-item">
+        <div class="ms-n">10<em>+</em></div>
+        <div class="ms-l">Jahre</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ MARQUEE ════ -->
+  <div class="marquee-strip" aria-hidden="true">
+    <div class="marquee-track">
+      <!-- repeated twice for seamless loop -->
+      <span class="m-item hi">Präzision <span class="m-dot"></span></span>
+      <span class="m-item">Fade &amp; Taper <span class="m-dot"></span></span>
+      <span class="m-item hi">Stil <span class="m-dot"></span></span>
+      <span class="m-item">Bart Kontur <span class="m-dot"></span></span>
+      <span class="m-item hi">Vertrauen <span class="m-dot"></span></span>
+      <span class="m-item">Nordhorn <span class="m-dot"></span></span>
+      <span class="m-item hi">Premium Barber <span class="m-dot"></span></span>
+      <span class="m-item">Skin Fade <span class="m-dot"></span></span>
+      <span class="m-item hi">Qualität <span class="m-dot"></span></span>
+      <span class="m-item">Herrenfriseur <span class="m-dot"></span></span>
+      <span class="m-item hi">Präzision <span class="m-dot"></span></span>
+      <span class="m-item">Fade &amp; Taper <span class="m-dot"></span></span>
+      <span class="m-item hi">Stil <span class="m-dot"></span></span>
+      <span class="m-item">Bart Kontur <span class="m-dot"></span></span>
+      <span class="m-item hi">Vertrauen <span class="m-dot"></span></span>
+      <span class="m-item">Nordhorn <span class="m-dot"></span></span>
+      <span class="m-item hi">Premium Barber <span class="m-dot"></span></span>
+      <span class="m-item">Skin Fade <span class="m-dot"></span></span>
+      <span class="m-item hi">Qualität <span class="m-dot"></span></span>
+      <span class="m-item">Herrenfriseur <span class="m-dot"></span></span>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════════
+       §2 ABOUT
+  ════════════════════════════════════════════ -->
+  <section id="about" aria-labelledby="about-h">
+    <div class="wrap">
+      <div class="about-grid">
+
+        <div class="about-vis" data-reveal="left">
+          <div class="about-img-wrap">
+            <!-- Replace: <img src="reko-portrait.jpg" alt="Reko am Werk" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"> -->
+            <div class="about-img-overlay"></div>
+            <div class="about-img-center">
+              <span class="about-scissors" aria-hidden="true">✂</span>
+            </div>
+            <span class="about-img-label">Foto: Reko bei der Arbeit</span>
+          </div>
+          <div class="about-badge" aria-label="Über 10 Jahre Erfahrung">
+            <div class="about-badge-n">10+</div>
+            <div class="about-badge-l">Jahre<br>Erfahrung</div>
+          </div>
+        </div>
+
+        <div class="about-content">
+          <div class="slabel" data-reveal="up">Über uns</div>
+          <h2 class="h-lg" id="about-h">
+            <span class="clip-line d1"><span class="clip-inner">MEHR ALS</span></span>
+            <span class="clip-line d2"><span class="clip-inner">EIN <em style="color:var(--gold);font-style:normal;">SCHNITT.</em></span></span>
+          </h2>
+
+          <p class="about-body" data-reveal="up" data-delay=".2">
+            <strong>Reko's Barber Shop</strong> ist kein gewöhnlicher Friseur.
+            Hier trifft handwerkliche Präzision auf echte Leidenschaft.
+            Seit Jahren ist Reko <strong>die erste Wahl für Männer in Nordhorn</strong>,
+            die Qualität, Stil und Atmosphäre zu schätzen wissen.
+          </p>
+          <p class="about-body" data-reveal="up" data-delay=".3">
+            Jeder Haarschnitt ist <strong>individuell</strong>. Jede Fade ein Statement.
+            Jeder Bart ein Ausdruck von Charakter. Du verlässt den Stuhl
+            nicht mit einem Haarschnitt – du verlässt ihn mit einem <strong>neuen Gefühl</strong>.
+          </p>
+
+          <div class="about-pull" data-reveal="up" data-delay=".4">
+            <p class="about-pull-text">
+              „Wir schneiden nicht einfach Haare.<br>Wir verfeinern deinen Auftritt."
+            </p>
+            <p class="about-pull-attr">— Reko, Gründer & Head Barber</p>
+          </div>
+
+          <div class="about-traits" data-reveal="up" data-delay=".5">
+            <div class="about-trait">
+              <div class="at-icon">✦</div>
+              <div class="at-name">Präzision</div>
+              <div class="at-desc">Jede Linie sitzt. Immer.</div>
+            </div>
+            <div class="about-trait">
+              <div class="at-icon">◆</div>
+              <div class="at-name">Atmosphäre</div>
+              <div class="at-desc">Premium Ambiente</div>
+            </div>
+            <div class="about-trait">
+              <div class="at-icon">★</div>
+              <div class="at-name">Produkte</div>
+              <div class="at-desc">Erstklassige Qualität</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-diamond"></div>
+
+  <!-- ════════════════════════════════════════════
+       §  MANIFESTO
+  ════════════════════════════════════════════ -->
+  <section id="manifesto" aria-label="Marken-Statement">
+    <div class="manifesto-bg"></div>
+    <div class="wrap">
+      <div class="manifesto-inner">
+        <div class="manifesto-eyebrow" data-reveal="up">
+          <span>Unser Versprechen</span>
+        </div>
+        <p class="manifesto-text" data-reveal="up" data-delay=".15">
+          Ein guter Barber ist mehr als ein Handwerker.<br>
+          Er ist <em>Vertrauensperson</em>, Stilberater und Konstante<br>
+          in deinem Alltag. Bei Reko's weißt du,<br>
+          dass du <em>immer perfekt rausgehst</em>.
+        </p>
+        <p class="manifesto-sub" data-reveal="up" data-delay=".35">
+          Nordhorn's Premium Barbershop seit über 10 Jahren
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-line"></div>
+
+  <!-- ════════════════════════════════════════════
+       §3 SERVICES
+  ════════════════════════════════════════════ -->
+  <section id="services" aria-labelledby="svc-h">
+    <div class="wrap">
+      <div class="svc-head">
+        <div>
+          <div class="slabel" data-reveal="up">Leistungen</div>
+          <h2 class="h-lg" id="svc-h">
+            <span class="clip-line d1"><span class="clip-inner">ALLES,</span></span>
+            <span class="clip-line d2"><span class="clip-inner">WAS DU <span style="color:var(--gold)">BRAUCHST.</span></span></span>
+          </h2>
+        </div>
+        <p class="svc-intro" data-reveal="right" data-delay=".2">
+          Vom klassischen Cut bis zum perfekten Fade – wir decken das komplette
+          Spektrum moderner Barbershop-Dienstleistungen ab.
+          Erstklassige Techniken, Profi-Produkte.
+        </p>
+      </div>
+
+      <div class="svc-grid">
+        <article class="svc-card" data-reveal="up">
+          <div class="svc-num">01 — Service</div>
+          <span class="svc-icon" aria-hidden="true">✂</span>
+          <h3 class="svc-name">Haarschnitt</h3>
+          <p class="svc-desc">Klassisch oder modern – präzise auf deine Gesichtsform und deinen Stil abgestimmt. Beratung inklusive.</p>
+          <div class="svc-price">
+            <span class="svc-price-from">ab&nbsp;</span>
+            <span class="svc-price-cur">€</span>
+            <span class="svc-price-val">18</span>
+          </div>
+          <div class="svc-num-bg" aria-hidden="true">01</div>
+        </article>
+
+        <article class="svc-card feat" data-reveal="up" data-delay=".1">
+          <div class="svc-num">02 — Signature</div>
+          <span class="svc-icon" aria-hidden="true">⚡</span>
+          <h3 class="svc-name">Fade & Taper</h3>
+          <p class="svc-desc">High Fade, Mid Fade, Low Fade, Taper – saubere Übergänge sind unsere Kernkompetenz. Kein Klecks, pure Perfektion.</p>
+          <div class="svc-price">
+            <span class="svc-price-from">ab&nbsp;</span>
+            <span class="svc-price-cur">€</span>
+            <span class="svc-price-val">22</span>
+          </div>
+          <div class="svc-num-bg" aria-hidden="true">02</div>
+        </article>
+
+        <article class="svc-card" data-reveal="up" data-delay=".2">
+          <div class="svc-num">03 — Service</div>
+          <span class="svc-icon" aria-hidden="true">◈</span>
+          <h3 class="svc-name">Bart & Kontur</h3>
+          <p class="svc-desc">Bart trimmen, formen, linieren – dein Bart verdient die gleiche Aufmerksamkeit wie dein Haar. Präzise auf Punkt.</p>
+          <div class="svc-price">
+            <span class="svc-price-from">ab&nbsp;</span>
+            <span class="svc-price-cur">€</span>
+            <span class="svc-price-val">12</span>
+          </div>
+          <div class="svc-num-bg" aria-hidden="true">03</div>
+        </article>
+
+        <article class="svc-card" data-reveal="up" data-delay=".1">
+          <div class="svc-num">04 — Service</div>
+          <span class="svc-icon" aria-hidden="true">✦</span>
+          <h3 class="svc-name">Konturschnitt</h3>
+          <p class="svc-desc">Scharfe Konturen am Nacken und an den Seiten – das frische, gepflegte Aussehen, das tagelang hält.</p>
+          <div class="svc-price">
+            <span class="svc-price-from">ab&nbsp;</span>
+            <span class="svc-price-cur">€</span>
+            <span class="svc-price-val">8</span>
+          </div>
+          <div class="svc-num-bg" aria-hidden="true">04</div>
+        </article>
+
+        <article class="svc-card" data-reveal="up" data-delay=".2">
+          <div class="svc-num">05 — Service</div>
+          <span class="svc-icon" aria-hidden="true">★</span>
+          <h3 class="svc-name">Styling</h3>
+          <p class="svc-desc">Das perfekte Finish mit Premium-Produkten – genau so, wie du es willst. Für einen Auftritt, der sitzt.</p>
+          <div class="svc-price">
+            <span class="svc-price-from">ab&nbsp;</span>
+            <span class="svc-price-cur">€</span>
+            <span class="svc-price-val">5</span>
+          </div>
+          <div class="svc-num-bg" aria-hidden="true">05</div>
+        </article>
+
+        <article class="svc-card" data-reveal="up" data-delay=".3">
+          <div class="svc-num">06 — Paket</div>
+          <span class="svc-icon" aria-hidden="true">◆</span>
+          <h3 class="svc-name">Kombi-Service</h3>
+          <p class="svc-desc">Haarschnitt + Bart + Kontur – das komplette Paket. Rausgehst du von Kopf bis Kinn auf Punkt.</p>
+          <div class="svc-price">
+            <span class="svc-price-from">ab&nbsp;</span>
+            <span class="svc-price-cur">€</span>
+            <span class="svc-price-val">32</span>
+          </div>
+          <div class="svc-num-bg" aria-hidden="true">06</div>
+        </article>
+      </div>
+
+      <div class="svc-cta-bar" data-reveal="up">
+        <p class="svc-cta-text">Nicht sicher welcher Service passt? Wir beraten dich gerne.</p>
+        <!-- TODO: Echte WhatsApp-Nummer eintragen -->
+        <a href="https://wa.me/49XXXXXXXXXX?text=Ich%20brauche%20Beratung%20zum%20Service."
+           target="_blank" rel="noopener"
+           class="btn btn-bare">
+          <span class="btn-inner">WhatsApp Beratung <span class="arrow">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-diamond"></div>
+
+  <!-- ════════════════════════════════════════════
+       §4 WHY
+  ════════════════════════════════════════════ -->
+  <section id="why" aria-labelledby="why-h">
+    <div class="why-watermark" aria-hidden="true"><span>REKO'S</span></div>
+    <div class="wrap">
+      <div class="why-grid">
+        <div>
+          <div class="slabel" data-reveal="up">Warum wir</div>
+          <h2 class="h-lg" id="why-h">
+            <span class="clip-line d1"><span class="clip-inner">DER STANDARD</span></span>
+            <span class="clip-line d2"><span class="clip-inner">IN <span style="color:var(--gold)">NORDHORN.</span></span></span>
+          </h2>
+
+          <div class="why-features">
+            <div class="why-feat" data-reveal="up" data-delay=".1">
+              <div class="wf-num">01</div>
+              <div class="wf-title">Saubere Übergänge</div>
+              <p class="wf-text">Fades, die wirklich faden. Technisch präzise, ästhetisch makellos.</p>
+            </div>
+            <div class="why-feat" data-reveal="up" data-delay=".2">
+              <div class="wf-num">02</div>
+              <div class="wf-title">Aktuelle Styles</div>
+              <p class="wf-text">Wir kennen die neuesten Trends und setzen sie handwerklich perfekt um.</p>
+            </div>
+            <div class="why-feat" data-reveal="up" data-delay=".3">
+              <div class="wf-num">03</div>
+              <div class="wf-title">Entspannte Atmosphäre</div>
+              <p class="wf-text">Kein Stress – nur du, dein Barber und ein gutes Gespräch.</p>
+            </div>
+            <div class="why-feat" data-reveal="up" data-delay=".4">
+              <div class="wf-num">04</div>
+              <div class="wf-title">Zentral in Nordhorn</div>
+              <p class="wf-text">Leicht erreichbar. Genug Parkplätze. Kurze Wartezeiten.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-stats" data-reveal="right" data-delay=".2">
+          <div class="stat-block">
+            <div class="stat-n"><span class="c-up" data-t="500">0</span><em>+</em></div>
+            <div class="stat-l">Kunden / Monat</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-n"><span class="c-up" data-t="5">0</span><em>★</em></div>
+            <div class="stat-l">Google Rating</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-n"><span class="c-up" data-t="10">0</span><em>+</em></div>
+            <div class="stat-l">Jahre Erfahrung</div>
+          </div>
+          <div class="stat-block">
+            <div class="stat-n"><span class="c-up" data-t="100">0</span><em>%</em></div>
+            <div class="stat-l">Hingabe & Handwerk</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-line"></div>
+
+  <!-- ════════════════════════════════════════════
+       §5 GALLERY
+  ════════════════════════════════════════════ -->
+  <section id="gallery" aria-labelledby="gallery-h">
+    <div class="wrap">
+      <div class="gallery-head">
+        <div class="slabel" data-reveal="up" style="justify-content:center;">Lookbook</div>
+        <h2 class="h-lg" id="gallery-h" data-reveal="up" data-delay=".1">
+          DIE ARBEIT<br><span style="color:var(--gold)">SPRICHT.</span>
+        </h2>
+      </div>
+
+      <div class="gallery-grid">
+        <div class="gi gi-1" data-reveal="scale">
+          <div class="gi-inner"><span class="gi-icon" aria-hidden="true">✂</span></div>
+          <span class="gi-num">01</span>
+          <div class="gi-overlay"><span class="gi-tag">High Fade</span></div>
+        </div>
+        <div class="gi gi-2" data-reveal="scale" data-delay=".1">
+          <div class="gi-inner"><span class="gi-icon" aria-hidden="true">◆</span></div>
+          <span class="gi-num">02</span>
+          <div class="gi-overlay"><span class="gi-tag">Taper Fade</span></div>
+        </div>
+        <div class="gi gi-3" data-reveal="scale" data-delay=".15">
+          <div class="gi-inner"><span class="gi-icon" aria-hidden="true">★</span></div>
+          <span class="gi-num">03</span>
+          <div class="gi-overlay"><span class="gi-tag">Skin Fade</span></div>
+        </div>
+        <div class="gi gi-4" data-reveal="scale" data-delay=".2">
+          <div class="gi-inner"><span class="gi-icon" aria-hidden="true">✦</span></div>
+          <span class="gi-num">04</span>
+          <div class="gi-overlay"><span class="gi-tag">Bart Kontur</span></div>
+        </div>
+        <div class="gi gi-5" data-reveal="scale" data-delay=".1">
+          <div class="gi-inner"><span class="gi-icon" aria-hidden="true">◈</span></div>
+          <span class="gi-num">05</span>
+          <div class="gi-overlay"><span class="gi-tag">Classic Cut</span></div>
+        </div>
+        <div class="gi gi-6" data-reveal="scale" data-delay=".2">
+          <div class="gi-inner"><span class="gi-icon" aria-hidden="true">⚡</span></div>
+          <span class="gi-num">06</span>
+          <div class="gi-overlay"><span class="gi-tag">Styling</span></div>
+        </div>
+        <div class="gi gi-7" data-reveal="scale" data-delay=".3">
+          <div class="gi-inner"><span class="gi-icon" aria-hidden="true">✂</span></div>
+          <span class="gi-num">07</span>
+          <div class="gi-overlay"><span class="gi-tag">Kombi-Service</span></div>
+        </div>
+      </div>
+
+      <div class="gallery-footer" data-reveal="up">
+        <p class="gallery-footer-text">Jeden Tag neue Ergebnisse auf Instagram</p>
+        <a href="https://www.instagram.com/rekos.barbershop/" target="_blank" rel="noopener"
+           class="btn btn-ghost magnetic">
+          <span class="btn-inner">@rekos.barbershop <span class="arrow">→</span></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ BEFORE / AFTER ════ -->
+  <section id="ba-section" aria-label="Vorher Nachher Vergleich">
+    <div class="wrap">
+      <div class="ba-head">
+        <div class="slabel" data-reveal="up" style="justify-content:center;">Ergebnis</div>
+        <h2 class="h-md" data-reveal="up" data-delay=".1" style="text-align:center;">
+          VORHER / <span style="color:var(--gold)">NACHHER</span>
+        </h2>
+      </div>
+      <div class="ba-wrap" data-reveal="scale" data-delay=".2">
+        <div class="ba-slider" id="ba-slider" role="img" aria-label="Vorher-Nachher Vergleich">
+          <div class="ba-side ba-before">
+            <div class="ba-ph">
+              <span class="ba-ph-icon" aria-hidden="true">✂</span>
+              <span class="ba-ph-text">Vorher – Foto einfügen</span>
+            </div>
+          </div>
+          <div class="ba-side ba-after" id="ba-after">
+            <div class="ba-ph">
+              <span class="ba-ph-icon" aria-hidden="true">★</span>
+              <span class="ba-ph-text">Nachher – Foto einfügen</span>
+            </div>
+          </div>
+          <div class="ba-handle" id="ba-handle">
+            <div class="ba-btn" aria-hidden="true">⟺</div>
+          </div>
+          <span class="ba-lbl ba-lbl-b" aria-hidden="true">Vorher</span>
+          <span class="ba-lbl ba-lbl-a" aria-hidden="true">Nachher</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-diamond"></div>
+
+  <!-- ════════════════════════════════════════════
+       §6 REVIEWS
+  ════════════════════════════════════════════ -->
+  <section id="reviews" aria-labelledby="reviews-h">
+    <div class="wrap">
+      <div class="reviews-head">
+        <div class="slabel" data-reveal="up" style="justify-content:center;">Kundenstimmen</div>
+        <h2 class="h-lg" id="reviews-h" data-reveal="up" data-delay=".1">
+          SIE SAGEN ES<br><span style="color:var(--gold)">AM BESTEN.</span>
+        </h2>
+      </div>
+
+      <div class="reviews-grid">
+        <article class="rev-card" data-reveal="up">
+          <div class="rev-qmark" aria-hidden="true">"</div>
+          <div class="rev-stars" aria-label="5 von 5 Sternen">
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+          </div>
+          <p class="rev-text">
+            Bester Barbershop in Nordhorn, ohne Frage. Reko weiß genau, was er tut.
+            Mein Fade sitzt immer perfekt – und die Atmosphäre ist entspannt und professionell zugleich.
+          </p>
+          <div class="rev-author">
+            <div class="rev-av" aria-hidden="true">KM</div>
+            <div>
+              <div class="rev-name">Kevin M.</div>
+              <div class="rev-src">Google Bewertung</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="rev-card" data-reveal="up" data-delay=".15">
+          <div class="rev-qmark" aria-hidden="true">"</div>
+          <div class="rev-stars" aria-label="5 von 5 Sternen">
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+          </div>
+          <p class="rev-text">
+            Endlich ein Barber in Nordhorn mit echtem Know-how. Skin Fade, Bart, alles top.
+            Bin jetzt Stammkunde und komme immer wieder.
+          </p>
+          <div class="rev-author">
+            <div class="rev-av" aria-hidden="true">TK</div>
+            <div>
+              <div class="rev-name">Tim K.</div>
+              <div class="rev-src">Google Bewertung</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="rev-card" data-reveal="up" data-delay=".3">
+          <div class="rev-qmark" aria-hidden="true">"</div>
+          <div class="rev-stars" aria-label="5 von 5 Sternen">
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span><span class="star" aria-hidden="true">★</span>
+            <span class="star" aria-hidden="true">★</span>
+          </div>
+          <p class="rev-text">
+            Drittes Mal und immer wieder begeistert. Ehrliche Beratung, der Schnitt sitzt,
+            der Preis ist fair. Was will man mehr?
+          </p>
+          <div class="rev-author">
+            <div class="rev-av" aria-hidden="true">JS</div>
+            <div>
+              <div class="rev-name">Jonas S.</div>
+              <div class="rev-src">Google Bewertung</div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="rating-banner" data-reveal="up">
+        <div class="rb-left">
+          <div class="rb-num" aria-label="Bewertung 5.0 von 5">5.0</div>
+          <div class="rb-stars-col">
+            <div class="rb-stars-row" aria-hidden="true">
+              <span class="star">★</span><span class="star">★</span><span class="star">★</span>
+              <span class="star">★</span><span class="star">★</span>
+            </div>
+            <div class="rb-src">Basierend auf Google Bewertungen</div>
+          </div>
+        </div>
+        <p class="rb-text">
+          „Reko's Barber Shop – der am besten bewertete Barbershop in Nordhorn."
+        </p>
+        <!-- TODO: Echten Google Maps Review-Link eintragen -->
+        <a href="https://www.google.com/search?q=Reko%27s+Barber+Shop+Nordhorn+Bewertungen"
+           target="_blank" rel="noopener" class="btn btn-ghost">
+          <span class="btn-inner">Bewertungen lesen</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-line"></div>
+
+  <!-- ════════════════════════════════════════════
+       §7 LOCATION
+  ════════════════════════════════════════════ -->
+  <section id="location" aria-labelledby="loc-h">
+    <div class="wrap">
+      <div class="loc-grid">
+        <div class="loc-left">
+          <div class="slabel" data-reveal="up">Standort</div>
+          <div class="map-box" data-reveal="scale" data-delay=".1" role="img"
+               aria-label="Kartenansicht Reko's Barber Shop Nordhorn">
+            <div class="map-pin-wrap">
+              <div class="map-pin-body"><div class="map-pin-inner"></div></div>
+              <span class="map-pin-label">Reko's Barber Shop · Nordhorn</span>
+            </div>
+            <a href="https://www.google.com/maps/search/Neuenhauser+Stra%C3%9Fe+17,+48529+Nordhorn"
+               target="_blank" rel="noopener"
+               class="map-open-btn" aria-label="In Google Maps öffnen">
+              Google Maps öffnen ↗
+            </a>
+          </div>
+        </div>
+
+        <div class="loc-right">
+          <div class="slabel" data-reveal="up">Öffnungszeiten & Kontakt</div>
+          <h2 class="h-md" id="loc-h" data-reveal="up" data-delay=".1">
+            REKO'S<br><span style="color:var(--gold)">BARBERSHOP</span>
+          </h2>
+
+          <div class="hours-table" data-reveal="up" data-delay=".2" role="list">
+            <div class="hr-row" role="listitem">
+              <span class="hr-day">Montag</span>
+              <span class="hr-time">09:00 – 18:00</span>
+            </div>
+            <div class="hr-row" role="listitem">
+              <span class="hr-day">Dienstag</span>
+              <span class="hr-time">09:00 – 18:00</span>
+            </div>
+            <div class="hr-row" role="listitem">
+              <span class="hr-day">Mittwoch</span>
+              <span class="hr-time">09:00 – 18:00</span>
+            </div>
+            <div class="hr-row" role="listitem">
+              <span class="hr-day">Donnerstag</span>
+              <span class="hr-time">09:00 – 18:00</span>
+            </div>
+            <div class="hr-row" role="listitem">
+              <span class="hr-day">Freitag</span>
+              <span class="hr-time">09:00 – 18:00</span>
+            </div>
+            <div class="hr-row" role="listitem">
+              <span class="hr-day">Samstag</span>
+              <span class="hr-time">09:00 – 15:00</span>
+            </div>
+            <div class="hr-row closed" role="listitem">
+              <span class="hr-day">Sonntag</span>
+              <span class="hr-time">Geschlossen</span>
+            </div>
+          </div>
+
+          <div class="loc-contact" data-reveal="up" data-delay=".3">
+            <div class="lc-row">
+              <span class="lc-dot"></span>
+              <div>
+                <div class="lc-label">Adresse</div>
+                <div class="lc-val">Neuenhauser Straße 17<br>48529 Nordhorn</div>
+              </div>
+            </div>
+            <div class="lc-row">
+              <span class="lc-dot"></span>
+              <div>
+                <div class="lc-label">Telefon / WhatsApp</div>
+                <!-- TODO: Echte Telefonnummer eintragen, z.B. +49 5921 123456 -->
+                <div class="lc-val">
+                  <a href="tel:+49XXXXXXXXXX">+49 XXXX XXXXXXX</a>
+                </div>
+              </div>
+            </div>
+            <div class="lc-row">
+              <span class="lc-dot"></span>
+              <div>
+                <div class="lc-label">Instagram</div>
+                <div class="lc-val">
+                  <a href="https://www.instagram.com/rekos.barbershop/" target="_blank" rel="noopener">
+                    @rekos.barbershop
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="div-line"></div>
+
+  <!-- ════════════════════════════════════════════
+       §8 FINAL CTA
+  ════════════════════════════════════════════ -->
+  <section id="cta-section" aria-label="Termin buchen">
+    <div class="cta-glow"></div>
+    <div class="cta-ghost" aria-hidden="true">TERMIN</div>
+    <div class="wrap">
+      <div class="cta-inner">
+        <div class="cta-eyebrow" data-reveal="up">
+          <span>Bereit für deinen nächsten Look?</span>
+        </div>
+        <h2 class="h-xl" data-reveal="up" data-delay=".1">
+          BUCH<br>DEINEN<br><span style="color:var(--gold)">TERMIN.</span>
+        </h2>
+        <p class="cta-sub" data-reveal="up" data-delay=".25">
+          Kein endloses Warten. Kein Ratespiel.
+          Schreib uns einfach auf WhatsApp und wir vereinbaren
+          deinen Wunschtermin.
+        </p>
+        <div class="cta-btns" data-reveal="up" data-delay=".35">
+          <!-- TODO: Echte WhatsApp-Nummer eintragen -->
+          <a href="https://wa.me/49XXXXXXXXXX?text=Hallo%20Reko%2C%20ich%20m%C3%B6chte%20einen%20Termin%20vereinbaren."
+             target="_blank" rel="noopener"
+             class="btn btn-gold magnetic">
+            <span class="btn-inner">WhatsApp Termin <span class="arrow">→</span></span>
+          </a>
+          <a href="https://www.instagram.com/rekos.barbershop/" target="_blank" rel="noopener"
+             class="btn btn-ghost magnetic">
+            <span class="btn-inner">Instagram ansehen</span>
+          </a>
+        </div>
+        <p class="cta-note" data-reveal="up" data-delay=".45">
+          Mo–Fr 09–18 Uhr · Sa 09–15 Uhr · Neuenhauser Str. 17 · Nordhorn
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════ FOOTER ════ -->
+  <footer>
+    <div class="wrap">
+      <div class="ft-grid">
+        <div>
+          <div class="ft-logo">REKO'S <em>BARBER</em></div>
+          <p class="ft-tagline">
+            Präzision. Stil. Vertrauen.<br>
+            Nordhorn's Premium Barbershop.
+          </p>
+          <div class="ft-socials">
+            <a href="https://www.instagram.com/rekos.barbershop/" target="_blank" rel="noopener"
+               class="ft-soc" aria-label="Instagram">ig</a>
+            <!-- TODO: Echte WhatsApp-Nummer eintragen -->
+            <a href="https://wa.me/49XXXXXXXXXX" target="_blank" rel="noopener"
+               class="ft-soc" aria-label="WhatsApp">wa</a>
+            <a href="https://www.google.com/maps/search/Reko%27s+Barber+Shop+Nordhorn" target="_blank" rel="noopener"
+               class="ft-soc" aria-label="Google Maps">gm</a>
+          </div>
+        </div>
+        <div>
+          <div class="ft-col-title">Navigation</div>
+          <nav class="ft-links" aria-label="Footer Navigation">
+            <a href="#about">Über uns</a>
+            <a href="#services">Leistungen</a>
+            <a href="#gallery">Lookbook</a>
+            <a href="#reviews">Bewertungen</a>
+            <a href="#location">Standort</a>
+          </nav>
+        </div>
+        <div>
+          <div class="ft-col-title">Leistungen</div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <span class="h-micro">Haarschnitt</span>
+            <span class="h-micro">Fade & Taper</span>
+            <span class="h-micro">Bart & Kontur</span>
+            <span class="h-micro">Styling</span>
+            <span class="h-micro">Kombi-Service</span>
+          </div>
+        </div>
+        <div>
+          <div class="ft-col-title">Kontakt</div>
+          <div class="ft-addr">
+            Neuenhauser Straße 17<br>
+            48529 Nordhorn<br><br>
+            Mo–Fr: 09–18 Uhr<br>
+            Sa: 09–15 Uhr
+          </div>
+        </div>
+      </div>
+      <div class="ft-bottom">
+        <span class="ft-copy" id="ft-copy">© 2026 Reko's Barber Shop · Nordhorn</span>
+        <div class="ft-legal">
+          <!-- TODO: Eigene Impressum/Datenschutz-Seiten erstellen und verlinken -->
+          <a href="/impressum">Impressum</a>
+          <a href="/datenschutz">Datenschutz</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ════ FLOATING WHATSAPP ════ -->
+  <!-- TODO: Echte WhatsApp-Nummer eintragen -->
+  <a href="https://wa.me/49XXXXXXXXXX?text=Hallo%20Reko%2C%20ich%20m%C3%B6chte%20einen%20Termin."
+     id="wa-float" target="_blank" rel="noopener"
+     aria-label="WhatsApp Termin anfragen">
+    <div class="wa-tooltip">Termin via WhatsApp</div>
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+      <path d="M12 0C5.373 0 0 5.373 0 12c0 2.12.554 4.11 1.523 5.837L.057 23.077a.75.75 0 00.916.916l5.24-1.466A11.945 11.945 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.897 0-3.68-.497-5.22-1.368l-.374-.213-3.882 1.087 1.087-3.882-.213-.374A9.953 9.953 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z"/>
+    </svg>
+  </a>
+
+  <!-- ════ MOBILE STICKY CTA ════ -->
+  <div id="mob-cta-bar" role="complementary" aria-label="Termin buchen">
+    <a href="#services" class="mcb-btn btn-ghost" style="border:1px solid var(--border-light);color:var(--text-1);">
+      Leistungen
+    </a>
+    <!-- TODO: Echte WhatsApp-Nummer eintragen -->
+    <a href="https://wa.me/49XXXXXXXXXX?text=Hallo%20Reko%2C%20ich%20m%C3%B6chte%20einen%20Termin."
+       target="_blank" rel="noopener"
+       class="mcb-btn mcb-wa">
+      Termin anfragen →
+    </a>
+  </div>
+
+  <!-- ════════════════════════════════════════════
+       JAVASCRIPT
+  ════════════════════════════════════════════ -->
+  <script>
+    'use strict';
+
+    /* ─────────────────────────────────────────
+       DYNAMIC COPYRIGHT YEAR
+    ───────────────────────────────────────── */
+    (function() {
+      const el = document.getElementById('ft-copy');
+      if (el) el.textContent = '© ' + new Date().getFullYear() + ' Reko\'s Barber Shop · Nordhorn';
+    })();
+
+    /* ─────────────────────────────────────────
+       GRAIN CANVAS
+    ───────────────────────────────────────── */
+    (function initGrain() {
+      const canvas = document.getElementById('grain');
+      const ctx    = canvas.getContext('2d');
+      let   frame  = 0;
+      const SIZE   = 200;
+
+      function resize() {
+        canvas.width  = window.innerWidth;
+        canvas.height = window.innerHeight;
+      }
+
+      function draw() {
+        const id   = ctx.createImageData(SIZE, SIZE);
+        const data = id.data;
+        for (let i = 0; i < data.length; i += 4) {
+          const v = Math.random() * 255 | 0;
+          data[i]     = v;
+          data[i + 1] = v;
+          data[i + 2] = v;
+          data[i + 3] = 26; // ~10% opacity
+        }
+        const offscreen = document.createElement('canvas');
+        offscreen.width  = SIZE;
+        offscreen.height = SIZE;
+        offscreen.getContext('2d').putImageData(id, 0, 0);
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const pat = ctx.createPattern(offscreen, 'repeat');
+        ctx.fillStyle = pat;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+      }
+
+      function loop() {
+        if (++frame % 3 === 0) draw(); // throttle: every 3rd frame
+        requestAnimationFrame(loop);
+      }
+
+      window.addEventListener('resize', resize, { passive: true });
+      resize(); loop();
+    })();
+
+    /* ─────────────────────────────────────────
+       LOADER
+    ───────────────────────────────────────── */
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('loader').classList.add('out');
+        triggerHeroAnimations();
+        triggerHeroCounters();
+      }, 2100);
+    });
+
+    /* ─────────────────────────────────────────
+       HERO CLIP ANIMATIONS
+    ───────────────────────────────────────── */
+    function triggerHeroAnimations() {
+      const lines = document.querySelectorAll('#hero .clip-line');
+      lines.forEach((l, i) => {
+        setTimeout(() => l.classList.add('in'), i * 160 + 100);
+      });
+      // badge
+      setTimeout(() => {
+        document.getElementById('open-badge').style.opacity = '1';
+      }, 50);
+      // hero right
+      const hr = document.querySelector('.hero-right');
+      if (hr) setTimeout(() => { hr.style.opacity = '1'; }, 600);
+    }
+
+    /* hide badge initially */
+    document.getElementById('open-badge').style.opacity = '0';
+    document.getElementById('open-badge').style.transition = 'opacity 1s';
+    const heroRight = document.querySelector('.hero-right');
+    if (heroRight) { heroRight.style.opacity = '0'; heroRight.style.transition = 'opacity 1s 0.5s'; }
+
+    /* ─────────────────────────────────────────
+       OPEN / CLOSED STATUS
+    ───────────────────────────────────────── */
+    (function setOpenStatus() {
+      const now  = new Date();
+      const day  = now.getDay(); // 0=Sun,1=Mon,...,6=Sat
+      const hour = now.getHours() + now.getMinutes() / 60;
+      let isOpen = false;
+      if (day >= 1 && day <= 5 && hour >= 9 && hour < 18) isOpen = true;
+      if (day === 6 && hour >= 9 && hour < 15) isOpen = true;
+
+      const text = document.getElementById('open-text');
+      const dot  = document.querySelector('.open-dot');
+      if (isOpen) {
+        text.textContent = 'Jetzt geöffnet';
+        dot.style.background = '#4ade80';
+      } else {
+        text.textContent = 'Aktuell geschlossen';
+        dot.style.background = '#f87171';
+        dot.style.boxShadow = '0 0 0 0 rgba(248,113,113,.4)';
+      }
+    })();
+
+    /* ─────────────────────────────────────────
+       HIGHLIGHT TODAY IN HOURS TABLE
+    ───────────────────────────────────────── */
+    (function highlightToday() {
+      const map = ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'];
+      const today = map[new Date().getDay()];
+      document.querySelectorAll('.hr-day').forEach(el => {
+        if (el.textContent.trim() === today) {
+          el.closest('.hr-row').classList.add('today');
+        }
+      });
+    })();
+
+    /* ─────────────────────────────────────────
+       CUSTOM CURSOR
+    ───────────────────────────────────────── */
+    if (!('ontouchstart' in window)) {
+      const dot  = document.getElementById('cur-dot');
+      const ring = document.getElementById('cur-ring');
+      let mx = 0, my = 0, rx = 0, ry = 0;
+
+      document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+      document.addEventListener('mouseleave', () => { dot.style.opacity = '0'; ring.style.opacity = '0'; });
+      document.addEventListener('mouseenter', () => { dot.style.opacity = '1'; ring.style.opacity = '1'; });
+
+      (function animCursor() {
+        dot.style.left = mx + 'px';
+        dot.style.top  = my + 'px';
+        rx += (mx - rx) * 0.1;
+        ry += (my - ry) * 0.1;
+        ring.style.left = rx + 'px';
+        ring.style.top  = ry + 'px';
+        requestAnimationFrame(animCursor);
+      })();
+
+      const hovers = document.querySelectorAll('a, button, .svc-card, .gi, .rev-card, .stat-block, .h-stat');
+      hovers.forEach(el => {
+        el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
+        el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
+      });
+    } else {
+      document.getElementById('cur-dot').style.display = 'none';
+      document.getElementById('cur-ring').style.display = 'none';
+      document.body.style.cursor = 'auto';
+    }
+
+    /* ─────────────────────────────────────────
+       STICKY HEADER
+    ───────────────────────────────────────── */
+    const hdr = document.getElementById('hdr');
+    window.addEventListener('scroll', () => {
+      hdr.classList.toggle('scrolled', window.scrollY > 60);
+    }, { passive: true });
+
+    /* ─────────────────────────────────────────
+       MOBILE NAV
+    ───────────────────────────────────────── */
+    const ham    = document.getElementById('hamburger');
+    const mobNav = document.getElementById('mob-nav');
+
+    ham.addEventListener('click', () => {
+      const open = mobNav.classList.toggle('open');
+      ham.classList.toggle('open', open);
+      ham.setAttribute('aria-expanded', open);
+      mobNav.setAttribute('aria-hidden', !open);
+      document.body.style.overflow = open ? 'hidden' : '';
+    });
+
+    document.querySelectorAll('.mob-link').forEach(a => {
+      a.addEventListener('click', () => {
+        mobNav.classList.remove('open');
+        ham.classList.remove('open');
+        ham.setAttribute('aria-expanded', 'false');
+        mobNav.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      });
+    });
+
+    /* ─────────────────────────────────────────
+       SCROLL REVEAL — IntersectionObserver
+    ───────────────────────────────────────── */
+    const revEls = document.querySelectorAll('[data-reveal], .clip-line');
+
+    const rvObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el    = entry.target;
+        const delay = parseFloat(el.dataset.delay || 0) * 1000;
+        setTimeout(() => el.classList.add('in'), delay);
+        rvObserver.unobserve(el);
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+    // Exclude hero clip lines from scroll reveal (they're triggered manually)
+    revEls.forEach(el => {
+      if (el.closest('#hero')) return;
+      rvObserver.observe(el);
+    });
+
+    /* ─────────────────────────────────────────
+       HERO COUNTERS
+    ───────────────────────────────────────── */
+    function triggerHeroCounters() {
+      document.querySelectorAll('#hero .c-up').forEach(el => {
+        const target = parseInt(el.dataset.t);
+        let current  = 0;
+        const step   = target / 55;
+        const t = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = Math.round(current);
+          if (current >= target) clearInterval(t);
+        }, 22);
+      });
+    }
+
+    /* ─────────────────────────────────────────
+       COUNT-UP (why section)
+    ───────────────────────────────────────── */
+    const cuObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (!entry.isIntersecting) return;
+        const el = entry.target;
+        if (el.closest('#hero')) return;
+        const target = parseInt(el.dataset.t);
+        let current  = 0;
+        const step   = target / 50;
+        const t = setInterval(() => {
+          current = Math.min(current + step, target);
+          el.textContent = Math.round(current);
+          if (current >= target) clearInterval(t);
+        }, 28);
+        cuObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.c-up:not(#hero .c-up)').forEach(el => cuObserver.observe(el));
+
+    /* ─────────────────────────────────────────
+       MAGNETIC BUTTONS
+    ───────────────────────────────────────── */
+    if (!('ontouchstart' in window)) {
+      document.querySelectorAll('.magnetic').forEach(btn => {
+        const STRENGTH = 0.35;
+        btn.addEventListener('mousemove', e => {
+          const r  = btn.getBoundingClientRect();
+          const dx = e.clientX - (r.left + r.width  / 2);
+          const dy = e.clientY - (r.top  + r.height / 2);
+          btn.style.transform = `translate(${dx * STRENGTH}px, ${dy * STRENGTH}px)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = '';
+        });
+      });
+    }
+
+    /* ─────────────────────────────────────────
+       BEFORE / AFTER SLIDER
+    ───────────────────────────────────────── */
+    (function initBA() {
+      const slider = document.getElementById('ba-slider');
+      const after  = document.getElementById('ba-after');
+      const handle = document.getElementById('ba-handle');
+      if (!slider) return;
+      let dragging = false;
+
+      function update(x) {
+        const r   = slider.getBoundingClientRect();
+        let   pct = Math.max(2, Math.min(98, ((x - r.left) / r.width) * 100));
+        after.style.clipPath   = `inset(0 ${100 - pct}% 0 0)`;
+        handle.style.left      = pct + '%';
+      }
+
+      handle.addEventListener('mousedown',  e => { dragging = true; e.preventDefault(); });
+      slider.addEventListener('touchstart', () => { dragging = true; }, { passive: true });
+      window.addEventListener('mousemove',  e => { if (dragging) update(e.clientX); }, { passive: true });
+      window.addEventListener('touchmove',  e => { if (dragging) update(e.touches[0].clientX); }, { passive: true });
+      window.addEventListener('mouseup',    () => dragging = false);
+      window.addEventListener('touchend',   () => dragging = false);
+
+      // Init
+      const r = slider.getBoundingClientRect();
+      update(r.left + r.width / 2);
+    })();
+
+    /* ─────────────────────────────────────────
+       SMOOTH SCROLL (hash links)
+    ───────────────────────────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const tgt = document.querySelector(a.getAttribute('href'));
+        if (tgt) {
+          e.preventDefault();
+          const offset = 80;
+          const top    = tgt.getBoundingClientRect().top + window.scrollY - offset;
+          window.scrollTo({ top, behavior: 'smooth' });
+        }
+      });
+    });
+
+    /* ─────────────────────────────────────────
+       PARALLAX (hero ghost text)
+    ───────────────────────────────────────── */
+    (function initParallax() {
+      const ghost = document.querySelector('.hero-ghost');
+      const why   = document.querySelector('.why-watermark span');
+      if (!ghost && !why) return;
+      window.addEventListener('scroll', () => {
+        const y = window.scrollY;
+        if (ghost) ghost.style.transform = `translateY(${y * 0.12}px)`;
+        if (why)   why.style.transform   = `translateY(${y * 0.06}px)`;
+      }, { passive: true });
+    })();
+  </script>
+
+</body>
+</html>
