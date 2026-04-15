@@ -289,17 +289,38 @@
       });
     });
 
-    /* ─── ADMIN SETTINGS LOADER ─── */
+    /* ─── STAR RENDERER ─── */
+    function renderStars(rating) {
+      var html = '';
+      for (var i = 1; i <= 5; i++) {
+        if (rating >= i) {
+          html += '<span class="star full">★</span>';
+        } else if (rating >= i - 0.5) {
+          html += '<span class="star half">★</span>';
+        } else {
+          html += '<span class="star empty">☆</span>';
+        }
+      }
+      return html;
+    }
+
+        /* ─── ADMIN SETTINGS LOADER ─── */
     function applySettings(s) {
       if (!s || !Object.keys(s).length) return;
         // Rating
         if (s.rating !== undefined) {
-          document.querySelectorAll('.js-rating-val').forEach(el => {
-            el.dataset.t = String(s.rating);
-            el.textContent = s.rating;
+          var ratingVal  = parseFloat(s.rating);
+          var ratingDisp = ratingVal.toFixed(1);
+          document.querySelectorAll('.js-rating-val').forEach(function(el) {
+            el.dataset.t   = String(ratingVal);
+            el.textContent = ratingDisp;
           });
-          const rbNum = document.getElementById('rb-num-val');
-          if (rbNum) rbNum.textContent = s.rating;
+          var rbNum = document.getElementById('rb-num-val');
+          if (rbNum) { rbNum.textContent = ratingDisp; rbNum.setAttribute('aria-label', ratingDisp + ' von 5 Sternen'); }
+          // Update stars
+          document.querySelectorAll('.rb-stars-row').forEach(function(row) {
+            row.innerHTML = renderStars(ratingVal);
+          });
         }
         // Years experience
         if (s.years !== undefined) {
@@ -545,19 +566,20 @@
     });
 
     /* ─── SECTION COUNT-UP ─── */
-    document.querySelectorAll('.c-up').forEach(el => {
+    document.querySelectorAll('.c-up').forEach(function(el) {
       if (el.closest('#hero')) return;
-      const target = parseInt(el.dataset.t);
+      var target   = parseFloat(el.dataset.t);
+      var isFloat  = el.dataset.t && el.dataset.t.includes('.');
       ScrollTrigger.create({
         trigger: el,
         start: 'top 80%',
         once: true,
-        onEnter: () => {
-          let current = 0;
-          const step  = target / 50;
-          const t = setInterval(() => {
+        onEnter: function() {
+          var current = 0;
+          var step    = target / 50;
+          var t = setInterval(function() {
             current = Math.min(current + step, target);
-            el.textContent = Math.round(current);
+            el.textContent = isFloat ? current.toFixed(1) : Math.round(current);
             if (current >= target) clearInterval(t);
           }, 28);
         }

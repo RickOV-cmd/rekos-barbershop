@@ -1035,7 +1035,14 @@
     }
     .rev-card:hover .rev-accent { background: var(--blue); }
     .rev-stars { display: flex; gap: 2px; margin-bottom: 20px; }
-    .star { color: var(--blue); font-size: .7rem; }
+    .star { color: var(--amber); font-size: .7rem; }
+    .star.empty { color: rgba(255,255,255,.2); }
+    .star.half { position: relative; color: rgba(255,255,255,.2); }
+    .star.half::after {
+      content: '★'; position: absolute; left: 0; top: 0;
+      color: var(--amber); width: 50%; overflow: hidden; display: block;
+    }
+    .rb-stars-row .star { font-size: .9rem; }
     .rev-text {
       font-size: .88rem; color: var(--cream-2);
       line-height: 1.85; margin-bottom: 28px;
