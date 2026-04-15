@@ -498,17 +498,17 @@
       hdr.classList.toggle('scrolled', scroll > 60);
     });
 
-    /* ─── INTRO LOADER — iPhone Photos Fly In ─── */
+    /* ─── INTRO LOADER — Photo Snake (scroll strip) ─── */
     window.addEventListener('load', async function() {
 
       /* ── Config ── */
-      var PHOTO_W  = Math.min(300, Math.round(window.innerWidth * 0.44)); // iPhone portrait width
-      var PHOTO_H  = Math.round(PHOTO_W * (5 / 4));                       // 4:5 ratio
-      var GAP      = 20;   // gap between stacked photos
-      var STEP     = 0.88; // seconds between each photo entering
+      var PHOTO_W  = Math.min(300, Math.round(window.innerWidth * 0.44));
+      var PHOTO_H  = Math.round(PHOTO_W * (5 / 4)); // 4:5 iPhone portrait
+      var GAP      = 20;
       var VH       = window.innerHeight;
+      var VW       = window.innerWidth;
 
-      /* ── Fetch intro images from Supabase ── */
+      /* ── Fetch intro images ── */
       var introUrls = [];
       try {
         if (typeof fetchSiteSettings === 'function') {
@@ -519,18 +519,21 @@
         }
       } catch(e) {}
 
-      var n     = Math.max(introUrls.length, 2); // at least 2 so scroll effect reads
+      var n     = Math.max(introUrls.length, 2);
       var strip = document.getElementById('ld-strip');
 
-      /* ── Build photo elements ── */
-      var photoEls = [];
+      /* ── Amber accent stripe (left of strip) ── */
+      var accentEl = document.createElement('div');
+      accentEl.id  = 'ld-accent';
+      strip.appendChild(accentEl);
+
+      /* ── Build photo cards ── */
       for (var i = 0; i < n; i++) {
         var card = document.createElement('div');
-        card.className = 'ld-photo';
+        card.className  = 'ld-photo';
         card.style.cssText = 'width:' + PHOTO_W + 'px;height:' + PHOTO_H + 'px;top:' + (i * (PHOTO_H + GAP)) + 'px;';
-
         if (introUrls[i]) {
-          var imgEl = document.createElement('img');
+          var imgEl       = document.createElement('img');
           imgEl.src       = introUrls[i];
           imgEl.alt       = '';
           imgEl.draggable = false;
@@ -540,24 +543,41 @@
           bg.className = 'ld-photo-bg';
           card.appendChild(bg);
         }
-
         strip.appendChild(card);
-        photoEls.push(card);
       }
 
-      /* ── Position strip: first photo vertically centred ── */
+      /* ── Amber aperture frame lines (fixed in loader, not in strip) ── */
+      var loader  = document.getElementById('loader');
+      var lineW   = PHOTO_W + 36;
+      var lineX   = VW / 2 - lineW / 2;
+      var lineTop = VH / 2 - PHOTO_H / 2;
+      var lineBot = VH / 2 + PHOTO_H / 2;
+
+      function mkLine(top) {
+        var el = document.createElement('div');
+        el.className = 'ld-frame-line';
+        el.style.cssText = 'left:' + lineX + 'px;top:' + top + 'px;width:' + lineW + 'px;';
+        return el;
+      }
+      var fTop = mkLine(lineTop);
+      var fBot = mkLine(lineBot);
+      loader.appendChild(fTop);
+      loader.appendChild(fBot);
+
+      /* ── Position strip: start = first photo just below viewport ── */
       var stripH = n * (PHOTO_H + GAP) - GAP;
       strip.style.width  = PHOTO_W + 'px';
       strip.style.height = stripH + 'px';
 
-      // strip.left = 50% (CSS), adjust for width
-      var initStripY = VH / 2 - PHOTO_H / 2;
-      gsap.set(strip, { x: -(PHOTO_W / 2), y: initStripY });
+      // strip x centres it (CSS left:50% + this offset)
+      var startY = VH + GAP;                                              // strip enters from bottom
+      var endY   = VH / 2 - PHOTO_H / 2 - (n - 1) * (PHOTO_H + GAP);   // last photo centred
 
-      // All photos start above the viewport (relative to strip)
-      photoEls.forEach(function(el) { gsap.set(el, { y: -(VH + PHOTO_H), opacity: 0 }); });
+      gsap.set(strip, { x: -(PHOTO_W / 2), y: startY });
+      gsap.set([fTop, fBot], { scaleX: 0, opacity: 0 });
+      gsap.set(['#ld-logo', '#ld-logo-sub'], { y: 20, opacity: 0 });
 
-      /* ── GSAP Timeline ── */
+      /* ── Hero animations (called after loader exits) ── */
       function startHeroAnimations() {
         var clipLines = document.querySelectorAll('#hero .clip-line .clip-inner');
         gsap.fromTo(clipLines,
@@ -577,56 +597,34 @@
         triggerHeroCounters();
       }
 
-      var tl = gsap.timeline();
+      /* ── Master Timeline ── */
+      var scrollDur = 1.4 + n * 0.48;  // total scroll duration (slow→fast→slow)
+      var endT      = scrollDur + 0.38; // settle pause
+      var tl        = gsap.timeline();
 
-      photoEls.forEach(function(el, i) {
-        var t = i * STEP;
+      // Aperture lines expand in (amber frame appears)
+      tl.to([fTop, fBot], { scaleX: 1, opacity: 0.6, duration: 0.5, ease: 'power2.out', stagger: 0.07 }, 0.05);
 
-        // Photo drops in from above → settles at y:0 in strip
-        tl.to(el, { y: 0, opacity: 1, duration: 0.72, ease: 'power3.out' }, t);
+      // Photo snake scrolls through: slow → fast → slow (power3.inOut)
+      tl.to(strip, { y: endY, duration: scrollDur, ease: 'power3.inOut' }, 0);
 
-        // Strip scrolls up so the newly arrived photo is centred on screen
-        var targetStripY = VH / 2 - PHOTO_H / 2 - i * (PHOTO_H + GAP);
-        tl.to(strip, {
-          y: targetStripY,
-          duration: i === 0 ? 0.001 : STEP,
-          ease: 'power2.inOut'
-        }, t);
-      });
+      // After strip settles: aperture lines + strip fade out together
+      tl.to([fTop, fBot, strip], { opacity: 0, duration: 0.55, ease: 'power2.in' }, endT);
 
-      // After last photo: brief pause, then strip flies up + fades
-      var endT    = n * STEP + 0.45;
-      var exitDur = 0.80;
+      // Brand reveal: wrap fades, children stagger up
+      tl.to('#ld-brand-wrap', { opacity: 1, duration: 0.55, ease: 'power2.out' }, endT + 0.18);
+      tl.to('#ld-logo',       { y: 0, opacity: 1, duration: 0.72, ease: 'power3.out' }, endT + 0.18);
+      tl.to('#ld-logo-sub',   { y: 0, opacity: 1, duration: 0.72, ease: 'power3.out' }, endT + 0.34);
 
-      tl.to(strip, {
-        y: -(stripH + VH * 0.2),
-        opacity: 0,
-        duration: exitDur,
-        ease: 'power3.in'
-      }, endT);
-
-      // Brand fades in as strip exits
-      tl.to('#ld-brand-wrap', {
-        opacity: 1, duration: 0.65, ease: 'power3.out'
-      }, endT + exitDur * 0.35);
-
-      // Brand sub-line staggered within wrap
-      gsap.set(['#ld-logo', '#ld-logo-sub'], { y: 18, opacity: 0 });
-      tl.to('#ld-logo',     { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }, endT + exitDur * 0.35);
-      tl.to('#ld-logo-sub', { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }, endT + exitDur * 0.35 + 0.14);
-
-      // Hold brand, then curtain up → hero
-      var brandHold = endT + exitDur + 0.85;
+      // Curtain up → website revealed
       tl.to('#loader', {
-        yPercent: -100,
-        duration: 0.95,
-        ease: 'power3.inOut',
+        yPercent: -100, duration: 0.95, ease: 'power3.inOut',
         onComplete: function() {
           var l = document.getElementById('loader');
           if (l) { l.style.display = 'none'; l.style.transform = ''; }
           startHeroAnimations();
         }
-      }, brandHold);
+      }, endT + 1.35);
     });
 
     /* ─── HERO COUNTERS ─── */
