@@ -498,86 +498,9 @@
       hdr.classList.toggle('scrolled', scroll > 60);
     });
 
-    /* ─── INTRO LOADER — Photo Snake (scroll strip) ─── */
-    window.addEventListener('load', async function() {
+    /* ─── INTRO LOADER — Razor Cut ─── */
+    window.addEventListener('load', function() {
 
-      /* ── Config ── */
-      var PHOTO_W  = Math.min(300, Math.round(window.innerWidth * 0.44));
-      var PHOTO_H  = Math.round(PHOTO_W * (5 / 4)); // 4:5 iPhone portrait
-      var GAP      = 20;
-      var VH       = window.innerHeight;
-      var VW       = window.innerWidth;
-
-      /* ── Fetch intro images ── */
-      var introUrls = [];
-      try {
-        if (typeof fetchSiteSettings === 'function') {
-          var s0 = await fetchSiteSettings();
-          if (s0 && s0.intro && s0.intro.length) {
-            introUrls = s0.intro.map(function(img) { return img.href || ''; }).filter(Boolean);
-          }
-        }
-      } catch(e) {}
-
-      var n     = Math.max(introUrls.length, 2);
-      var strip = document.getElementById('ld-strip');
-
-      /* ── Amber accent stripe (left of strip) ── */
-      var accentEl = document.createElement('div');
-      accentEl.id  = 'ld-accent';
-      strip.appendChild(accentEl);
-
-      /* ── Build photo cards ── */
-      for (var i = 0; i < n; i++) {
-        var card = document.createElement('div');
-        card.className  = 'ld-photo';
-        card.style.cssText = 'width:' + PHOTO_W + 'px;height:' + PHOTO_H + 'px;top:' + (i * (PHOTO_H + GAP)) + 'px;';
-        if (introUrls[i]) {
-          var imgEl       = document.createElement('img');
-          imgEl.src       = introUrls[i];
-          imgEl.alt       = '';
-          imgEl.draggable = false;
-          card.appendChild(imgEl);
-        } else {
-          var bg = document.createElement('div');
-          bg.className = 'ld-photo-bg';
-          card.appendChild(bg);
-        }
-        strip.appendChild(card);
-      }
-
-      /* ── Amber aperture frame lines (fixed in loader, not in strip) ── */
-      var loader  = document.getElementById('loader');
-      var lineW   = PHOTO_W + 36;
-      var lineX   = VW / 2 - lineW / 2;
-      var lineTop = VH / 2 - PHOTO_H / 2;
-      var lineBot = VH / 2 + PHOTO_H / 2;
-
-      function mkLine(top) {
-        var el = document.createElement('div');
-        el.className = 'ld-frame-line';
-        el.style.cssText = 'left:' + lineX + 'px;top:' + top + 'px;width:' + lineW + 'px;';
-        return el;
-      }
-      var fTop = mkLine(lineTop);
-      var fBot = mkLine(lineBot);
-      loader.appendChild(fTop);
-      loader.appendChild(fBot);
-
-      /* ── Position strip: start = first photo just below viewport ── */
-      var stripH = n * (PHOTO_H + GAP) - GAP;
-      strip.style.width  = PHOTO_W + 'px';
-      strip.style.height = stripH + 'px';
-
-      // strip x centres it (CSS left:50% + this offset)
-      var startY = VH + GAP;                                              // strip enters from bottom
-      var endY   = VH / 2 - PHOTO_H / 2 - (n - 1) * (PHOTO_H + GAP);   // last photo centred
-
-      gsap.set(strip, { x: -(PHOTO_W / 2), y: startY });
-      gsap.set([fTop, fBot], { scaleX: 0, opacity: 0 });
-      gsap.set(['#ld-logo', '#ld-logo-sub', '#ld-logo-addr'], { y: 20, opacity: 0 });
-
-      /* ── Hero animations (called after loader exits) ── */
       function startHeroAnimations() {
         var clipLines = document.querySelectorAll('#hero .clip-line .clip-inner');
         gsap.fromTo(clipLines,
@@ -597,36 +520,44 @@
         triggerHeroCounters();
       }
 
-      /* ── Master Timeline ── */
-      var scrollDur = 0.85 + n * 0.30;  // faster scroll
-      var endT      = scrollDur + 0.12; // tight pause before brand
-      var tl        = gsap.timeline();
+      /* ── Initial states ── */
+      gsap.set('#ld-line-l',    { xPercent: -100 });
+      gsap.set('#ld-line-r',    { xPercent:  100 });
+      gsap.set('#ld-logo',      { clipPath: 'inset(0 50% 0 50%)', opacity: 1 });
+      gsap.set('#ld-logo-sub',  { y: 16, opacity: 0 });
+      gsap.set('#ld-logo-addr', { opacity: 0 });
 
-      // Aperture lines expand in (amber frame appears)
-      tl.to([fTop, fBot], { scaleX: 1, opacity: 0.6, duration: 0.5, ease: 'power2.out', stagger: 0.07 }, 0.05);
+      var tl = gsap.timeline();
 
-      // Photo snake scrolls through: fast start → smooth deceleration (power4.out)
-      tl.to(strip, { y: endY, duration: scrollDur, ease: 'power4.out' }, 0);
+      /* 0.00s — Lines sweep from edges → meet at centre */
+      tl.to(['#ld-line-l', '#ld-line-r'], {
+        xPercent: 0, duration: 0.38, ease: 'power3.out'
+      }, 0);
 
-      // After strip settles: aperture lines + strip fade out together
-      tl.to([fTop, fBot, strip], { opacity: 0, duration: 0.55, ease: 'power2.in' }, endT);
+      /* 0.36s — REKO'S reveals outward from centre */
+      tl.to('#ld-logo', {
+        clipPath: 'inset(0 0% 0 0%)', duration: 0.30, ease: 'power2.out'
+      }, 0.36);
 
-      // Brand reveal: wrap fades, children stagger up
-      tl.to('#ld-brand-wrap', { opacity: 1, duration: 0.45, ease: 'power2.out' }, endT + 0.10);
-      tl.to('#ld-logo',       { y: 0, opacity: 1, duration: 0.60, ease: 'power3.out' }, endT + 0.10);
-      tl.to('#ld-logo-sub',   { y: 0, opacity: 1, duration: 0.60, ease: 'power3.out' }, endT + 0.22);
-      tl.to('#ld-logo-addr',  { y: 0, opacity: 0.55, duration: 0.55, ease: 'power3.out' }, endT + 0.34);
+      /* 0.66s — Lines glide apart + BARBER SHOP rises */
+      tl.to('#ld-line-l', { y: -20, opacity: 0, duration: 0.30, ease: 'power2.in' }, 0.66);
+      tl.to('#ld-line-r', { y:  20, opacity: 0, duration: 0.30, ease: 'power2.in' }, 0.66);
+      tl.to('#ld-logo-sub', { y: 0, opacity: 1, duration: 0.30, ease: 'power3.out' }, 0.68);
 
-      // Curtain up → website revealed
+      /* 1.00s — Address fades in */
+      tl.to('#ld-logo-addr', { opacity: 0.5, duration: 0.24, ease: 'power2.out' }, 1.00);
+
+      /* 2.00s — Curtain up → website */
       tl.to('#loader', {
-        yPercent: -100, duration: 0.90, ease: 'power3.inOut',
+        yPercent: -100, duration: 0.82, ease: 'power3.inOut',
         onComplete: function() {
           var l = document.getElementById('loader');
           if (l) { l.style.display = 'none'; l.style.transform = ''; }
           startHeroAnimations();
         }
-      }, endT + 1.05);
+      }, 2.00);
     });
+
 
     /* ─── HERO COUNTERS ─── */
     function triggerHeroCounters() {
