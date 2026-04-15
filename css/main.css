@@ -1181,7 +1181,7 @@
       pointer-events: none;
     }
     .cta-ghost {
-      position: absolute; bottom: -12%; left: 50%;
+      position: absolute; bottom: 2%; left: 50%;
       transform: translateX(-50%);
       font-family: var(--f-disp);
       font-size: clamp(5rem, 15vw, 15rem);
