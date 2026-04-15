@@ -498,15 +498,17 @@
       hdr.classList.toggle('scrolled', scroll > 60);
     });
 
-    /* ─── CINEMATIC INTRO — Crossfade + Ken Burns Slideshow ─── */
+    /* ─── INTRO LOADER — iPhone Photos Fly In ─── */
     window.addEventListener('load', async function() {
 
-      var STEP       = 1.1;   // seconds each slide is held at full opacity
-      var XFADE      = 0.65;  // crossfade duration between slides
-      var KB_SCALE   = 1.07;  // Ken Burns max zoom (subtle)
-      var EXIT_DELAY = 0.35;  // pause after last slide before exit
+      /* ── Config ── */
+      var PHOTO_W  = Math.min(300, Math.round(window.innerWidth * 0.44)); // iPhone portrait width
+      var PHOTO_H  = Math.round(PHOTO_W * (5 / 4));                       // 4:5 ratio
+      var GAP      = 20;   // gap between stacked photos
+      var STEP     = 0.88; // seconds between each photo entering
+      var VH       = window.innerHeight;
 
-      /* ── Build slide elements from Supabase intro images ── */
+      /* ── Fetch intro images from Supabase ── */
       var introUrls = [];
       try {
         if (typeof fetchSiteSettings === 'function') {
@@ -517,112 +519,50 @@
         }
       } catch(e) {}
 
-      // Guarantee at least 1 slide (pure dark fallback)
-      var n = Math.max(introUrls.length, 1);
-      var container = document.getElementById('ld-slides');
-      var slideEls  = [];
+      var n     = Math.max(introUrls.length, 2); // at least 2 so scroll effect reads
+      var strip = document.getElementById('ld-strip');
 
+      /* ── Build photo elements ── */
+      var photoEls = [];
       for (var i = 0; i < n; i++) {
-        var slide = document.createElement('div');
-        slide.className = 'ld-slide';
+        var card = document.createElement('div');
+        card.className = 'ld-photo';
+        card.style.cssText = 'width:' + PHOTO_W + 'px;height:' + PHOTO_H + 'px;top:' + (i * (PHOTO_H + GAP)) + 'px;';
 
         if (introUrls[i]) {
-          var img = document.createElement('img');
-          img.src       = introUrls[i];
-          img.alt       = '';
-          img.className = 'ld-slide-img';
-          img.draggable = false;
-          slide.appendChild(img);
+          var imgEl = document.createElement('img');
+          imgEl.src       = introUrls[i];
+          imgEl.alt       = '';
+          imgEl.draggable = false;
+          card.appendChild(imgEl);
         } else {
-          // No image → dark gradient tile
           var bg = document.createElement('div');
-          bg.className = 'ld-slide-bg';
-          slide.appendChild(bg);
+          bg.className = 'ld-photo-bg';
+          card.appendChild(bg);
         }
 
-        container.appendChild(slide);
-        slideEls.push(slide);
+        strip.appendChild(card);
+        photoEls.push(card);
       }
 
-      // Update counter total
-      var totEl = document.getElementById('ld-tot');
-      var curEl = document.getElementById('ld-cur');
-      if (totEl) totEl.textContent = String(n).padStart(2, '0');
-      if (curEl) curEl.textContent = '01';
+      /* ── Position strip: first photo vertically centred ── */
+      var stripH = n * (PHOTO_H + GAP) - GAP;
+      strip.style.width  = PHOTO_W + 'px';
+      strip.style.height = stripH + 'px';
 
-      /* ── GSAP Master Timeline ── */
-      var totalDur = n * STEP;  // total content duration
-      var tl = gsap.timeline({ onComplete: startHeroAnimations });
+      // strip.left = 50% (CSS), adjust for width
+      var initStripY = VH / 2 - PHOTO_H / 2;
+      gsap.set(strip, { x: -(PHOTO_W / 2), y: initStripY });
 
-      // Brand reveal (clips up from translateY)
-      gsap.set('#ld-logo',     { opacity: 0, y: 20 });
-      gsap.set('#ld-logo-sub', { opacity: 0, y: 12 });
-      tl.to('#ld-logo',     { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, 0.25);
-      tl.to('#ld-logo-sub', { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, 0.42);
-      tl.to('#ld-counter',  { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.5);
+      // All photos start above the viewport (relative to strip)
+      photoEls.forEach(function(el) { gsap.set(el, { y: -(VH + PHOTO_H), opacity: 0 }); });
 
-      // Progress bar fills over total content duration
-      tl.to('#ld-progress-inner', {
-        width: '100%', duration: totalDur, ease: 'none'
-      }, 0);
-
-      // Per-slide: crossfade + Ken Burns
-      slideEls.forEach(function(slide, i) {
-        var t   = i * STEP;
-        var img = slide.querySelector('.ld-slide-img');
-
-        // Counter update
-        tl.add(function(idx) {
-          return function() {
-            if (curEl) curEl.textContent = String(idx + 1).padStart(2, '0');
-          };
-        }(i), t);
-
-        // Fade in
-        tl.to(slide, {
-          opacity: 1, duration: XFADE, ease: 'power2.inOut'
-        }, t);
-
-        // Ken Burns — slow zoom throughout this slide's lifetime
-        if (img) {
-          tl.fromTo(img,
-            { scale: 1.0 },
-            { scale: KB_SCALE, duration: STEP + XFADE, ease: 'none' },
-            t
-          );
-        }
-
-        // Fade out (all but last slide)
-        if (i < slideEls.length - 1) {
-          tl.to(slide, {
-            opacity: 0, duration: XFADE, ease: 'power2.inOut'
-          }, t + STEP - XFADE * 0.5);
-        }
-      });
-
-      // Fade out UI chrome before exit
-      tl.to(['#ld-logo', '#ld-logo-sub', '#ld-counter', '#ld-progress'], {
-        opacity: 0, duration: 0.4, ease: 'power2.in'
-      }, totalDur + EXIT_DELAY - 0.1);
-
-      // Loader curtain slides up to reveal website
-      tl.to('#loader', {
-        yPercent: -100,
-        duration: 0.95,
-        ease: 'power3.inOut',
-        onComplete: function() {
-          var l = document.getElementById('loader');
-          if (l) { l.style.display = 'none'; l.style.transform = ''; }
-        }
-      }, totalDur + EXIT_DELAY + 0.25);
-
-      /* ── Hero animations (fire after loader exits) ── */
+      /* ── GSAP Timeline ── */
       function startHeroAnimations() {
         var clipLines = document.querySelectorAll('#hero .clip-line .clip-inner');
         gsap.fromTo(clipLines,
           { yPercent: 110 },
-          {
-            yPercent: 0, duration: 1.1, ease: 'power4.out', stagger: 0.18,
+          { yPercent: 0, duration: 1.1, ease: 'power4.out', stagger: 0.18,
             onComplete: function() {
               var s = document.getElementById('hero-status');
               if (s) s.classList.add('in');
@@ -636,6 +576,57 @@
         );
         triggerHeroCounters();
       }
+
+      var tl = gsap.timeline();
+
+      photoEls.forEach(function(el, i) {
+        var t = i * STEP;
+
+        // Photo drops in from above → settles at y:0 in strip
+        tl.to(el, { y: 0, opacity: 1, duration: 0.72, ease: 'power3.out' }, t);
+
+        // Strip scrolls up so the newly arrived photo is centred on screen
+        var targetStripY = VH / 2 - PHOTO_H / 2 - i * (PHOTO_H + GAP);
+        tl.to(strip, {
+          y: targetStripY,
+          duration: i === 0 ? 0.001 : STEP,
+          ease: 'power2.inOut'
+        }, t);
+      });
+
+      // After last photo: brief pause, then strip flies up + fades
+      var endT    = n * STEP + 0.45;
+      var exitDur = 0.80;
+
+      tl.to(strip, {
+        y: -(stripH + VH * 0.2),
+        opacity: 0,
+        duration: exitDur,
+        ease: 'power3.in'
+      }, endT);
+
+      // Brand fades in as strip exits
+      tl.to('#ld-brand-wrap', {
+        opacity: 1, duration: 0.65, ease: 'power3.out'
+      }, endT + exitDur * 0.35);
+
+      // Brand sub-line staggered within wrap
+      gsap.set(['#ld-logo', '#ld-logo-sub'], { y: 18, opacity: 0 });
+      tl.to('#ld-logo',     { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }, endT + exitDur * 0.35);
+      tl.to('#ld-logo-sub', { y: 0, opacity: 1, duration: 0.7, ease: 'power3.out' }, endT + exitDur * 0.35 + 0.14);
+
+      // Hold brand, then curtain up → hero
+      var brandHold = endT + exitDur + 0.85;
+      tl.to('#loader', {
+        yPercent: -100,
+        duration: 0.95,
+        ease: 'power3.inOut',
+        onComplete: function() {
+          var l = document.getElementById('loader');
+          if (l) { l.style.display = 'none'; l.style.transform = ''; }
+          startHeroAnimations();
+        }
+      }, brandHold);
     });
 
     /* ─── HERO COUNTERS ─── */
