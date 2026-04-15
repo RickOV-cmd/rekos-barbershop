@@ -498,39 +498,80 @@
       hdr.classList.toggle('scrolled', scroll > 60);
     });
 
-    /* ─── LOADER + HERO ANIMATIONS ─── */
-    window.addEventListener('load', () => {
-      setTimeout(() => {
-        const loader = document.getElementById('loader');
-        if (loader) loader.classList.add('out');
+    /* ─── CINEMATIC INTRO + HERO ANIMATIONS ─── */
+    window.addEventListener('load', function() {
 
-        // Hero clip-line staggered reveal via GSAP
-        const clipLines = document.querySelectorAll('#hero .clip-line .clip-inner');
+      function startHeroAnimations() {
+        // Hero clip-line staggered reveal
+        var clipLines = document.querySelectorAll('#hero .clip-line .clip-inner');
         gsap.fromTo(clipLines,
           { yPercent: 110 },
           {
-            yPercent: 0,
-            duration: 1.1,
-            ease: 'power4.out',
-            stagger: 0.18,
-            onComplete: () => {
-              // Show status badge after hero text reveals
-              const s = document.getElementById('hero-status');
+            yPercent: 0, duration: 1.1, ease: 'power4.out', stagger: 0.18,
+            onComplete: function() {
+              var s = document.getElementById('hero-status');
               if (s) s.classList.add('in');
             }
           }
         );
-
-        // Hero bar and tagline fade in
         gsap.fromTo(
           ['.hero-tagline', '.hero-ctas', '.hero-bar'],
           { opacity: 0, y: 24 },
-          { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.15, delay: 0.6 }
+          { opacity: 1, y: 0, duration: 0.9, ease: 'power3.out', stagger: 0.15, delay: 0.5 }
         );
-
-        // Trigger hero counters
         triggerHeroCounters();
-      }, 2000);
+      }
+
+      var frames      = document.querySelectorAll('.ld-frame');
+      var frameDur    = 0.38;   // how long each frame is visible
+      var wipeInDur   = 0.12;   // clip-path wipe-in speed
+      var wipeOutDur  = 0.22;   // clip-path wipe-out speed
+      var totalSlides = frames.length * (frameDur + 0.04);
+
+      var tl = gsap.timeline({ onComplete: startHeroAnimations });
+
+      // Fade in brand logo immediately
+      tl.to(['#ld-logo', '#ld-logo-sub'], {
+        opacity: 1, duration: 0.5, ease: 'power2.out', stagger: 0.12
+      }, 0.1);
+
+      // Progress bar fills over total slide duration
+      tl.to('#ld-progress-inner', {
+        width: '100%', duration: totalSlides, ease: 'linear'
+      }, 0.1);
+
+      // Each frame: wipe in → hold → wipe out
+      frames.forEach(function(frame, i) {
+        var t = 0.1 + i * (frameDur + 0.04);
+
+        // Wipe in from right
+        tl.fromTo(frame,
+          { clipPath: 'inset(0 100% 0 0)' },
+          { clipPath: 'inset(0 0% 0 0)', duration: wipeInDur, ease: 'power1.out' },
+          t
+        );
+        // Animate amber side line
+        tl.to(frame.querySelector('.ld-f-line'),
+          { scaleY: 1, duration: frameDur * 0.6, ease: 'power2.out' },
+          t + wipeInDur
+        );
+        // Wipe out to left
+        tl.to(frame,
+          { clipPath: 'inset(0 0% 0 100%)', duration: wipeOutDur, ease: 'power2.in' },
+          t + frameDur
+        );
+      });
+
+      // Final: curtain slides UP to reveal website
+      tl.to('#loader', {
+        yPercent: -100,
+        duration: 0.9,
+        ease: 'power3.inOut',
+        onComplete: function() {
+          var l = document.getElementById('loader');
+          if (l) { l.style.display = 'none'; l.style.transform = ''; }
+        }
+      }, totalSlides + 0.18);
     });
 
     /* ─── HERO COUNTERS ─── */

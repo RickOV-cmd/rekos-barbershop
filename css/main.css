@@ -249,38 +249,68 @@
     /* ══════════════════════════════════════════════
        LOADING SCREEN
     ══════════════════════════════════════════════ */
+    /* ─── CINEMATIC INTRO LOADER ─── */
     #loader {
-      position: fixed; inset: 0; background: var(--black);
-      z-index: 10000; display: flex;
-      align-items: center; justify-content: center;
-      flex-direction: column; gap: 28px;
-      transition: opacity .7s var(--ease), visibility .7s;
+      position: fixed; inset: 0; z-index: 10000;
+      background: #050505; overflow: hidden;
     }
-    #loader.out { opacity: 0; visibility: hidden; }
-    .ld-brand {
+
+    /* Wipe frames */
+    .ld-frame {
+      position: absolute; inset: 0;
+      clip-path: inset(0 100% 0 0);
+      display: flex; align-items: flex-end;
+      padding: 40px 52px;
+    }
+    #ld-f1 { background: #0b0b0b; }
+    #ld-f2 { background: #0e0e0e; }
+    #ld-f3 { background: #090909; }
+    #ld-f4 { background: #0c0c0c; }
+
+    .ld-f-num {
       font-family: var(--f-disp);
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      font-weight: 900; text-transform: uppercase;
-      letter-spacing: .2em; color: var(--cream);
+      font-size: clamp(5rem, 18vw, 16rem);
+      font-weight: 900; line-height: 1;
+      color: rgba(255,255,255,.04);
+      letter-spacing: -.04em;
+      user-select: none;
     }
-    .ld-brand em { color: var(--blue); font-style: normal; }
-    .ld-bar-wrap {
-      width: 160px; height: 2px;
-      background: var(--border); overflow: hidden;
+    .ld-f-line {
+      position: absolute; top: 0; left: 0; bottom: 0;
+      width: 3px; background: var(--amber);
+      transform: scaleY(0); transform-origin: bottom;
     }
-    .ld-bar {
-      height: 100%;
-      background: linear-gradient(90deg, var(--blue-lo), var(--blue-hi));
-      width: 0; animation: ldBar 1.8s var(--ease) forwards;
+
+    /* Brand — always centered on top */
+    #ld-brand-wrap {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      z-index: 20; pointer-events: none;
     }
-    @keyframes ldBar { to { width: 100%; } }
-    .ld-loc {
-      font-family: var(--f-body);
-      font-size: .6rem; letter-spacing: .4em;
-      text-transform: uppercase; color: var(--border-2);
-      animation: ldFade 1s .5s both;
+    #ld-logo {
+      font-family: var(--f-disp);
+      font-size: clamp(2.8rem, 10vw, 9rem);
+      font-weight: 900; letter-spacing: -.02em;
+      text-transform: uppercase; color: var(--cream);
+      line-height: 1; opacity: 0;
     }
-    @keyframes ldFade { from { opacity: 0; } to { opacity: 1; } }
+    #ld-logo-sub {
+      font-family: var(--f-disp);
+      font-size: clamp(.55rem, 1.4vw, .85rem);
+      letter-spacing: .38em; text-transform: uppercase;
+      color: var(--amber); margin-top: 12px; opacity: 0;
+    }
+
+    /* Progress line */
+    #ld-progress {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      height: 2px; background: rgba(255,255,255,.07);
+      z-index: 30;
+    }
+    #ld-progress-inner {
+      height: 100%; width: 0%; background: var(--amber);
+    }
 
     /* ══════════════════════════════════════════════
        §1 HERO — FULL BLEED ENERGY

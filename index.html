@@ -57,9 +57,30 @@
 
   <!-- ════ LOADER ════ -->
   <div id="loader" aria-hidden="true">
-    <div class="ld-brand">Reko's <em>Barber Shop</em></div>
-    <div class="ld-bar-wrap"><div class="ld-bar"></div></div>
-    <div class="ld-loc">Nordhorn · Deutschland</div>
+    <!-- Cinematic frames — clip-path wipe sequence -->
+    <div class="ld-frame" id="ld-f1">
+      <div class="ld-f-num">01</div>
+      <div class="ld-f-line"></div>
+    </div>
+    <div class="ld-frame" id="ld-f2">
+      <div class="ld-f-num">02</div>
+      <div class="ld-f-line"></div>
+    </div>
+    <div class="ld-frame" id="ld-f3">
+      <div class="ld-f-num">03</div>
+      <div class="ld-f-line"></div>
+    </div>
+    <div class="ld-frame" id="ld-f4">
+      <div class="ld-f-num">04</div>
+      <div class="ld-f-line"></div>
+    </div>
+    <!-- Brand — always on top during slideshow -->
+    <div id="ld-brand-wrap">
+      <div id="ld-logo">REKO'S</div>
+      <div id="ld-logo-sub">Barber Shop &nbsp;·&nbsp; Nordhorn</div>
+    </div>
+    <!-- Progress line -->
+    <div id="ld-progress"><div id="ld-progress-inner"></div></div>
   </div>
 
   <!-- ════ HEADER ════ -->
