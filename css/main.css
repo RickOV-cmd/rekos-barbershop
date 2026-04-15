@@ -308,7 +308,7 @@
       font-family: var(--f-disp);
       font-size: clamp(1.6rem, 5.5vw, 5rem);
       font-weight: 900; letter-spacing: .06em;
-      text-transform: uppercase; color: var(--amber);
+      text-transform: uppercase; color: #E8852A;
       margin-top: 8px; line-height: 1;
     }
 
