@@ -192,6 +192,16 @@
         try { s = JSON.parse(localStorage.getItem('rekos-settings') || '{}'); } catch(e) {}
       }
       applySettings(s);
+      // Reinitialize GLightbox after Supabase URLs are applied
+      if (typeof GLightbox !== 'undefined') {
+        GLightbox({
+          selector: 'a[data-gallery]',
+          touchNavigation: true,
+          loop: true,
+          autoplayVideos: false,
+          skin: 'clean',
+        });
+      }
     })();
 
     /* ─── TODAY HIGHLIGHT ─── */

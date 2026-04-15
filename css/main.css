@@ -697,14 +697,16 @@
       transition: transform .7s var(--ease);
       overflow: hidden;
     }
+    .gi-inner {
+      background: #111;
+    }
     .gi-inner img {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
-      object-fit: cover;
-      object-position: center 20%;
+      object-fit: contain;
       transition: transform .7s var(--ease);
     }
-    .gi:hover .gi-inner img { transform: scale(1.06); }
+    .gi:hover .gi-inner img { transform: scale(1.04); }
     .gi:hover .gi-inner { transform: none; }
     .gi-ph {
       font-family: var(--f-disp);
