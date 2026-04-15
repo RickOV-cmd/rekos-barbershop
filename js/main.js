@@ -575,7 +575,7 @@
 
       gsap.set(strip, { x: -(PHOTO_W / 2), y: startY });
       gsap.set([fTop, fBot], { scaleX: 0, opacity: 0 });
-      gsap.set(['#ld-logo-sub', '#ld-logo'], { y: 20, opacity: 0 });
+      gsap.set(['#ld-logo', '#ld-logo-sub'], { y: 20, opacity: 0 });
 
       /* ── Hero animations (called after loader exits) ── */
       function startHeroAnimations() {
@@ -598,8 +598,8 @@
       }
 
       /* ── Master Timeline ── */
-      var scrollDur = 1.4 + n * 0.48;  // total scroll duration (slow→fast→slow)
-      var endT      = scrollDur + 0.38; // settle pause
+      var scrollDur = 0.85 + n * 0.30;  // faster scroll
+      var endT      = scrollDur + 0.12; // tight pause before brand
       var tl        = gsap.timeline();
 
       // Aperture lines expand in (amber frame appears)
@@ -612,19 +612,19 @@
       tl.to([fTop, fBot, strip], { opacity: 0, duration: 0.55, ease: 'power2.in' }, endT);
 
       // Brand reveal: wrap fades, children stagger up
-      tl.to('#ld-brand-wrap', { opacity: 1, duration: 0.55, ease: 'power2.out' }, endT + 0.18);
-      tl.to('#ld-logo-sub',   { y: 0, opacity: 1, duration: 0.65, ease: 'power3.out' }, endT + 0.18);
-      tl.to('#ld-logo',       { y: 0, opacity: 1, duration: 0.72, ease: 'power3.out' }, endT + 0.32);
+      tl.to('#ld-brand-wrap', { opacity: 1, duration: 0.45, ease: 'power2.out' }, endT + 0.10);
+      tl.to('#ld-logo',       { y: 0, opacity: 1, duration: 0.60, ease: 'power3.out' }, endT + 0.10);
+      tl.to('#ld-logo-sub',   { y: 0, opacity: 1, duration: 0.60, ease: 'power3.out' }, endT + 0.22);
 
       // Curtain up → website revealed
       tl.to('#loader', {
-        yPercent: -100, duration: 0.95, ease: 'power3.inOut',
+        yPercent: -100, duration: 0.90, ease: 'power3.inOut',
         onComplete: function() {
           var l = document.getElementById('loader');
           if (l) { l.style.display = 'none'; l.style.transform = ''; }
           startHeroAnimations();
         }
-      }, endT + 1.35);
+      }, endT + 1.05);
     });
 
     /* ─── HERO COUNTERS ─── */
