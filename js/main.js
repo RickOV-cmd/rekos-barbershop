@@ -575,7 +575,7 @@
 
       gsap.set(strip, { x: -(PHOTO_W / 2), y: startY });
       gsap.set([fTop, fBot], { scaleX: 0, opacity: 0 });
-      gsap.set(['#ld-logo', '#ld-logo-sub'], { y: 20, opacity: 0 });
+      gsap.set(['#ld-logo-sub', '#ld-logo'], { y: 20, opacity: 0 });
 
       /* ── Hero animations (called after loader exits) ── */
       function startHeroAnimations() {
@@ -605,16 +605,16 @@
       // Aperture lines expand in (amber frame appears)
       tl.to([fTop, fBot], { scaleX: 1, opacity: 0.6, duration: 0.5, ease: 'power2.out', stagger: 0.07 }, 0.05);
 
-      // Photo snake scrolls through: slow → fast → slow (power3.inOut)
-      tl.to(strip, { y: endY, duration: scrollDur, ease: 'power3.inOut' }, 0);
+      // Photo snake scrolls through: fast start → smooth deceleration (power4.out)
+      tl.to(strip, { y: endY, duration: scrollDur, ease: 'power4.out' }, 0);
 
       // After strip settles: aperture lines + strip fade out together
       tl.to([fTop, fBot, strip], { opacity: 0, duration: 0.55, ease: 'power2.in' }, endT);
 
       // Brand reveal: wrap fades, children stagger up
       tl.to('#ld-brand-wrap', { opacity: 1, duration: 0.55, ease: 'power2.out' }, endT + 0.18);
-      tl.to('#ld-logo',       { y: 0, opacity: 1, duration: 0.72, ease: 'power3.out' }, endT + 0.18);
-      tl.to('#ld-logo-sub',   { y: 0, opacity: 1, duration: 0.72, ease: 'power3.out' }, endT + 0.34);
+      tl.to('#ld-logo-sub',   { y: 0, opacity: 1, duration: 0.65, ease: 'power3.out' }, endT + 0.18);
+      tl.to('#ld-logo',       { y: 0, opacity: 1, duration: 0.72, ease: 'power3.out' }, endT + 0.32);
 
       // Curtain up → website revealed
       tl.to('#loader', {

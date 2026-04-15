@@ -295,18 +295,21 @@
       align-items: center; justify-content: center;
       z-index: 20; pointer-events: none; opacity: 0;
     }
+    /* Small amber eyebrow */
+    #ld-logo-sub {
+      font-family: var(--f-disp);
+      font-size: clamp(.65rem, 1.8vw, 1rem);
+      font-weight: 700; letter-spacing: .32em;
+      text-transform: uppercase; color: var(--amber);
+      margin-bottom: 10px;
+    }
+    /* Large cream main word */
     #ld-logo {
       font-family: var(--f-disp);
       font-size: clamp(3.2rem, 11vw, 10rem);
       font-weight: 900; letter-spacing: -.02em;
       text-transform: uppercase; color: var(--cream);
       line-height: 1;
-    }
-    #ld-logo-sub {
-      font-family: var(--f-disp);
-      font-size: clamp(.6rem, 1.6vw, .95rem);
-      letter-spacing: .36em; text-transform: uppercase;
-      color: var(--amber); margin-top: 16px;
     }
 
     /* ══════════════════════════════════════════════
