@@ -757,6 +757,148 @@
       color: var(--cream-2);
     }
 
+    /* ─── Gallery More Button ─── */
+    #gallery-more-wrap {
+      display: none;
+      justify-content: center;
+      margin-top: 32px;
+    }
+    #gallery-more-btn {
+      display: flex; align-items: center; gap: 14px;
+      background: none;
+      border: 1px solid rgba(255,255,255,0.18);
+      color: var(--cream); padding: 14px 32px;
+      font-family: var(--f-disp); font-size: .75rem;
+      letter-spacing: .2em; text-transform: uppercase;
+      cursor: pointer; transition: border-color .25s, background .25s;
+    }
+    #gallery-more-btn:hover {
+      border-color: var(--amber);
+      background: rgba(255,255,255,0.04);
+    }
+    .gmb-count {
+      font-size: .65rem; color: var(--amber);
+      letter-spacing: .1em;
+    }
+    .gmb-arrow { font-size: 1rem; color: var(--amber); }
+
+    /* ─── Gallery Slider ─── */
+    #gallery-slider {
+      position: fixed; inset: 0; z-index: 9500;
+      background: rgba(4,4,4,0.97);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none;
+      transition: opacity .35s ease;
+    }
+    #gallery-slider.open {
+      opacity: 1; pointer-events: all;
+    }
+    #gs-close {
+      position: absolute; top: 22px; right: 26px;
+      background: none; border: 1px solid rgba(255,255,255,0.2);
+      color: rgba(255,255,255,0.8); width: 44px; height: 44px;
+      border-radius: 50%; cursor: pointer; font-size: 15px;
+      transition: border-color .2s, background .2s; z-index: 10;
+    }
+    #gs-close:hover { border-color: var(--amber); color: #fff; }
+    #gs-stage {
+      position: relative; width: 100vw; height: 62vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+    }
+    #gs-track {
+      position: relative; width: 100%; height: 100%;
+    }
+    /* Base slide — hidden by default */
+    .gs-slide {
+      position: absolute; top: 50%; left: 50%;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform .5s cubic-bezier(.4,0,.2,1),
+                  opacity .5s cubic-bezier(.4,0,.2,1),
+                  width .5s cubic-bezier(.4,0,.2,1),
+                  height .5s cubic-bezier(.4,0,.2,1);
+      opacity: 0; pointer-events: none;
+      width: 40px; height: 60px;
+      transform: translate(-50%, -50%) scale(0.2);
+    }
+    .gs-slide img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 15%;
+      display: block; user-select: none; pointer-events: none;
+    }
+    /* Center — active */
+    .gs-slide[data-off="0"] {
+      width: clamp(220px, 38vw, 480px);
+      height: clamp(290px, 58vh, 640px);
+      transform: translate(-50%, -50%);
+      opacity: 1; z-index: 10; cursor: default;
+      box-shadow: 0 24px 80px rgba(0,0,0,.85);
+      pointer-events: all;
+    }
+    /* ±1 neighbors */
+    .gs-slide[data-off="1"] {
+      width: clamp(90px, 16vw, 200px);
+      height: clamp(140px, 44vh, 500px);
+      transform: translate(calc(-50% + clamp(200px,31vw,420px)), -50%);
+      opacity: 0.48; z-index: 5; pointer-events: all;
+    }
+    .gs-slide[data-off="-1"] {
+      width: clamp(90px, 16vw, 200px);
+      height: clamp(140px, 44vh, 500px);
+      transform: translate(calc(-50% - clamp(200px,31vw,420px)), -50%);
+      opacity: 0.48; z-index: 5; pointer-events: all;
+    }
+    /* ±2 far */
+    .gs-slide[data-off="2"] {
+      width: clamp(60px, 10vw, 130px);
+      height: clamp(90px, 32vh, 370px);
+      transform: translate(calc(-50% + clamp(310px,49vw,620px)), -50%);
+      opacity: 0.18; z-index: 2; pointer-events: all;
+    }
+    .gs-slide[data-off="-2"] {
+      width: clamp(60px, 10vw, 130px);
+      height: clamp(90px, 32vh, 370px);
+      transform: translate(calc(-50% - clamp(310px,49vw,620px)), -50%);
+      opacity: 0.18; z-index: 2; pointer-events: all;
+    }
+    /* Nav arrows */
+    .gs-nav {
+      position: absolute; top: 50%; z-index: 20;
+      transform: translateY(-50%);
+      background: none; border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(255,255,255,.65); width: 50px; height: 50px;
+      border-radius: 50%; cursor: pointer; font-size: 18px;
+      transition: border-color .2s, color .2s;
+    }
+    .gs-nav:hover { border-color: var(--amber); color: #fff; }
+    #gs-prev { left: 20px; }
+    #gs-next { right: 20px; }
+    /* Info bar */
+    #gs-info {
+      margin-top: 28px;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 8px;
+    }
+    #gs-counter {
+      font-family: var(--f-disp); font-size: .6rem;
+      letter-spacing: .35em; text-transform: uppercase;
+      color: rgba(255,255,255,.35);
+    }
+    .gs-sep { margin: 0 4px; }
+    #gs-title {
+      font-family: var(--f-disp); font-size: .75rem;
+      letter-spacing: .18em; text-transform: uppercase;
+      color: rgba(255,255,255,.75); min-height: 1.2em;
+    }
+    @media (max-width: 600px) {
+      .gs-nav { display: none; }
+      .gs-slide[data-off="2"], .gs-slide[data-off="-2"] { opacity: 0; pointer-events: none; }
+      .gs-slide[data-off="1"] { transform: translate(calc(-50% + min(170px,42vw)), -50%); opacity: 0.4; }
+      .gs-slide[data-off="-1"] { transform: translate(calc(-50% - min(170px,42vw)), -50%); opacity: 0.4; }
+    }
+
     /* ══════════════════════════════════════════════
        §6 REVIEWS — BOLD CARDS
     ══════════════════════════════════════════════ */

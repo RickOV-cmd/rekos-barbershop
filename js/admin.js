@@ -16,7 +16,7 @@ const DEFAULT_SERVICES = [
   { name: 'Kinder bis 14',   desc: 'Haarschnitt für Kinder bis 14 Jahre — geduldig, professionell und kindgerecht.', price: '15' }
 ];
 
-const GALLERY_TITLES = ['High Fade','Taper Fade','Skin Fade','Bart Kontur','Classic Cut','Styling','Kombi-Service'];
+const GALLERY_TITLES = ['High Fade','Taper Fade','Skin Fade','Bart Kontur','Classic Cut','Styling','Kombi-Service','Beard Trim'];
 
 const DEFAULT_REVIEWS = [
   { text: 'Bester Barbershop in Nordhorn, ohne Frage. Reko weiß genau, was er tut. Mein Fade sitzt immer perfekt — und die Atmosphäre ist entspannt und professionell zugleich.', name: 'Kevin M.', initials: 'KM' },
@@ -265,10 +265,27 @@ function renderServicesList() {
 let galleryState = [];
 
 function initGalleryState(saved) {
-  galleryState = Array.from({ length: 7 }, (_, i) => ({
-    href:  (saved && saved[i] && saved[i].href)  || ('assets/images/gallery-' + (i + 1) + '.jpg'),
-    title: (saved && saved[i] && saved[i].title) || GALLERY_TITLES[i]
-  }));
+  if (saved && saved.length > 0) {
+    galleryState = saved.map((img, i) => ({
+      href:  img.href  || '',
+      title: img.title || GALLERY_TITLES[i] || ('Bild ' + (i + 1))
+    }));
+  } else {
+    galleryState = Array.from({ length: 8 }, (_, i) => ({
+      href:  '',
+      title: GALLERY_TITLES[i] || ('Bild ' + (i + 1))
+    }));
+  }
+}
+
+function addGalleryItem() {
+  const i = galleryState.length;
+  galleryState.push({ href: '', title: GALLERY_TITLES[i] || ('Bild ' + (i + 1)) });
+  renderGalleryList();
+  setTimeout(() => {
+    const cards = document.querySelectorAll('.gi-admin-card');
+    if (cards.length) cards[cards.length - 1].scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }, 50);
 }
 
 function renderGalleryList(items) {
@@ -297,7 +314,7 @@ function renderGalleryList(items) {
             ${isReal ? 'Ersetzen' : 'Hochladen'}
             <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" style="display:none" onchange="handleGalleryUpload(this,${i})">
           </label>
-          ${isReal ? `<button class="gi-delete-btn" onclick="deleteGalleryItem(${i})">✕ Löschen</button>` : ''}
+          <button class="gi-delete-btn" onclick="deleteGalleryItem(${i})">✕</button>
         </div>
       </div>`;
     div.addEventListener('dragstart', e => { dragSrc = i; div.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; });
@@ -306,6 +323,13 @@ function renderGalleryList(items) {
     div.addEventListener('dragend',   () => container.querySelectorAll('.gi-admin-card').forEach(c => c.classList.remove('dragging','drag-over')));
     container.appendChild(div);
   });
+
+  // "+ Bild hinzufügen" button
+  const addBtn = document.createElement('button');
+  addBtn.className = 'btn-save gi-add-btn';
+  addBtn.innerHTML = '+ Bild hinzufügen';
+  addBtn.onclick = addGalleryItem;
+  container.appendChild(addBtn);
 }
 
 let dragSrc = null;
@@ -329,7 +353,7 @@ async function handleGalleryUpload(input, index) {
 
 function deleteGalleryItem(index) {
   if (!confirm('Bild entfernen?')) return;
-  galleryState[index] = { href: 'assets/images/gallery-' + (index + 1) + '.jpg', title: GALLERY_TITLES[index] };
+  galleryState.splice(index, 1);
   renderGalleryList();
 }
 

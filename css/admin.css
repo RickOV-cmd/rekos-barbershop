@@ -343,3 +343,22 @@
       .gi-admin-card { flex-wrap: wrap; }
       .gi-admin-thumb { width: 56px; height: 56px; }
     }
+
+
+/* Gallery: add button */
+.gi-add-btn {
+  width: 100%;
+  margin-top: 8px;
+  background: rgba(255,255,255,0.04);
+  border: 1px dashed rgba(255,255,255,0.2);
+  color: rgba(255,255,255,0.55);
+  font-size: .72rem;
+  letter-spacing: .15em;
+  padding: 12px;
+  cursor: pointer;
+  transition: border-color .2s, color .2s;
+}
+.gi-add-btn:hover {
+  border-color: var(--amber);
+  color: var(--amber);
+}
