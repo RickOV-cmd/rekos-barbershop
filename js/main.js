@@ -550,18 +550,6 @@
         triggerHeroCounters();
       }
 
-      /* ── Initial states ── */
-      gsap.set('#ld-line-l',          { xPercent: -100 });
-      gsap.set('#ld-line-r',          { xPercent:  100 });
-      gsap.set('#ld-line-t',          { yPercent: -100 });
-      gsap.set('#ld-line-b',          { yPercent:  100 });
-      gsap.set('#ld-logo span',       { y: -55, opacity: 0, scale: 1.25 });
-      gsap.set('#ld-logo-sub',        { clipPath: 'inset(0 100% 0 0)', opacity: 1 });
-      gsap.set('#ld-logo-addr',       { opacity: 0, y: 8 });
-      gsap.set('#ld-glow',            { scale: 0, opacity: 0 });
-      gsap.set('#ld-flash',           { opacity: 0 });
-      gsap.set('#ld-scan',            { opacity: 0 });
-
       var tl = gsap.timeline();
 
       /* ── 0.00s: All 4 lines sweep in simultaneously ── */

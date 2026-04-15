@@ -298,18 +298,6 @@
       background: #E8852A;
     }
 
-    /* ── Initial hidden states — set in CSS so nothing flashes on first paint ── */
-    #ld-line-l   { transform: translateX(-100%); }
-    #ld-line-r   { transform: translateX(100%); }
-    #ld-line-t   { transform: translateY(-100%); }
-    #ld-line-b   { transform: translateY(100%); }
-    #ld-logo span    { opacity: 0; transform: translateY(-55px) scale(1.25); }
-    #ld-logo-sub     { clip-path: inset(0 100% 0 0); }
-    #ld-logo-addr    { opacity: 0; }
-    #ld-glow         { opacity: 0; transform: scale(0); }
-    #ld-flash        { opacity: 0; }
-    #ld-scan         { opacity: 0; }
-
     /* Horizontal razor lines */
     #ld-line-l, #ld-line-r {
       position: absolute; top: 50%; margin-top: -1px;
@@ -362,7 +350,7 @@
       font-size: clamp(.55rem, 1.3vw, .8rem);
       font-weight: 400; letter-spacing: .18em;
       text-transform: uppercase; color: #F0EAE0;
-      margin-top: 18px; text-align: center; opacity: .5;
+      margin-top: 18px; text-align: center;
     }
 
     /* ══════════════════════════════════════════════
