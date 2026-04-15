@@ -322,23 +322,19 @@
             row.innerHTML = renderStars(ratingVal);
           });
         }
-        // Years experience
+        // Years experience — auto-generates the subtitle text
         if (s.years !== undefined) {
           document.querySelectorAll('.js-years-val').forEach(el => {
             el.dataset.t = String(s.years);
             el.textContent = s.years;
           });
           const sub = document.getElementById('stmt-sub-text');
-          if (sub && s.stmtSub) sub.textContent = s.stmtSub;
+          if (sub) sub.textContent = "Nordhorn's Premium Barbershop seit über " + s.years + " Jahren";
         }
         // Statement text
         if (s.stmtText) {
           const el = document.getElementById('stmt-main-text');
           if (el) el.innerHTML = s.stmtText.replace(/\n/g, '<br>');
-        }
-        if (s.stmtSub) {
-          const el = document.getElementById('stmt-sub-text');
-          if (el) el.textContent = s.stmtSub;
         }
         // Phone
         if (s.phone && s.phoneHref) {

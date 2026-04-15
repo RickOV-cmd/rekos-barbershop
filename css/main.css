@@ -1181,15 +1181,16 @@
       pointer-events: none;
     }
     .cta-ghost {
-      position: absolute; bottom: -8%; left: 50%;
+      position: absolute; bottom: -12%; left: 50%;
       transform: translateX(-50%);
       font-family: var(--f-disp);
-      font-size: clamp(8rem, 22vw, 22rem);
+      font-size: clamp(5rem, 15vw, 15rem);
       font-weight: 900; text-transform: uppercase;
       letter-spacing: -.04em;
       color: transparent;
       -webkit-text-stroke: 1px var(--border);
-      pointer-events: none; white-space: nowrap; line-height: 1;
+      pointer-events: none; white-space: nowrap; line-height: .9;
+      text-align: center;
       user-select: none;
     }
     .cta-inner {
