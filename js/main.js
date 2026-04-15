@@ -498,9 +498,39 @@
       hdr.classList.toggle('scrolled', scroll > 60);
     });
 
-    /* ─── INTRO LOADER — Razor Cut ─── */
+    /* ─── INTRO LOADER — Cinematic ─── */
     window.addEventListener('load', function() {
 
+      /* ── Film grain: generate noise tile once, CSS animates the shift ── */
+      (function() {
+        var c = document.createElement('canvas');
+        c.width = c.height = 160;
+        var cx = c.getContext('2d');
+        var id = cx.createImageData(160, 160);
+        for (var i = 0; i < id.data.length; i += 4) {
+          var v = (Math.random() * 255) | 0;
+          id.data[i] = id.data[i+1] = id.data[i+2] = v;
+          id.data[i+3] = 255;
+        }
+        cx.putImageData(id, 0, 0);
+        var grain = document.getElementById('ld-grain');
+        if (grain) grain.style.backgroundImage = 'url(' + c.toDataURL() + ')';
+      })();
+
+      /* ── Create diagonal X lines (impact moment) ── */
+      function mkDiag(deg) {
+        var el = document.createElement('div');
+        el.style.cssText = 'position:absolute;left:50%;top:50%;width:75%;height:1px;'
+          + 'background:rgba(232,133,42,0.55);transform:translate(-50%,-50%) rotate('+deg+'deg);'
+          + 'pointer-events:none;z-index:9;opacity:0;'
+          + 'box-shadow:0 0 8px rgba(232,133,42,.5);border-radius:1px;';
+        document.getElementById('loader').appendChild(el);
+        return el;
+      }
+      var diag1 = mkDiag(45);
+      var diag2 = mkDiag(-45);
+
+      /* ── Hero animations ── */
       function startHeroAnimations() {
         var clipLines = document.querySelectorAll('#hero .clip-line .clip-inner');
         gsap.fromTo(clipLines,
@@ -521,41 +551,83 @@
       }
 
       /* ── Initial states ── */
-      gsap.set('#ld-line-l',    { xPercent: -100 });
-      gsap.set('#ld-line-r',    { xPercent:  100 });
-      gsap.set('#ld-logo',      { clipPath: 'inset(0 50% 0 50%)', opacity: 1 });
-      gsap.set('#ld-logo-sub',  { y: 16, opacity: 0 });
-      gsap.set('#ld-logo-addr', { opacity: 0 });
+      gsap.set('#ld-line-l',          { xPercent: -100 });
+      gsap.set('#ld-line-r',          { xPercent:  100 });
+      gsap.set('#ld-line-t',          { yPercent: -100 });
+      gsap.set('#ld-line-b',          { yPercent:  100 });
+      gsap.set('#ld-logo span',       { y: -55, opacity: 0, scale: 1.25 });
+      gsap.set('#ld-logo-sub',        { clipPath: 'inset(0 100% 0 0)', opacity: 1 });
+      gsap.set('#ld-logo-addr',       { opacity: 0, y: 8 });
+      gsap.set('#ld-glow',            { scale: 0, opacity: 0 });
+      gsap.set('#ld-flash',           { opacity: 0 });
+      gsap.set('#ld-scan',            { opacity: 0 });
 
       var tl = gsap.timeline();
 
-      /* 0.00s — Lines sweep from edges → meet at centre */
-      tl.to(['#ld-line-l', '#ld-line-r'], {
-        xPercent: 0, duration: 0.38, ease: 'power3.out'
-      }, 0);
+      /* ── 0.00s: All 4 lines sweep in simultaneously ── */
+      tl.to(['#ld-line-l', '#ld-line-r'], { xPercent: 0, duration: 0.30, ease: 'power4.out' }, 0);
+      tl.to('#ld-line-t', { yPercent: 0, duration: 0.28, ease: 'power4.out' }, 0.02);
+      tl.to('#ld-line-b', { yPercent: 0, duration: 0.28, ease: 'power4.out' }, 0.02);
 
-      /* 0.36s — REKO'S reveals outward from centre */
-      tl.to('#ld-logo', {
-        clipPath: 'inset(0 0% 0 0%)', duration: 0.30, ease: 'power2.out'
-      }, 0.36);
+      /* ── 0.28s: IMPACT — flash + glow + scanlines + diagonal X ── */
+      // Amber screen flash
+      tl.to('#ld-flash', { opacity: 0.22, duration: 0.07, ease: 'none' }, 0.28);
+      tl.to('#ld-flash', { opacity: 0,    duration: 0.22, ease: 'power2.out' }, 0.35);
+      // Glow burst
+      tl.to('#ld-glow',  { scale: 1, opacity: 1, duration: 0.10, ease: 'power3.out' }, 0.28);
+      tl.to('#ld-glow',  { scale: 1.6, opacity: 0, duration: 0.55, ease: 'power2.out' }, 0.38);
+      // Scanlines flash
+      tl.to('#ld-scan',  { opacity: 0.5, duration: 0.07 }, 0.28);
+      tl.to('#ld-scan',  { opacity: 0,   duration: 0.25 }, 0.35);
+      // Diagonal X lines
+      tl.to([diag1, diag2], { opacity: 0.7, duration: 0.07 }, 0.28);
+      tl.to([diag1, diag2], { opacity: 0,   duration: 0.30, ease: 'power2.out' }, 0.35);
 
-      /* 0.66s — Lines glide apart + BARBER SHOP rises */
-      tl.to('#ld-line-l', { y: -20, opacity: 0, duration: 0.30, ease: 'power2.in' }, 0.66);
-      tl.to('#ld-line-r', { y:  20, opacity: 0, duration: 0.30, ease: 'power2.in' }, 0.66);
-      tl.to('#ld-logo-sub', { y: 0, opacity: 1, duration: 0.30, ease: 'power3.out' }, 0.68);
+      /* ── 0.32s: REKO'S — per-letter slam with back.out bounce ── */
+      tl.to('#ld-logo span', {
+        y: 0, opacity: 1, scale: 1,
+        duration: 0.38, ease: 'back.out(1.4)', stagger: 0.048
+      }, 0.32);
 
-      /* 1.00s — Address fades in */
-      tl.to('#ld-logo-addr', { opacity: 0.5, duration: 0.24, ease: 'power2.out' }, 1.00);
+      /* ── 0.62s: Lines retract — each in a different direction ── */
+      tl.to('#ld-line-l', { xPercent: -100, opacity: 0, duration: 0.28, ease: 'power3.in' }, 0.62);
+      tl.to('#ld-line-r', { xPercent:  100, opacity: 0, duration: 0.28, ease: 'power3.in' }, 0.62);
+      tl.to('#ld-line-t', { yPercent: -100, opacity: 0, duration: 0.28, ease: 'power3.in' }, 0.65);
+      tl.to('#ld-line-b', { yPercent:  100, opacity: 0, duration: 0.28, ease: 'power3.in' }, 0.65);
 
-      /* 2.00s — Curtain up → website */
+      /* ── 0.68s: BARBER SHOP wipes in left→right ── */
+      tl.to('#ld-logo-sub', {
+        clipPath: 'inset(0 0% 0 0)', duration: 0.34, ease: 'power3.out'
+      }, 0.68);
+
+      /* ── 0.95s: Address rises in ── */
+      tl.to('#ld-logo-addr', { opacity: 0.5, y: 0, duration: 0.25, ease: 'power2.out' }, 0.95);
+
+      /* ── 1.05s: Subtle amber glow pulse on brand ── */
+      tl.to('#ld-logo-sub', { textShadow: '0 0 50px rgba(232,133,42,0.85)', duration: 0.20 }, 1.05);
+      tl.to('#ld-logo-sub', { textShadow: '0 0 30px rgba(232,133,42,0.5)',  duration: 0.40 }, 1.25);
+
+      /* ── 1.90s: Pre-exit flash ── */
+      tl.to('#ld-flash', { opacity: 0.12, duration: 0.06 }, 1.90);
+      tl.to('#ld-flash', { opacity: 0,    duration: 0.14 }, 1.96);
+
+      /* ── 2.00s: Curtain up ── */
       tl.to('#loader', {
         yPercent: -100, duration: 0.82, ease: 'power3.inOut',
         onComplete: function() {
           var l = document.getElementById('loader');
-          if (l) { l.style.display = 'none'; l.style.transform = ''; }
+          if (l) {
+            l.style.display = 'none';
+            l.style.transform = '';
+            // Stop grain animation
+            var g = document.getElementById('ld-grain');
+            if (g) g.style.animation = 'none';
+          }
           startHeroAnimations();
         }
       }, 2.00);
+    });
+
     });
 
 

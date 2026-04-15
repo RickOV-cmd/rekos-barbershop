@@ -250,23 +250,77 @@
        LOADING SCREEN
     ══════════════════════════════════════════════ */
     /* ─── CINEMATIC INTRO LOADER ─── */
-    /* ══ INTRO LOADER — Razor Cut ══ */
+    /* ══ INTRO LOADER — Cinematic ══ */
     #loader {
       position: fixed; inset: 0; z-index: 10000;
       background: #060606; overflow: hidden;
     }
 
-    /* Razor lines — meet at horizontal centre */
+    /* Film grain — tiling noise, CSS-animated shift */
+    #ld-grain {
+      position: absolute; inset: -80px;
+      background-repeat: repeat;
+      background-size: 160px 160px;
+      z-index: 1; opacity: 0.055; pointer-events: none;
+      animation: ldGrain 0.4s steps(1) infinite;
+    }
+    @keyframes ldGrain {
+      0%   { transform: translate(0,    0   ); }
+      20%  { transform: translate(-8px, -6px); }
+      40%  { transform: translate(6px,  9px ); }
+      60%  { transform: translate(-5px, 7px ); }
+      80%  { transform: translate(9px,  -4px); }
+      100% { transform: translate(-3px, 5px ); }
+    }
+
+    /* CRT scanlines — brief appearance */
+    #ld-scan {
+      position: absolute; inset: 0; z-index: 2; pointer-events: none; opacity: 0;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px, transparent 3px,
+        rgba(0,0,0,.18) 3px, rgba(0,0,0,.18) 4px
+      );
+    }
+
+    /* Amber glow burst at centre on impact */
+    #ld-glow {
+      position: absolute; left: 50%; top: 50%;
+      width: 700px; height: 700px;
+      margin: -350px 0 0 -350px;
+      border-radius: 50%; pointer-events: none; z-index: 3; opacity: 0;
+      background: radial-gradient(circle, rgba(232,133,42,.55) 0%, rgba(232,133,42,.12) 40%, transparent 70%);
+    }
+
+    /* Impact flash */
+    #ld-flash {
+      position: absolute; inset: 0; z-index: 26; pointer-events: none; opacity: 0;
+      background: #E8852A;
+    }
+
+    /* Horizontal razor lines */
     #ld-line-l, #ld-line-r {
       position: absolute; top: 50%; margin-top: -1px;
       width: 52%; height: 2px;
       background: #E8852A; border-radius: 1px;
-      will-change: transform, opacity;
+      box-shadow: 0 0 10px rgba(232,133,42,.7), 0 0 28px rgba(232,133,42,.35);
+      will-change: transform, opacity; z-index: 10;
     }
     #ld-line-l { right: 50%; transform-origin: right center; }
     #ld-line-r { left:  50%; transform-origin: left center; }
 
-    /* Brand — always centred */
+    /* Vertical accent lines */
+    #ld-line-t, #ld-line-b {
+      position: absolute; left: 50%; margin-left: -1px;
+      width: 2px; height: 38%;
+      background: #E8852A; border-radius: 1px;
+      box-shadow: 0 0 10px rgba(232,133,42,.7), 0 0 28px rgba(232,133,42,.35);
+      will-change: transform, opacity; z-index: 10;
+    }
+    #ld-line-t { bottom: 50%; transform-origin: bottom center; }
+    #ld-line-b { top:    50%; transform-origin: top center; }
+
+    /* Brand — centred */
     #ld-brand-wrap {
       position: absolute; inset: 0;
       display: flex; flex-direction: column;
@@ -278,21 +332,25 @@
       font-size: clamp(3.5rem, 12vw, 11rem);
       font-weight: 900; letter-spacing: -.02em;
       text-transform: uppercase; color: #F0EAE0;
-      line-height: 1;
+      line-height: 1; overflow: visible;
     }
+    /* Per-letter spans */
+    #ld-logo span { display: inline-block; }
+
     #ld-logo-sub {
       font-family: var(--f-disp);
       font-size: clamp(1.6rem, 5.5vw, 5rem);
       font-weight: 900; letter-spacing: .06em;
       text-transform: uppercase; color: #E8852A;
       margin-top: 8px; line-height: 1;
+      text-shadow: 0 0 30px rgba(232,133,42,.5);
     }
     #ld-logo-addr {
       font-family: var(--f-disp);
       font-size: clamp(.55rem, 1.3vw, .8rem);
       font-weight: 400; letter-spacing: .18em;
       text-transform: uppercase; color: #F0EAE0;
-      margin-top: 18px; text-align: center;
+      margin-top: 18px; text-align: center; opacity: .5;
     }
 
     /* ══════════════════════════════════════════════
