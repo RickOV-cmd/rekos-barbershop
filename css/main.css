@@ -1332,8 +1332,8 @@
       #statement, #services, #why, #gallery, #reviews, #location, #cta-section { padding: 96px 0; }
       .wrap { padding: 0 20px; }
       #hdr { padding: 0 20px; }
-      .hero-content { padding: 0 20px 160px; }
-      .hero-lower { left: 20px; right: 20px; padding-bottom: 24px; }
+      .hero-content { padding: 0 20px 32px; display: flex; flex-direction: column; justify-content: flex-end; }
+      .hero-lower { position: static; padding: 32px 0 0; }
       .hero-status { left: 20px; }
       .hero-bar { padding: 0 20px; }
       .hero-bar-item { padding: 16px 0; }

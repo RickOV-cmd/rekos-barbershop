@@ -403,8 +403,22 @@
           const dayKeys = ['sonntag','montag','dienstag','mittwoch','donnerstag','freitag','samstag'];
           const todayH  = s.hours[dayKeys[new Date().getDay()]];
           if (todayH) {
-            const hrsEl = document.getElementById('status-hours');
-            if (hrsEl) hrsEl.textContent = todayH.closed ? 'Heute geschlossen' : (todayH.open + ' – ' + todayH.close + ' Uhr');
+            const hrsEl  = document.getElementById('status-hours');
+            const textEl = document.getElementById('status-text');
+            const dotEl  = document.getElementById('status-dot');
+            const now    = new Date();
+            const hour   = now.getHours() + now.getMinutes() / 60;
+            let isOpen   = false;
+            if (!todayH.closed && todayH.open && todayH.close) {
+              const t = s => { const [a,b] = s.split(':').map(Number); return a + b/60; };
+              if (hour >= t(todayH.open) && hour < t(todayH.close)) isOpen = true;
+            }
+            if (hrsEl)  hrsEl.textContent  = todayH.closed ? 'Heute geschlossen' : (todayH.open + ' – ' + todayH.close + ' Uhr');
+            if (textEl) textEl.textContent  = isOpen ? 'Jetzt geöffnet' : 'Aktuell geschlossen';
+            if (dotEl) {
+              dotEl.style.background  = isOpen ? '#3ec46b' : '#e05454';
+              dotEl.style.boxShadow   = isOpen ? '0 0 0 0 rgba(62,196,107,.4)' : '0 0 0 0 rgba(224,84,84,.4)';
+            }
           }
         }
     }
@@ -525,14 +539,15 @@
 
     /* ─── HERO COUNTERS ─── */
     function triggerHeroCounters() {
-      document.querySelectorAll('#hero .c-up').forEach(el => {
-        const target = parseInt(el.dataset.t);
-        let current  = 0;
-        const step   = target / 55;
-        const t = setInterval(() => {
+      document.querySelectorAll('#hero .c-up').forEach(function(el) {
+        var target  = parseFloat(el.dataset.t) || 0;
+        var isFloat = String(el.dataset.t).includes('.');
+        var current = 0;
+        var step    = target / 55;
+        var timer   = setInterval(function() {
           current = Math.min(current + step, target);
-          el.textContent = Math.round(current);
-          if (current >= target) clearInterval(t);
+          el.textContent = isFloat ? current.toFixed(1) : Math.round(current);
+          if (current >= target) clearInterval(timer);
         }, 22);
       });
     }
@@ -568,19 +583,20 @@
     /* ─── SECTION COUNT-UP ─── */
     document.querySelectorAll('.c-up').forEach(function(el) {
       if (el.closest('#hero')) return;
-      var target   = parseFloat(el.dataset.t);
-      var isFloat  = el.dataset.t && el.dataset.t.includes('.');
       ScrollTrigger.create({
         trigger: el,
         start: 'top 80%',
         once: true,
         onEnter: function() {
+          // Read data-t at trigger time — applySettings may have updated it
+          var target  = parseFloat(el.dataset.t) || 0;
+          var isFloat = String(el.dataset.t).includes('.');
           var current = 0;
           var step    = target / 50;
-          var t = setInterval(function() {
+          var timer   = setInterval(function() {
             current = Math.min(current + step, target);
             el.textContent = isFloat ? current.toFixed(1) : Math.round(current);
-            if (current >= target) clearInterval(t);
+            if (current >= target) clearInterval(timer);
           }, 28);
         }
       });
