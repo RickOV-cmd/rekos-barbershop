@@ -498,27 +498,126 @@
       hdr.classList.toggle('scrolled', scroll > 60);
     });
 
-    /* ─── CINEMATIC INTRO + HERO ANIMATIONS ─── */
+    /* ─── CINEMATIC INTRO — Crossfade + Ken Burns Slideshow ─── */
     window.addEventListener('load', async function() {
 
-      // Fetch intro images from Supabase and inject into loader frames
+      var STEP       = 1.1;   // seconds each slide is held at full opacity
+      var XFADE      = 0.65;  // crossfade duration between slides
+      var KB_SCALE   = 1.07;  // Ken Burns max zoom (subtle)
+      var EXIT_DELAY = 0.35;  // pause after last slide before exit
+
+      /* ── Build slide elements from Supabase intro images ── */
+      var introUrls = [];
       try {
         if (typeof fetchSiteSettings === 'function') {
-          var introSettings = await fetchSiteSettings();
-          if (introSettings && introSettings.intro && introSettings.intro.length) {
-            var ldFrames = document.querySelectorAll('.ld-frame');
-            introSettings.intro.forEach(function(img, i) {
-              if (i < ldFrames.length && img.href) {
-                var imgEl = ldFrames[i].querySelector('.ld-f-img');
-                if (imgEl) imgEl.src = img.href;
-              }
-            });
+          var s0 = await fetchSiteSettings();
+          if (s0 && s0.intro && s0.intro.length) {
+            introUrls = s0.intro.map(function(img) { return img.href || ''; }).filter(Boolean);
           }
         }
-      } catch(e) { /* silent — loader still works without images */ }
+      } catch(e) {}
 
+      // Guarantee at least 1 slide (pure dark fallback)
+      var n = Math.max(introUrls.length, 1);
+      var container = document.getElementById('ld-slides');
+      var slideEls  = [];
+
+      for (var i = 0; i < n; i++) {
+        var slide = document.createElement('div');
+        slide.className = 'ld-slide';
+
+        if (introUrls[i]) {
+          var img = document.createElement('img');
+          img.src       = introUrls[i];
+          img.alt       = '';
+          img.className = 'ld-slide-img';
+          img.draggable = false;
+          slide.appendChild(img);
+        } else {
+          // No image → dark gradient tile
+          var bg = document.createElement('div');
+          bg.className = 'ld-slide-bg';
+          slide.appendChild(bg);
+        }
+
+        container.appendChild(slide);
+        slideEls.push(slide);
+      }
+
+      // Update counter total
+      var totEl = document.getElementById('ld-tot');
+      var curEl = document.getElementById('ld-cur');
+      if (totEl) totEl.textContent = String(n).padStart(2, '0');
+      if (curEl) curEl.textContent = '01';
+
+      /* ── GSAP Master Timeline ── */
+      var totalDur = n * STEP;  // total content duration
+      var tl = gsap.timeline({ onComplete: startHeroAnimations });
+
+      // Brand reveal (clips up from translateY)
+      gsap.set('#ld-logo',     { opacity: 0, y: 20 });
+      gsap.set('#ld-logo-sub', { opacity: 0, y: 12 });
+      tl.to('#ld-logo',     { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, 0.25);
+      tl.to('#ld-logo-sub', { opacity: 1, y: 0, duration: 0.75, ease: 'power3.out' }, 0.42);
+      tl.to('#ld-counter',  { opacity: 1, duration: 0.5, ease: 'power2.out' }, 0.5);
+
+      // Progress bar fills over total content duration
+      tl.to('#ld-progress-inner', {
+        width: '100%', duration: totalDur, ease: 'none'
+      }, 0);
+
+      // Per-slide: crossfade + Ken Burns
+      slideEls.forEach(function(slide, i) {
+        var t   = i * STEP;
+        var img = slide.querySelector('.ld-slide-img');
+
+        // Counter update
+        tl.add(function(idx) {
+          return function() {
+            if (curEl) curEl.textContent = String(idx + 1).padStart(2, '0');
+          };
+        }(i), t);
+
+        // Fade in
+        tl.to(slide, {
+          opacity: 1, duration: XFADE, ease: 'power2.inOut'
+        }, t);
+
+        // Ken Burns — slow zoom throughout this slide's lifetime
+        if (img) {
+          tl.fromTo(img,
+            { scale: 1.0 },
+            { scale: KB_SCALE, duration: STEP + XFADE, ease: 'none' },
+            t
+          );
+        }
+
+        // Fade out (all but last slide)
+        if (i < slideEls.length - 1) {
+          tl.to(slide, {
+            opacity: 0, duration: XFADE, ease: 'power2.inOut'
+          }, t + STEP - XFADE * 0.5);
+        }
+      });
+
+      // Fade out UI chrome before exit
+      tl.to(['#ld-logo', '#ld-logo-sub', '#ld-counter', '#ld-progress'], {
+        opacity: 0, duration: 0.4, ease: 'power2.in'
+      }, totalDur + EXIT_DELAY - 0.1);
+
+      // Loader curtain slides up to reveal website
+      tl.to('#loader', {
+        yPercent: -100,
+        duration: 0.95,
+        ease: 'power3.inOut',
+        onComplete: function() {
+          var l = document.getElementById('loader');
+          if (l) { l.style.display = 'none'; l.style.transform = ''; }
+        }
+      }, totalDur + EXIT_DELAY + 0.25);
+
+      /* ── Hero animations (fire after loader exits) ── */
       function startHeroAnimations() {
-        // Hero clip-line staggered reveal
         var clipLines = document.querySelectorAll('#hero .clip-line .clip-inner');
         gsap.fromTo(clipLines,
           { yPercent: 110 },
@@ -537,57 +636,6 @@
         );
         triggerHeroCounters();
       }
-
-      var frames      = document.querySelectorAll('.ld-frame');
-      var frameDur    = 0.38;   // how long each frame is visible
-      var wipeInDur   = 0.12;   // clip-path wipe-in speed
-      var wipeOutDur  = 0.22;   // clip-path wipe-out speed
-      var totalSlides = frames.length * (frameDur + 0.04);
-
-      var tl = gsap.timeline({ onComplete: startHeroAnimations });
-
-      // Fade in brand logo immediately
-      tl.to(['#ld-logo', '#ld-logo-sub'], {
-        opacity: 1, duration: 0.5, ease: 'power2.out', stagger: 0.12
-      }, 0.1);
-
-      // Progress bar fills over total slide duration
-      tl.to('#ld-progress-inner', {
-        width: '100%', duration: totalSlides, ease: 'linear'
-      }, 0.1);
-
-      // Each frame: wipe in → hold → wipe out
-      frames.forEach(function(frame, i) {
-        var t = 0.1 + i * (frameDur + 0.04);
-
-        // Wipe in from right
-        tl.fromTo(frame,
-          { clipPath: 'inset(0 100% 0 0)' },
-          { clipPath: 'inset(0 0% 0 0)', duration: wipeInDur, ease: 'power1.out' },
-          t
-        );
-        // Animate amber side line
-        tl.to(frame.querySelector('.ld-f-line'),
-          { scaleY: 1, duration: frameDur * 0.6, ease: 'power2.out' },
-          t + wipeInDur
-        );
-        // Wipe out to left
-        tl.to(frame,
-          { clipPath: 'inset(0 0% 0 100%)', duration: wipeOutDur, ease: 'power2.in' },
-          t + frameDur
-        );
-      });
-
-      // Final: curtain slides UP to reveal website
-      tl.to('#loader', {
-        yPercent: -100,
-        duration: 0.9,
-        ease: 'power3.inOut',
-        onComplete: function() {
-          var l = document.getElementById('loader');
-          if (l) { l.style.display = 'none'; l.style.transform = ''; }
-        }
-      }, totalSlides + 0.18);
     });
 
     /* ─── HERO COUNTERS ─── */

@@ -57,36 +57,17 @@
 
   <!-- ════ LOADER ════ -->
   <div id="loader" aria-hidden="true">
-    <!-- Cinematic frames — clip-path wipe sequence -->
-    <div class="ld-frame" id="ld-f1">
-      <img class="ld-f-img" src="" alt="" aria-hidden="true">
-      <div class="ld-f-overlay"></div>
-      <div class="ld-f-num">01</div>
-      <div class="ld-f-line"></div>
-    </div>
-    <div class="ld-frame" id="ld-f2">
-      <img class="ld-f-img" src="" alt="" aria-hidden="true">
-      <div class="ld-f-overlay"></div>
-      <div class="ld-f-num">02</div>
-      <div class="ld-f-line"></div>
-    </div>
-    <div class="ld-frame" id="ld-f3">
-      <img class="ld-f-img" src="" alt="" aria-hidden="true">
-      <div class="ld-f-overlay"></div>
-      <div class="ld-f-num">03</div>
-      <div class="ld-f-line"></div>
-    </div>
-    <div class="ld-frame" id="ld-f4">
-      <img class="ld-f-img" src="" alt="" aria-hidden="true">
-      <div class="ld-f-overlay"></div>
-      <div class="ld-f-num">04</div>
-      <div class="ld-f-line"></div>
-    </div>
-    <!-- Brand — always on top during slideshow -->
+    <!-- Slides injected dynamically by main.js -->
+    <div id="ld-slides"></div>
+    <!-- Gradient vignette overlay -->
+    <div id="ld-overlay"></div>
+    <!-- Brand — always centred on top -->
     <div id="ld-brand-wrap">
       <div id="ld-logo">REKO'S</div>
       <div id="ld-logo-sub">Barber Shop &nbsp;·&nbsp; Nordhorn</div>
     </div>
+    <!-- Slide counter -->
+    <div id="ld-counter"><span id="ld-cur">01</span><span>/</span><span id="ld-tot">04</span></div>
     <!-- Progress line -->
     <div id="ld-progress"><div id="ld-progress-inner"></div></div>
   </div>

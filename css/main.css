@@ -250,54 +250,43 @@
        LOADING SCREEN
     ══════════════════════════════════════════════ */
     /* ─── CINEMATIC INTRO LOADER ─── */
+    /* ══ INTRO LOADER — Crossfade + Ken Burns ══ */
     #loader {
       position: fixed; inset: 0; z-index: 10000;
-      background: #050505; overflow: hidden;
+      background: #060606; overflow: hidden;
     }
 
-    /* Wipe frames */
-    .ld-frame {
+    /* Slide stack */
+    #ld-slides { position: absolute; inset: 0; }
+
+    .ld-slide {
       position: absolute; inset: 0;
-      clip-path: inset(0 100% 0 0);
-      display: flex; align-items: flex-end;
-      padding: 40px 52px;
+      opacity: 0;
+      overflow: hidden;
+      will-change: opacity;
     }
-    #ld-f1 { background: #0b0b0b; }
-    #ld-f2 { background: #0e0e0e; }
-    #ld-f3 { background: #090909; }
-    #ld-f4 { background: #0c0c0c; }
-
-    .ld-f-num {
-      font-family: var(--f-disp);
-      font-size: clamp(5rem, 18vw, 16rem);
-      font-weight: 900; line-height: 1;
-      color: rgba(255,255,255,.04);
-      letter-spacing: -.04em;
-      user-select: none;
-    }
-    .ld-f-line {
-      position: absolute; top: 0; left: 0; bottom: 0;
-      width: 3px; background: var(--amber);
-      transform: scaleY(0); transform-origin: bottom;
-    }
-    /* Full-bleed photo inside each frame */
-    .ld-f-img {
+    .ld-slide-img {
       position: absolute; inset: 0;
       width: 100%; height: 100%;
       object-fit: cover; object-position: center 20%;
-      display: block;
+      will-change: transform;
+      transform-origin: center center;
     }
-    .ld-f-img[src=""] { display: none; }
-    /* Dark overlay so brand stays readable over photos */
-    .ld-f-overlay {
+    /* Fallback colour when no image is set */
+    .ld-slide-bg {
       position: absolute; inset: 0;
-      background: rgba(0,0,0,.55);
-      z-index: 1;
+      background: linear-gradient(135deg, #0a0a0a 0%, #111 100%);
     }
-    /* Lift frame text above overlay */
-    .ld-f-num, .ld-f-line { z-index: 2; position: relative; }
 
-    /* Brand — always centered on top */
+    /* Gradient vignette — keeps brand readable */
+    #ld-overlay {
+      position: absolute; inset: 0; z-index: 2; pointer-events: none;
+      background:
+        linear-gradient(to top,  rgba(0,0,0,.80) 0%, rgba(0,0,0,.20) 45%, rgba(0,0,0,.05) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,.30) 0%, transparent 25%);
+    }
+
+    /* Brand — centred on top of everything */
     #ld-brand-wrap {
       position: absolute; inset: 0;
       display: flex; flex-direction: column;
@@ -306,17 +295,30 @@
     }
     #ld-logo {
       font-family: var(--f-disp);
-      font-size: clamp(2.8rem, 10vw, 9rem);
+      font-size: clamp(3rem, 10vw, 9rem);
       font-weight: 900; letter-spacing: -.02em;
       text-transform: uppercase; color: var(--cream);
       line-height: 1; opacity: 0;
+      transform: translateY(16px);
     }
     #ld-logo-sub {
       font-family: var(--f-disp);
-      font-size: clamp(.55rem, 1.4vw, .85rem);
-      letter-spacing: .38em; text-transform: uppercase;
-      color: var(--amber); margin-top: 12px; opacity: 0;
+      font-size: clamp(.6rem, 1.5vw, .9rem);
+      letter-spacing: .36em; text-transform: uppercase;
+      color: var(--amber); margin-top: 14px;
+      opacity: 0; transform: translateY(8px);
     }
+
+    /* Slide counter — bottom right */
+    #ld-counter {
+      position: absolute; bottom: 28px; right: 44px;
+      z-index: 30; font-family: var(--f-disp);
+      font-size: .62rem; letter-spacing: .22em;
+      color: rgba(255,255,255,.35);
+      display: flex; align-items: center; gap: 6px;
+      opacity: 0;
+    }
+    #ld-cur { color: var(--amber); }
 
     /* Progress line */
     #ld-progress {
@@ -326,6 +328,7 @@
     }
     #ld-progress-inner {
       height: 100%; width: 0%; background: var(--amber);
+      will-change: width;
     }
 
     /* ══════════════════════════════════════════════
