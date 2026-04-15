@@ -575,7 +575,7 @@
 
       gsap.set(strip, { x: -(PHOTO_W / 2), y: startY });
       gsap.set([fTop, fBot], { scaleX: 0, opacity: 0 });
-      gsap.set(['#ld-logo', '#ld-logo-sub'], { y: 20, opacity: 0 });
+      gsap.set(['#ld-logo', '#ld-logo-sub', '#ld-logo-addr'], { y: 20, opacity: 0 });
 
       /* ── Hero animations (called after loader exits) ── */
       function startHeroAnimations() {
@@ -615,6 +615,7 @@
       tl.to('#ld-brand-wrap', { opacity: 1, duration: 0.45, ease: 'power2.out' }, endT + 0.10);
       tl.to('#ld-logo',       { y: 0, opacity: 1, duration: 0.60, ease: 'power3.out' }, endT + 0.10);
       tl.to('#ld-logo-sub',   { y: 0, opacity: 1, duration: 0.60, ease: 'power3.out' }, endT + 0.22);
+      tl.to('#ld-logo-addr',  { y: 0, opacity: 0.55, duration: 0.55, ease: 'power3.out' }, endT + 0.34);
 
       // Curtain up → website revealed
       tl.to('#loader', {

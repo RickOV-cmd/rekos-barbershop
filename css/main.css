@@ -303,6 +303,14 @@
       text-transform: uppercase; color: var(--cream);
       line-height: 1;
     }
+    /* Address line — small cream, centred */
+    #ld-logo-addr {
+      font-family: var(--f-disp);
+      font-size: clamp(.55rem, 1.3vw, .8rem);
+      font-weight: 400; letter-spacing: .18em;
+      text-transform: uppercase; color: #F0EAE0;
+      margin-top: 18px; text-align: center; opacity: .55;
+    }
     /* Amber — BARBER SHOP, slightly smaller */
     #ld-logo-sub {
       font-family: var(--f-disp);
