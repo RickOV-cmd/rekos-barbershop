@@ -295,7 +295,7 @@ function renderGalleryList(items) {
         <div class="gi-admin-actions">
           <label class="btn-save" style="cursor:pointer;font-size:.7rem;padding:6px 12px;">
             ${isReal ? 'Ersetzen' : 'Hochladen'}
-            <input type="file" accept="image/*" style="display:none" onchange="handleGalleryUpload(this,${i})">
+            <input type="file" accept="image/jpeg,image/png,image/webp,image/gif" style="display:none" onchange="handleGalleryUpload(this,${i})">
           </label>
           ${isReal ? `<button class="gi-delete-btn" onclick="deleteGalleryItem(${i})">✕ Löschen</button>` : ''}
         </div>
@@ -313,6 +313,13 @@ let dragSrc = null;
 async function handleGalleryUpload(input, index) {
   const file = input.files[0];
   if (!file) return;
+  const blocked = ['image/heic','image/heif'];
+  const ext = file.name.split('.').pop().toLowerCase();
+  if (blocked.includes(file.type) || ext === 'heic' || ext === 'heif') {
+    alert('HEIC/HEIF-Dateien werden von Browsern nicht unterstützt.\nBitte konvertiere das Bild zu JPG oder PNG (z.B. über iPhone "Als JPEG exportieren" oder https://cloudconvert.com) und lade es erneut hoch.');
+    input.value = '';
+    return;
+  }
   try {
     const url = await uploadGalleryImage(file, index + 1);
     galleryState[index] = { href: url, title: galleryState[index].title };
