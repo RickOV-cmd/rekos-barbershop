@@ -499,7 +499,23 @@
     });
 
     /* ─── CINEMATIC INTRO + HERO ANIMATIONS ─── */
-    window.addEventListener('load', function() {
+    window.addEventListener('load', async function() {
+
+      // Fetch intro images from Supabase and inject into loader frames
+      try {
+        if (typeof fetchSiteSettings === 'function') {
+          var introSettings = await fetchSiteSettings();
+          if (introSettings && introSettings.intro && introSettings.intro.length) {
+            var ldFrames = document.querySelectorAll('.ld-frame');
+            introSettings.intro.forEach(function(img, i) {
+              if (i < ldFrames.length && img.href) {
+                var imgEl = ldFrames[i].querySelector('.ld-f-img');
+                if (imgEl) imgEl.src = img.href;
+              }
+            });
+          }
+        }
+      } catch(e) { /* silent — loader still works without images */ }
 
       function startHeroAnimations() {
         // Hero clip-line staggered reveal

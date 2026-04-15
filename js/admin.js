@@ -34,6 +34,7 @@ async function showAdmin() {
   adminScreen.style.display = 'block';
   loadSavedHours();
   renderServicesList();
+  renderIntroList();
   renderGalleryList();
   renderReviewsList();
   await loadSettings();
@@ -171,6 +172,13 @@ async function loadSettings() {
     if (priceEl) priceEl.value = svc.price;
   });
 
+  // Intro slideshow — populate state and re-render with saved images
+  if (s.intro && s.intro.length > 0) {
+    renderIntroList(s.intro);
+  } else {
+    renderIntroList();
+  }
+
   // Gallery — populate state and re-render with saved images
   renderGalleryList(s.gallery || []);
 
@@ -223,6 +231,9 @@ async function saveSettings() {
     };
   });
 
+  // Intro slideshow images
+  s.intro = introState.map(img => ({ href: img.href }));
+
   // Gallery — use live state (includes reordering)
   s.gallery = galleryState.map(img => ({ href: img.href, title: img.title }));
 
@@ -239,7 +250,7 @@ async function saveSettings() {
   try {
     await saveSiteSettings(s);
     localStorage.setItem('rekos-settings', JSON.stringify(s)); // Fallback-Kopie
-    ['ss-content','ss-svc','ss-gallery','ss-rev'].forEach(flash);
+    ['ss-content','ss-svc','ss-intro','ss-gallery','ss-rev'].forEach(flash);
   } catch(e) {
     alert('Fehler beim Speichern: ' + e.message);
   }
@@ -260,6 +271,88 @@ function renderServicesList() {
       </div>
     </div>`;
   }).join('');
+}
+
+/* ─── INTRO STATE ─── */
+let introState = [];
+
+function initIntroState(saved) {
+  if (saved && saved.length > 0) {
+    introState = saved.map(img => ({ href: img.href || '' }));
+  } else {
+    introState = [];
+  }
+}
+
+function addIntroItem() {
+  if (introState.length >= 6) { alert('Maximal 6 Intro-Bilder möglich.'); return; }
+  introState.push({ href: '' });
+  renderIntroList();
+}
+
+function renderIntroList(items) {
+  if (items !== undefined) initIntroState(items);
+  const container = document.getElementById('intro-admin-list');
+  if (!container) return;
+  container.innerHTML = '';
+  let introDragSrc = null;
+
+  introState.forEach((img, i) => {
+    const isReal = img.href && img.href !== '';
+    const div = document.createElement('div');
+    div.className = 'gi-admin-card';
+    div.draggable = true;
+    div.dataset.index = i;
+    div.innerHTML = `
+      <div class="gi-admin-drag" title="Ziehen zum Sortieren">⠿</div>
+      <div class="gi-admin-thumb ${isReal ? '' : 'gi-admin-placeholder'}">
+        ${isReal
+          ? `<img src="${img.href}" alt="Intro ${i+1}">`
+          : `<span>${String(i+1).padStart(2,'0')}</span>`}
+      </div>
+      <div class="gi-admin-info">
+        <span style="font-size:.7rem;letter-spacing:.1em;color:var(--cream-2);text-transform:uppercase;">Slide ${i+1}</span>
+        <div class="gi-admin-actions">
+          <label class="btn-save" style="cursor:pointer;font-size:.7rem;padding:6px 12px;">
+            ${isReal ? 'Ersetzen' : 'Hochladen'}
+            <input type="file" accept="image/jpeg,image/png,image/webp" style="display:none" onchange="handleIntroUpload(this,${i})">
+          </label>
+          <button class="gi-delete-btn" onclick="deleteIntroItem(${i})">✕</button>
+        </div>
+      </div>`;
+    div.addEventListener('dragstart', e => { introDragSrc = i; div.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; });
+    div.addEventListener('dragover',  e => { e.preventDefault(); container.querySelectorAll('.gi-admin-card').forEach(c => c.classList.remove('drag-over')); div.classList.add('drag-over'); });
+    div.addEventListener('drop',      e => { e.preventDefault(); if (introDragSrc !== null && introDragSrc !== i) { const tmp = introState[introDragSrc]; introState[introDragSrc] = introState[i]; introState[i] = tmp; renderIntroList(); } });
+    div.addEventListener('dragend',   () => container.querySelectorAll('.gi-admin-card').forEach(c => c.classList.remove('dragging','drag-over')));
+    container.appendChild(div);
+  });
+
+  const addBtn = document.createElement('button');
+  addBtn.className = 'btn-save gi-add-btn';
+  addBtn.innerHTML = '+ Bild hinzufügen (max. 6)';
+  addBtn.onclick = addIntroItem;
+  container.appendChild(addBtn);
+}
+
+async function handleIntroUpload(input, index) {
+  const file = input.files[0];
+  if (!file) return;
+  const ext = file.name.split('.').pop().toLowerCase();
+  if (['heic','heif'].includes(ext) || ['image/heic','image/heif'].includes(file.type)) {
+    alert('HEIC/HEIF nicht unterstützt. Bitte JPG, PNG oder WebP hochladen.');
+    input.value = ''; return;
+  }
+  try {
+    const url = await uploadIntroImage(file, index + 1);
+    introState[index] = { href: url };
+    renderIntroList();
+  } catch(e) { alert('Upload fehlgeschlagen: ' + e.message); }
+}
+
+function deleteIntroItem(index) {
+  if (!confirm('Intro-Bild entfernen?')) return;
+  introState.splice(index, 1);
+  renderIntroList();
 }
 
 /* ─── RENDER: Gallery ─── */

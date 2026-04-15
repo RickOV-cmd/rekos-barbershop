@@ -280,6 +280,22 @@
       width: 3px; background: var(--amber);
       transform: scaleY(0); transform-origin: bottom;
     }
+    /* Full-bleed photo inside each frame */
+    .ld-f-img {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: center 20%;
+      display: block;
+    }
+    .ld-f-img[src=""] { display: none; }
+    /* Dark overlay so brand stays readable over photos */
+    .ld-f-overlay {
+      position: absolute; inset: 0;
+      background: rgba(0,0,0,.55);
+      z-index: 1;
+    }
+    /* Lift frame text above overlay */
+    .ld-f-num, .ld-f-line { z-index: 2; position: relative; }
 
     /* Brand — always centered on top */
     #ld-brand-wrap {
