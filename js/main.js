@@ -138,7 +138,7 @@
             el.dataset.glightbox = 'title: ' + (img.title || '');
             const inner = el.querySelector('.gi-inner');
             if (inner && img.href && !img.href.startsWith('assets/')) {
-              inner.innerHTML = '<img src="' + img.href + '" alt="' + (img.title || '') + '" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;">';
+              inner.innerHTML = '<img src="' + img.href + '" alt="' + (img.title || '') + '">';
             }
             const tag = el.querySelector('.gi-tag');
             if (tag && img.title) tag.textContent = img.title;
