@@ -125,7 +125,7 @@ document.getElementById('hours-form').addEventListener('submit', async e => {
     const closeI = document.getElementById('close-' + d);
     data[d] = cb.checked ? { closed: true } : { open: openI.value, close: closeI.value };
   });
-  // Save to Supabase (inside site_settings.hours) + localStorage fallback
+  // Save to Supabase (inside site_settings.hours)
   try {
     const s = await fetchSiteSettings();
     s.hours = data;
@@ -133,10 +133,8 @@ document.getElementById('hours-form').addEventListener('submit', async e => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
     flash('save-status');
   } catch(err) {
-    // Fallback: localStorage only
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
-    flash('save-status');
-    console.warn('Supabase hours save failed, localStorage used:', err.message);
+    alert('Fehler beim Speichern der Öffnungszeiten: ' + err.message);
+    console.error('Supabase hours save failed:', err.message);
   }
 });
 
@@ -191,7 +189,11 @@ async function loadSettings() {
 
 async function saveSettings() {
   let s = {};
-  try { s = await fetchSiteSettings(); } catch(e) {}
+  try { s = await fetchSiteSettings(); } catch(e) {
+    // If read fails, abort — don't overwrite with partial data
+    alert('Fehler: Aktuelle Einstellungen konnten nicht geladen werden. Bitte Seite neu laden und erneut versuchen.');
+    return;
+  }
 
   // Phone
   const phoneDisplay = document.getElementById('ct-phone-display').value.trim();
