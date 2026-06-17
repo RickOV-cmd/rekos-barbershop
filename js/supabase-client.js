@@ -36,6 +36,21 @@ async function saveSiteSettings(settings) {
 }
 
 /**
+ * Upload a file to the intro slideshow storage bucket.
+ * Returns the public URL.
+ */
+async function uploadIntroImage(file, slot) {
+  const ext      = file.name.split('.').pop();
+  const fileName = `intro-${slot}.${ext}`;
+  const { error: uploadError } = await _supabase.storage
+    .from('intro')
+    .upload(fileName, file, { upsert: true });
+  if (uploadError) throw uploadError;
+  const { data } = _supabase.storage.from('intro').getPublicUrl(fileName);
+  return data.publicUrl;
+}
+
+/**
  * Upload a file to the gallery storage bucket.
  * Returns the public URL.
  */

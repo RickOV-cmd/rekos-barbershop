@@ -445,7 +445,7 @@
     /* ─── MOBILE NAV ─── */
     const ham    = document.getElementById('hamburger');
     const mobNav = document.getElementById('mob-nav');
-    ham.addEventListener('click', () => {
+    if (ham && mobNav) ham.addEventListener('click', () => {
       const open = mobNav.classList.toggle('open');
       ham.classList.toggle('open', open);
       ham.setAttribute('aria-expanded', open);
@@ -614,8 +614,6 @@
           startHeroAnimations();
         }
       }, 2.00);
-    });
-
     });
 
 
